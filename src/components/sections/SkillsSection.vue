@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { RouterLink } from 'vue-router'
 import SectionTitle from '@/components/common/SectionTitle.vue'
 import Tag from '@/components/common/Tag.vue'
-import { skillsByCategory } from '@/data'
+import { skillsByCategory, getProjectBySlug } from '@/data'
 import type { SkillLevel } from '@/types'
 
 const activeCategory = ref<string>(skillsByCategory[0]?.category ?? 'language')
@@ -23,6 +24,11 @@ const orderedSkills = computed(() => {
   const list = activeGroup.value?.skills ?? []
   return [...list].sort((a, b) => levelOrder[a.level] - levelOrder[b.level])
 })
+
+function projectLabel(slug: string): string {
+  const p = getProjectBySlug(slug)
+  return p?.displayName ?? p?.name ?? slug
+}
 </script>
 
 <template>
@@ -74,12 +80,14 @@ const orderedSkills = computed(() => {
           {{ skill.description }}
         </p>
         <div v-if="skill.projectSlugs.length" class="mt-3 flex flex-wrap gap-1.5">
-          <Tag
+          <RouterLink
             v-for="slug in skill.projectSlugs"
             :key="slug"
-            :label="slug"
-            variant="muted"
-          />
+            :to="{ name: 'project-detail', params: { slug } }"
+            class="inline-flex items-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-overlay)] px-2.5 py-0.5 text-xs font-medium text-[var(--color-text-secondary)] transition hover:border-[var(--color-accent)] hover:bg-[var(--color-accent-muted)]/30 hover:text-[var(--color-accent)]"
+          >
+            {{ projectLabel(slug) }}
+          </RouterLink>
         </div>
       </article>
     </div>
