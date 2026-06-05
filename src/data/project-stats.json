@@ -1,0 +1,1290 @@
+{
+  "a-sports": {
+    "fetchedAt": "2026-06-05T01:20:08.155277+00:00",
+    "repos": [
+      {
+        "_statsFetchedAt": "2026-06-05T01:20:05.683720+00:00",
+        "additions": 50775,
+        "deletions": 16324,
+        "firstCommitDate": "2020-10-04T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 121181,
+            "name": "JavaScript",
+            "percent": 94
+          },
+          {
+            "bytes": 6812,
+            "name": "CSS",
+            "percent": 5
+          },
+          {
+            "bytes": 346,
+            "name": "HTML",
+            "percent": 0
+          }
+        ],
+        "myCommits": 152,
+        "myPercent": 98,
+        "owner": "Algo-Sports",
+        "pushedAt": "2020-12-15T13:15:41Z",
+        "repo": "algo-sports-front",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 152,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 98
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/35187793?v=4",
+            "contributions": 3,
+            "htmlUrl": "https://github.com/Aqudi",
+            "isMe": false,
+            "login": "Aqudi",
+            "percent": 2
+          }
+        ],
+        "totalCommits": 155,
+        "url": "https://github.com/Algo-Sports/algo-sports-front"
+      },
+      {
+        "_statsFetchedAt": "2026-06-05T01:20:08.155053+00:00",
+        "additions": 164,
+        "deletions": 42,
+        "firstCommitDate": "2020-11-29T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 158419,
+            "name": "Python",
+            "percent": 80
+          },
+          {
+            "bytes": 17032,
+            "name": "HTML",
+            "percent": 9
+          },
+          {
+            "bytes": 8790,
+            "name": "Shell",
+            "percent": 4
+          },
+          {
+            "bytes": 8543,
+            "name": "JavaScript",
+            "percent": 4
+          },
+          {
+            "bytes": 4965,
+            "name": "Dockerfile",
+            "percent": 3
+          },
+          {
+            "bytes": 610,
+            "name": "SCSS",
+            "percent": 0
+          },
+          {
+            "bytes": 228,
+            "name": "CSS",
+            "percent": 0
+          }
+        ],
+        "myCommits": 1,
+        "myPercent": 1,
+        "owner": "Algo-Sports",
+        "pushedAt": "2024-02-18T15:50:52Z",
+        "repo": "Algo-sports-api",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/35187793?v=4",
+            "contributions": 196,
+            "htmlUrl": "https://github.com/Aqudi",
+            "isMe": false,
+            "login": "Aqudi",
+            "percent": 99
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 1,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 1
+          }
+        ],
+        "totalCommits": 197,
+        "url": "https://github.com/Algo-Sports/Algo-sports-api"
+      }
+    ]
+  },
+  "athena": {
+    "fetchedAt": "2026-06-05T01:20:17.991588+00:00",
+    "repos": [
+      {
+        "_statsFetchedAt": "2026-06-05T01:20:10.941038+00:00",
+        "additions": 19387,
+        "deletions": 3737,
+        "firstCommitDate": "2025-05-11T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 158822,
+            "name": "Python",
+            "percent": 48
+          },
+          {
+            "bytes": 70481,
+            "name": "JavaScript",
+            "percent": 21
+          },
+          {
+            "bytes": 63244,
+            "name": "HTML",
+            "percent": 19
+          },
+          {
+            "bytes": 36458,
+            "name": "CSS",
+            "percent": 11
+          },
+          {
+            "bytes": 2460,
+            "name": "Dockerfile",
+            "percent": 1
+          },
+          {
+            "bytes": 877,
+            "name": "Shell",
+            "percent": 0
+          }
+        ],
+        "myCommits": 59,
+        "myPercent": 100,
+        "owner": "shinkeonkim",
+        "pushedAt": "2025-06-15T06:09:03Z",
+        "repo": "AD_project_athena",
+        "stars": 1,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 59,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 100
+          }
+        ],
+        "totalCommits": 59,
+        "url": "https://github.com/shinkeonkim/AD_project_athena"
+      },
+      {
+        "_statsFetchedAt": "2026-06-05T01:20:13.284524+00:00",
+        "additions": 1811,
+        "deletions": 53,
+        "firstCommitDate": "2025-06-01T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 22599,
+            "name": "Rust",
+            "percent": 73
+          },
+          {
+            "bytes": 4461,
+            "name": "Shell",
+            "percent": 14
+          },
+          {
+            "bytes": 3892,
+            "name": "Dockerfile",
+            "percent": 13
+          }
+        ],
+        "myCommits": 6,
+        "myPercent": 100,
+        "owner": "shinkeonkim",
+        "pushedAt": "2025-06-04T04:42:57Z",
+        "repo": "code-executor",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 6,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 100
+          }
+        ],
+        "totalCommits": 6,
+        "url": "https://github.com/shinkeonkim/code-executor"
+      },
+      {
+        "_statsFetchedAt": "2026-06-05T01:20:15.730985+00:00",
+        "additions": 1855,
+        "deletions": 9,
+        "firstCommitDate": "2025-06-01T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 9231,
+            "name": "Rust",
+            "percent": 91
+          },
+          {
+            "bytes": 888,
+            "name": "Dockerfile",
+            "percent": 9
+          }
+        ],
+        "myCommits": 2,
+        "myPercent": 100,
+        "owner": "shinkeonkim",
+        "pushedAt": "2025-06-04T03:02:25Z",
+        "repo": "code-judger",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 2,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 100
+          }
+        ],
+        "totalCommits": 2,
+        "url": "https://github.com/shinkeonkim/code-judger"
+      },
+      {
+        "_statsFetchedAt": "2026-06-05T01:20:17.991520+00:00",
+        "additions": 1747,
+        "deletions": 0,
+        "firstCommitDate": "2025-06-01T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 22315,
+            "name": "Python",
+            "percent": 99
+          },
+          {
+            "bytes": 311,
+            "name": "Dockerfile",
+            "percent": 1
+          }
+        ],
+        "myCommits": 1,
+        "myPercent": 100,
+        "owner": "shinkeonkim",
+        "pushedAt": "2025-06-05T07:02:30Z",
+        "repo": "code-testcase-generator",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 1,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 100
+          }
+        ],
+        "totalCommits": 1,
+        "url": "https://github.com/shinkeonkim/code-testcase-generator"
+      }
+    ]
+  },
+  "daedong-mokjido": {
+    "fetchedAt": "2026-06-05T01:20:20.639110+00:00",
+    "repos": [
+      {
+        "_statsFetchedAt": "2026-06-05T01:20:20.639005+00:00",
+        "additions": 25749,
+        "deletions": 6174,
+        "firstCommitDate": "2021-07-25T00:00:00+00:00",
+        "forks": 3,
+        "languages": [
+          {
+            "bytes": 199160,
+            "name": "JavaScript",
+            "percent": 66
+          },
+          {
+            "bytes": 99174,
+            "name": "Python",
+            "percent": 33
+          },
+          {
+            "bytes": 3175,
+            "name": "CSS",
+            "percent": 1
+          },
+          {
+            "bytes": 1088,
+            "name": "HTML",
+            "percent": 0
+          },
+          {
+            "bytes": 536,
+            "name": "Dockerfile",
+            "percent": 0
+          }
+        ],
+        "myCommits": 265,
+        "myPercent": 54,
+        "owner": "likelion-kookmin",
+        "pushedAt": "2021-08-21T02:07:45Z",
+        "repo": "daedong-food-map",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 265,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 54
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/55120738?v=4",
+            "contributions": 109,
+            "htmlUrl": "https://github.com/minjj0905",
+            "isMe": false,
+            "login": "minjj0905",
+            "percent": 22
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/53137088?v=4",
+            "contributions": 66,
+            "htmlUrl": "https://github.com/kkIIun",
+            "isMe": false,
+            "login": "kkIIun",
+            "percent": 13
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/81363031?v=4",
+            "contributions": 52,
+            "htmlUrl": "https://github.com/sh981013s",
+            "isMe": false,
+            "login": "sh981013s",
+            "percent": 11
+          }
+        ],
+        "totalCommits": 492,
+        "url": "https://github.com/likelion-kookmin/daedong-food-map"
+      }
+    ]
+  },
+  "kkambbaki": {
+    "fetchedAt": "2026-06-05T02:15:52.267446+00:00",
+    "repos": [
+      {
+        "_statsFetchedAt": "2026-06-05T02:15:44.968417+00:00",
+        "additions": 26628,
+        "deletions": 2482,
+        "firstCommitDate": "2025-10-12T00:00:00+00:00",
+        "forks": 1,
+        "languages": [
+          {
+            "bytes": 687771,
+            "name": "Python",
+            "percent": 95
+          },
+          {
+            "bytes": 20995,
+            "name": "HTML",
+            "percent": 3
+          },
+          {
+            "bytes": 11098,
+            "name": "Shell",
+            "percent": 2
+          },
+          {
+            "bytes": 4002,
+            "name": "Dockerfile",
+            "percent": 1
+          }
+        ],
+        "myCommits": 179,
+        "myPercent": 82,
+        "owner": "kkambbaki",
+        "pushedAt": "2025-11-14T14:22:58Z",
+        "repo": "backend",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 179,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 82
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/157809900?v=4",
+            "contributions": 39,
+            "htmlUrl": "https://github.com/bluebomin",
+            "isMe": false,
+            "login": "bluebomin",
+            "percent": 18
+          }
+        ],
+        "totalCommits": 218,
+        "url": "https://github.com/kkambbaki/backend"
+      },
+      {
+        "_statsFetchedAt": "2026-06-05T02:15:47.465306+00:00",
+        "additions": 69,
+        "deletions": 9,
+        "firstCommitDate": "2025-11-09T00:00:00+00:00",
+        "forks": 1,
+        "languages": [
+          {
+            "bytes": 146082,
+            "name": "TypeScript",
+            "percent": 95
+          },
+          {
+            "bytes": 3962,
+            "name": "JavaScript",
+            "percent": 3
+          },
+          {
+            "bytes": 3295,
+            "name": "CSS",
+            "percent": 2
+          }
+        ],
+        "myCommits": 9,
+        "myPercent": 5,
+        "owner": "kkambbaki",
+        "pushedAt": "2025-11-14T14:46:55Z",
+        "repo": "frontend",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/181433031?v=4",
+            "contributions": 102,
+            "htmlUrl": "https://github.com/xuuwon",
+            "isMe": false,
+            "login": "xuuwon",
+            "percent": 51
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/147830921?v=4",
+            "contributions": 88,
+            "htmlUrl": "https://github.com/jyeon03",
+            "isMe": false,
+            "login": "jyeon03",
+            "percent": 44
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 9,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 5
+          }
+        ],
+        "totalCommits": 199,
+        "url": "https://github.com/kkambbaki/frontend"
+      },
+      {
+        "_statsFetchedAt": "2026-06-05T02:15:49.844013+00:00",
+        "additions": 1715,
+        "deletions": 225,
+        "firstCommitDate": "2025-10-12T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 5474,
+            "name": "Shell",
+            "percent": 100
+          }
+        ],
+        "myCommits": 18,
+        "myPercent": 100,
+        "owner": "kkambbaki",
+        "pushedAt": "2025-11-13T16:22:18Z",
+        "repo": "infra",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 18,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 100
+          }
+        ],
+        "totalCommits": 18,
+        "url": "https://github.com/kkambbaki/infra"
+      },
+      {
+        "_statsFetchedAt": "2026-06-05T02:15:52.267263+00:00",
+        "additions": 115,
+        "deletions": 85,
+        "firstCommitDate": "2025-11-09T00:00:00+00:00",
+        "forks": 0,
+        "languages": [],
+        "myCommits": 7,
+        "myPercent": 39,
+        "owner": "kkambbaki",
+        "pushedAt": "2025-11-14T09:32:26Z",
+        "repo": ".github",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/157809900?v=4",
+            "contributions": 11,
+            "htmlUrl": "https://github.com/bluebomin",
+            "isMe": false,
+            "login": "bluebomin",
+            "percent": 61
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 7,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 39
+          }
+        ],
+        "totalCommits": 18,
+        "url": "https://github.com/kkambbaki/.github"
+      }
+    ]
+  },
+  "lotteng": {
+    "fetchedAt": "2026-06-05T01:20:25.515920+00:00",
+    "repos": [
+      {
+        "_statsFetchedAt": "2026-06-05T01:20:25.515794+00:00",
+        "additions": 78850,
+        "deletions": 2226,
+        "firstCommitDate": "2020-09-20T00:00:00+00:00",
+        "forks": 7,
+        "languages": [
+          {
+            "bytes": 568643,
+            "name": "JavaScript",
+            "percent": 63
+          },
+          {
+            "bytes": 225089,
+            "name": "CSS",
+            "percent": 25
+          },
+          {
+            "bytes": 66001,
+            "name": "HTML",
+            "percent": 7
+          },
+          {
+            "bytes": 43603,
+            "name": "Python",
+            "percent": 5
+          },
+          {
+            "bytes": 52,
+            "name": "Shell",
+            "percent": 0
+          }
+        ],
+        "myCommits": 196,
+        "myPercent": 82,
+        "owner": "hyeoneedyou",
+        "pushedAt": "2020-10-25T07:36:06Z",
+        "repo": "lotteng",
+        "stars": 10,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 196,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 82
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/65571623?v=4",
+            "contributions": 24,
+            "htmlUrl": "https://github.com/hyeoneedyou",
+            "isMe": false,
+            "login": "hyeoneedyou",
+            "percent": 10
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/64531982?v=4",
+            "contributions": 5,
+            "htmlUrl": "https://github.com/Awarduuu",
+            "isMe": false,
+            "login": "Awarduuu",
+            "percent": 2
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/65417437?v=4",
+            "contributions": 4,
+            "htmlUrl": "https://github.com/didwldn3032",
+            "isMe": false,
+            "login": "didwldn3032",
+            "percent": 2
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/65546884?v=4",
+            "contributions": 3,
+            "htmlUrl": "https://github.com/taeyeon0319",
+            "isMe": false,
+            "login": "taeyeon0319",
+            "percent": 1
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/57223501?v=4",
+            "contributions": 3,
+            "htmlUrl": "https://github.com/hehahihang",
+            "isMe": false,
+            "login": "hehahihang",
+            "percent": 1
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/63110205?v=4",
+            "contributions": 2,
+            "htmlUrl": "https://github.com/Chungjiyoon",
+            "isMe": false,
+            "login": "Chungjiyoon",
+            "percent": 1
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/63333574?v=4",
+            "contributions": 1,
+            "htmlUrl": "https://github.com/audwin505",
+            "isMe": false,
+            "login": "audwin505",
+            "percent": 0
+          }
+        ],
+        "totalCommits": 238,
+        "url": "https://github.com/hyeoneedyou/lotteng"
+      }
+    ]
+  },
+  "mefit": {
+    "fetchedAt": "2026-06-05T01:20:30.992816+00:00",
+    "repos": [
+      {
+        "_statsFetchedAt": "2026-06-05T01:20:28.300733+00:00",
+        "additions": 175731,
+        "deletions": 27949,
+        "firstCommitDate": "2026-03-08T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 2720291,
+            "name": "Python",
+            "percent": 55
+          },
+          {
+            "bytes": 1839778,
+            "name": "TypeScript",
+            "percent": 37
+          },
+          {
+            "bytes": 118994,
+            "name": "Shell",
+            "percent": 2
+          },
+          {
+            "bytes": 117777,
+            "name": "HTML",
+            "percent": 2
+          },
+          {
+            "bytes": 56626,
+            "name": "CSS",
+            "percent": 1
+          },
+          {
+            "bytes": 24379,
+            "name": "JavaScript",
+            "percent": 0
+          },
+          {
+            "bytes": 14714,
+            "name": "Makefile",
+            "percent": 0
+          },
+          {
+            "bytes": 11944,
+            "name": "Dockerfile",
+            "percent": 0
+          },
+          {
+            "bytes": 1654,
+            "name": "Batchfile",
+            "percent": 0
+          }
+        ],
+        "myCommits": 1319,
+        "myPercent": 73,
+        "owner": "kookmin-sw",
+        "pushedAt": "2026-05-19T06:22:05Z",
+        "repo": "2026-capstone-54",
+        "stars": 2,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 1319,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 73
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/171876428?v=4",
+            "contributions": 314,
+            "htmlUrl": "https://github.com/joan4720",
+            "isMe": false,
+            "login": "joan4720",
+            "percent": 17
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/158272773?v=4",
+            "contributions": 90,
+            "htmlUrl": "https://github.com/youzinnnnn",
+            "isMe": false,
+            "login": "youzinnnnn",
+            "percent": 5
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/170993855?v=4",
+            "contributions": 43,
+            "htmlUrl": "https://github.com/sonnyseokjun",
+            "isMe": false,
+            "login": "sonnyseokjun",
+            "percent": 2
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/197492417?v=4",
+            "contributions": 4,
+            "htmlUrl": "https://github.com/jjoanne-l",
+            "isMe": false,
+            "login": "jjoanne-l",
+            "percent": 0
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/in/68187?v=4",
+            "contributions": 2,
+            "htmlUrl": "https://github.com/apps/github-classroom",
+            "isMe": false,
+            "login": "github-classroom[bot]",
+            "percent": 0
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/in/85455?v=4",
+            "contributions": 1,
+            "htmlUrl": "https://github.com/apps/cloudflare-workers-and-pages",
+            "isMe": false,
+            "login": "cloudflare-workers-and-pages[bot]",
+            "percent": 0
+          }
+        ],
+        "totalCommits": 1798,
+        "url": "https://github.com/kookmin-sw/2026-capstone-54"
+      },
+      {
+        "_statsFetchedAt": "2026-06-05T01:20:30.992679+00:00",
+        "additions": 91322,
+        "deletions": 13511,
+        "firstCommitDate": "2026-03-08T00:00:00+00:00",
+        "forks": 1,
+        "languages": [
+          {
+            "bytes": 1962917,
+            "name": "Python",
+            "percent": 95
+          },
+          {
+            "bytes": 80398,
+            "name": "HTML",
+            "percent": 4
+          },
+          {
+            "bytes": 15902,
+            "name": "Shell",
+            "percent": 1
+          },
+          {
+            "bytes": 2577,
+            "name": "Dockerfile",
+            "percent": 0
+          }
+        ],
+        "myCommits": 744,
+        "myPercent": 91,
+        "owner": "kmu-aws-capstone-team-4",
+        "pushedAt": "2026-05-19T04:46:41Z",
+        "repo": "backend",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 744,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 91
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/158272773?v=4",
+            "contributions": 45,
+            "htmlUrl": "https://github.com/youzinnnnn",
+            "isMe": false,
+            "login": "youzinnnnn",
+            "percent": 6
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/170993855?v=4",
+            "contributions": 26,
+            "htmlUrl": "https://github.com/sonnyseokjun",
+            "isMe": false,
+            "login": "sonnyseokjun",
+            "percent": 3
+          }
+        ],
+        "totalCommits": 815,
+        "url": "https://github.com/kmu-aws-capstone-team-4/backend"
+      }
+    ]
+  },
+  "peacepiece": {
+    "fetchedAt": "2026-06-05T01:20:36.106932+00:00",
+    "repos": [
+      {
+        "_statsFetchedAt": "2026-06-05T01:20:33.566088+00:00",
+        "additions": 12586,
+        "deletions": 8424,
+        "firstCommitDate": "2022-07-17T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 195323,
+            "name": "Python",
+            "percent": 97
+          },
+          {
+            "bytes": 5495,
+            "name": "Shell",
+            "percent": 3
+          },
+          {
+            "bytes": 811,
+            "name": "Dockerfile",
+            "percent": 0
+          }
+        ],
+        "myCommits": 196,
+        "myPercent": 57,
+        "owner": "today-they-learned",
+        "pushedAt": "2022-10-23T05:59:21Z",
+        "repo": "peacepiece_api",
+        "stars": 5,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 196,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 57
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/70438098?v=4",
+            "contributions": 75,
+            "htmlUrl": "https://github.com/Jihyun-Choi",
+            "isMe": false,
+            "login": "Jihyun-Choi",
+            "percent": 22
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/77621712?v=4",
+            "contributions": 71,
+            "htmlUrl": "https://github.com/Jin409",
+            "isMe": false,
+            "login": "Jin409",
+            "percent": 21
+          }
+        ],
+        "totalCommits": 342,
+        "url": "https://github.com/today-they-learned/peacepiece_api"
+      },
+      {
+        "_statsFetchedAt": "2026-06-05T01:20:36.106860+00:00",
+        "additions": 22333,
+        "deletions": 4467,
+        "firstCommitDate": "2022-08-28T00:00:00+00:00",
+        "forks": 1,
+        "languages": [
+          {
+            "bytes": 270590,
+            "name": "TypeScript",
+            "percent": 80
+          },
+          {
+            "bytes": 61972,
+            "name": "JavaScript",
+            "percent": 18
+          },
+          {
+            "bytes": 2306,
+            "name": "CSS",
+            "percent": 1
+          },
+          {
+            "bytes": 2061,
+            "name": "HTML",
+            "percent": 1
+          }
+        ],
+        "myCommits": 62,
+        "myPercent": 17,
+        "owner": "today-they-learned",
+        "pushedAt": "2022-09-15T14:02:04Z",
+        "repo": "peacepiece_front",
+        "stars": 7,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/66055587?v=4",
+            "contributions": 138,
+            "htmlUrl": "https://github.com/cychann",
+            "isMe": false,
+            "login": "cychann",
+            "percent": 37
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/55120738?v=4",
+            "contributions": 99,
+            "htmlUrl": "https://github.com/minjj0905",
+            "isMe": false,
+            "login": "minjj0905",
+            "percent": 27
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/55877726?v=4",
+            "contributions": 73,
+            "htmlUrl": "https://github.com/soyekwon",
+            "isMe": false,
+            "login": "soyekwon",
+            "percent": 20
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 62,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 17
+          }
+        ],
+        "totalCommits": 372,
+        "url": "https://github.com/today-they-learned/peacepiece_front"
+      }
+    ]
+  },
+  "sellon": {
+    "fetchedAt": "2026-06-05T01:20:41.435809+00:00",
+    "repos": [
+      {
+        "_statsFetchedAt": "2026-06-05T01:20:38.853358+00:00",
+        "additions": 5937,
+        "deletions": 1028,
+        "firstCommitDate": "2022-07-10T00:00:00+00:00",
+        "forks": 3,
+        "languages": [
+          {
+            "bytes": 165256,
+            "name": "Python",
+            "percent": 96
+          },
+          {
+            "bytes": 5626,
+            "name": "Shell",
+            "percent": 3
+          },
+          {
+            "bytes": 918,
+            "name": "Dockerfile",
+            "percent": 1
+          }
+        ],
+        "myCommits": 199,
+        "myPercent": 52,
+        "owner": "bunderLikeLion",
+        "pushedAt": "2022-08-19T22:09:06Z",
+        "repo": "sellon_backend",
+        "stars": 1,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 199,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 52
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/71240296?v=4",
+            "contributions": 102,
+            "htmlUrl": "https://github.com/songks0922",
+            "isMe": false,
+            "login": "songks0922",
+            "percent": 27
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/90228925?v=4",
+            "contributions": 63,
+            "htmlUrl": "https://github.com/koomchang",
+            "isMe": false,
+            "login": "koomchang",
+            "percent": 17
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/66306573?v=4",
+            "contributions": 16,
+            "htmlUrl": "https://github.com/yuujinkim",
+            "isMe": false,
+            "login": "yuujinkim",
+            "percent": 4
+          }
+        ],
+        "totalCommits": 380,
+        "url": "https://github.com/bunderLikeLion/sellon_backend"
+      },
+      {
+        "_statsFetchedAt": "2026-06-05T01:20:41.435752+00:00",
+        "additions": 12574,
+        "deletions": 1981,
+        "firstCommitDate": "2022-07-17T00:00:00+00:00",
+        "forks": 4,
+        "languages": [
+          {
+            "bytes": 363727,
+            "name": "JavaScript",
+            "percent": 98
+          },
+          {
+            "bytes": 6877,
+            "name": "CSS",
+            "percent": 2
+          },
+          {
+            "bytes": 1718,
+            "name": "HTML",
+            "percent": 0
+          }
+        ],
+        "myCommits": 107,
+        "myPercent": 11,
+        "owner": "bunderLikeLion",
+        "pushedAt": "2022-08-26T16:18:52Z",
+        "repo": "sellon_frontend",
+        "stars": 1,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/81363031?v=4",
+            "contributions": 358,
+            "htmlUrl": "https://github.com/sh981013s",
+            "isMe": false,
+            "login": "sh981013s",
+            "percent": 37
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/102154146?v=4",
+            "contributions": 141,
+            "htmlUrl": "https://github.com/jihyoung9912",
+            "isMe": false,
+            "login": "jihyoung9912",
+            "percent": 15
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/83703870?v=4",
+            "contributions": 109,
+            "htmlUrl": "https://github.com/Chaewon14",
+            "isMe": false,
+            "login": "Chaewon14",
+            "percent": 11
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 107,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 11
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/71240296?v=4",
+            "contributions": 79,
+            "htmlUrl": "https://github.com/songks0922",
+            "isMe": false,
+            "login": "songks0922",
+            "percent": 8
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/101509475?v=4",
+            "contributions": 30,
+            "htmlUrl": "https://github.com/youra-0526",
+            "isMe": false,
+            "login": "youra-0526",
+            "percent": 3
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/102042966?v=4",
+            "contributions": 22,
+            "htmlUrl": "https://github.com/yoojinyang0303",
+            "isMe": false,
+            "login": "yoojinyang0303",
+            "percent": 2
+          }
+        ],
+        "totalCommits": 960,
+        "url": "https://github.com/bunderLikeLion/sellon_frontend"
+      }
+    ]
+  },
+  "ttl": {
+    "fetchedAt": "2026-06-05T01:20:46.615758+00:00",
+    "repos": [
+      {
+        "_statsFetchedAt": "2026-06-05T01:20:44.075007+00:00",
+        "additions": 5885,
+        "deletions": 2146,
+        "firstCommitDate": "2022-01-16T00:00:00+00:00",
+        "forks": 1,
+        "languages": [
+          {
+            "bytes": 124961,
+            "name": "Python",
+            "percent": 99
+          },
+          {
+            "bytes": 772,
+            "name": "Dockerfile",
+            "percent": 1
+          }
+        ],
+        "myCommits": 254,
+        "myPercent": 82,
+        "owner": "today-they-learned",
+        "pushedAt": "2022-11-03T03:10:25Z",
+        "repo": "ttl_api",
+        "stars": 3,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 254,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 82
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/77621712?v=4",
+            "contributions": 32,
+            "htmlUrl": "https://github.com/Jin409",
+            "isMe": false,
+            "login": "Jin409",
+            "percent": 10
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/70438098?v=4",
+            "contributions": 21,
+            "htmlUrl": "https://github.com/Jihyun-Choi",
+            "isMe": false,
+            "login": "Jihyun-Choi",
+            "percent": 7
+          }
+        ],
+        "totalCommits": 308,
+        "url": "https://github.com/today-they-learned/ttl_api"
+      },
+      {
+        "_statsFetchedAt": "2026-06-05T01:20:46.615661+00:00",
+        "additions": 878,
+        "deletions": 1801,
+        "firstCommitDate": "2022-01-30T00:00:00+00:00",
+        "forks": 1,
+        "languages": [
+          {
+            "bytes": 180190,
+            "name": "JavaScript",
+            "percent": 92
+          },
+          {
+            "bytes": 13555,
+            "name": "CSS",
+            "percent": 7
+          },
+          {
+            "bytes": 2166,
+            "name": "HTML",
+            "percent": 1
+          }
+        ],
+        "myCommits": 31,
+        "myPercent": 9,
+        "owner": "today-they-learned",
+        "pushedAt": "2023-02-08T12:55:17Z",
+        "repo": "ttl_front",
+        "stars": 6,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/55120738?v=4",
+            "contributions": 153,
+            "htmlUrl": "https://github.com/minjj0905",
+            "isMe": false,
+            "login": "minjj0905",
+            "percent": 43
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/66055587?v=4",
+            "contributions": 116,
+            "htmlUrl": "https://github.com/cychann",
+            "isMe": false,
+            "login": "cychann",
+            "percent": 32
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/55877726?v=4",
+            "contributions": 59,
+            "htmlUrl": "https://github.com/soyekwon",
+            "isMe": false,
+            "login": "soyekwon",
+            "percent": 16
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 31,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 9
+          }
+        ],
+        "totalCommits": 359,
+        "url": "https://github.com/today-they-learned/ttl_front"
+      }
+    ]
+  }
+}
