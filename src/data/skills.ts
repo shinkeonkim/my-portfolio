@@ -173,14 +173,6 @@ const skills: readonly Skill[] = [
     description: 'NICE 본인인증 서비스 인프라 IaC.',
   },
   {
-    name: 'Proxmox',
-    slug: 'proxmox',
-    category: 'devops',
-    level: 'familiar',
-    projectSlugs: [],
-    description: '홈랩 가상화 환경 운영.',
-  },
-  {
     name: 'Git / GitHub',
     slug: 'git',
     category: 'tool',
