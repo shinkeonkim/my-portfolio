@@ -94,7 +94,11 @@ function animateTyping() {
           ref="taglineRef"
           class="max-w-xl text-lg leading-relaxed text-[var(--color-text-secondary)] md:text-xl"
         >
-          {{ profile.tagline }} 백엔드, 인프라, 프론트엔드, AI 모델까지 — 서비스 전체 흐름을 직접 만들고 운영합니다.
+          {{ profile.tagline }}
+          <br />
+          백엔드, 인프라, 프론트엔드, AI 모델까지,
+          <br />
+          그리고 서비스 전체 흐름을 고민하고 개발합니다.
         </p>
         <div ref="ctasRef" class="flex flex-wrap gap-3">
           <a

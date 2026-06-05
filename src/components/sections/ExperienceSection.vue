@@ -14,7 +14,7 @@ function formatPeriod(period: { start: string; end: string | null }): string {
     <SectionTitle
       eyebrow="Experience"
       title="Work History"
-      description="3년 3개월, 그렙(프로그래머스)에서 채용서비스 · 교육솔루션 · 알고리즘 컨텐츠 전 영역을 거쳤습니다."
+      description="그렙(프로그래머스)에서 채용서비스 · 교육솔루션 · 알고리즘 컨텐츠 전 영역을 거쳤습니다."
     />
 
     <div class="mt-12 space-y-12">

@@ -2,8 +2,8 @@ import type { Profile } from '@/types'
 
 export const profile: Profile = {
   name: '김신건',
-  alias: 'Koa',
-  nameRoman: 'Shinkeon Kim',
+  alias: 'KOA',
+  nameRoman: 'SHINKEON KIM',
   title: 'Backend Engineer',
   tagline: '파악하고 바로 움직입니다.',
   summary: [
