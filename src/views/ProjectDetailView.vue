@@ -2,11 +2,26 @@
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useHead } from '@unhead/vue'
-import { ArrowLeft, ExternalLink } from 'lucide-vue-next'
+import { ArrowLeft, ExternalLink, FileText, Github, Youtube } from 'lucide-vue-next'
+import type { Component } from 'vue'
 import Tag from '@/components/common/Tag.vue'
 import GitHubStatsCard from '@/components/common/GitHubStatsCard.vue'
+import PresentationSlideViewer from '@/components/common/PresentationSlideViewer.vue'
 import { getProjectBySlug, getProjectStats } from '@/data'
-import type { ProjectMedia } from '@/types'
+import type { ProjectMedia, ProjectLink } from '@/types'
+
+function linkIcon(type: ProjectLink['type']): Component {
+  switch (type) {
+    case 'github':
+      return Github
+    case 'video':
+      return Youtube
+    case 'pdf':
+      return FileText
+    default:
+      return ExternalLink
+  }
+}
 
 const props = defineProps<{ slug: string }>()
 
@@ -168,6 +183,11 @@ const stats = computed(() => (project.value ? getProjectStats(project.value.slug
       </ul>
     </section>
 
+    <section v-if="project.presentation" class="mt-10 space-y-4">
+      <h2 class="text-xl font-semibold text-[var(--color-text-primary)]">발표 자료</h2>
+      <PresentationSlideViewer :presentation="project.presentation" />
+    </section>
+
     <section v-if="galleryMedia.length" class="mt-10 space-y-4">
       <h2 class="text-xl font-semibold text-[var(--color-text-primary)]">미디어 · 다이어그램</h2>
       <div class="grid gap-4 sm:grid-cols-2">
@@ -220,7 +240,8 @@ const stats = computed(() => (project.value ? getProjectStats(project.value.slug
           rel="noreferrer noopener"
           class="inline-flex items-center gap-2 rounded-full border border-[var(--color-border-default)] px-4 py-1.5 text-xs font-medium text-[var(--color-text-secondary)] transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
         >
-          {{ link.label }} <ExternalLink :size="12" />
+          <component :is="linkIcon(link.type)" :size="12" />
+          {{ link.label }}
         </a>
       </div>
     </section>

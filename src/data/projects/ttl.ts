@@ -7,7 +7,7 @@ export const ttl: Project = {
   name: 'TTL — Today They Learned',
   subtitle: '여러 플랫폼의 TIL을 한 곳에 모아보는 서비스',
   period: { start: '2022-01', end: '2022-04' },
-  scale: 'major',
+  scale: 'side',
   status: 'completed',
   roles: ['팀리드', '백엔드', '인프라', '기획', '디자이너'],
   team: { size: 4, lead: true },

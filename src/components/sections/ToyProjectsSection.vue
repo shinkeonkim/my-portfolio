@@ -23,11 +23,13 @@ const STEP_COUNT = 12
 const activeFilter = ref<Filter>('all')
 const visibleCount = ref(INITIAL_COUNT)
 
-const filtered = computed(() =>
-  activeFilter.value === 'all'
-    ? toyProjects
-    : toyProjects.filter((p) => p.category === activeFilter.value),
-)
+const filtered = computed(() => {
+  const base =
+    activeFilter.value === 'all'
+      ? toyProjects
+      : toyProjects.filter((p) => p.category === activeFilter.value)
+  return [...base].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0))
+})
 
 const visible = computed(() => filtered.value.slice(0, visibleCount.value))
 

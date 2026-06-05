@@ -1,4 +1,5 @@
 import type { Project } from '@/types'
+import { presentationPages } from './_helpers'
 
 const IMG = '/my-portfolio/images/projects/kkambbaki'
 
@@ -65,11 +66,23 @@ export const kkambbaki: Project = {
     { label: 'Infra repo', url: 'https://github.com/kkambbaki/infra', type: 'github' },
     { label: 'Org README', url: 'https://github.com/kkambbaki/.github', type: 'github' },
     { label: 'GitHub Org', url: 'https://github.com/kkambbaki', type: 'github' },
+    {
+      label: '발표 자료 (PDF)',
+      url: '/my-portfolio/docs/kkambbaki-presentation.pdf',
+      type: 'pdf',
+    },
   ],
-  hero: `${IMG}/ai-report.png`,
+  hero: `${IMG}/hero.jpg`,
   media: [
     { type: 'image', url: `${IMG}/star-game.png`, caption: '뿅뿅 아기별 — 기억/입력 단계' },
     { type: 'image', url: `${IMG}/traffic-game.png`, caption: '꼬마 교통지킴이 — Go/No-Go 반응 훈련' },
     { type: 'image', url: `${IMG}/ai-report.png`, caption: 'AI 기반 집중력 분석 레포트 — 메인 화면' },
   ],
+  presentation: {
+    title: '4호선톤 발표 자료',
+    caption: '2025 멋쟁이사자처럼 13기 4호선톤 출품 · 18페이지',
+    totalPages: 18,
+    pdfUrl: '/my-portfolio/docs/kkambbaki-presentation.pdf',
+    pageImages: presentationPages('kkambbaki', 18),
+  },
 }

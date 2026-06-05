@@ -7,7 +7,7 @@ export const peacepiece: Project = {
   name: 'PeacePiece',
   subtitle: '환경 보호 활동 기반 가상 공간 꾸미기 웹 플랫폼',
   period: { start: '2022-07', end: '2022-09' },
-  scale: 'major',
+  scale: 'side',
   status: 'completed',
   roles: ['팀리드', '백엔드', '인프라', '디자이너', '기획'],
   team: { size: 5, lead: true },

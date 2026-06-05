@@ -1,4 +1,5 @@
 import type { Project } from '@/types'
+import { presentationPages } from './_helpers'
 
 const IMG = '/my-portfolio/images/projects/mefit'
 
@@ -145,4 +146,11 @@ export const mefit: Project = {
     { type: 'image', url: `${IMG}/activity-04-interview.png`, caption: '가상 면접 진행 (WebSocket + MediaRecorder)' },
     { type: 'image', url: `${IMG}/activity-05-report.png`, caption: '분석 리포트 생성 (LLM + 5개 카테고리)' },
   ],
+  presentation: {
+    title: 'MeFit 발표 자료',
+    caption: '26페이지 · 2026 국민대 캡스톤 디자인 발표',
+    totalPages: 26,
+    pdfUrl: '/my-portfolio/docs/mefit-presentation.pdf',
+    pageImages: presentationPages('mefit', 26),
+  },
 }

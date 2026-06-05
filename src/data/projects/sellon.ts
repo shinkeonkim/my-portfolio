@@ -1,4 +1,5 @@
 import type { Project } from '@/types'
+import { presentationPages } from './_helpers'
 
 const IMG = '/my-portfolio/images/projects/sellon'
 
@@ -73,7 +74,12 @@ export const sellon: Project = {
       type: 'video',
     },
     {
-      label: '발표 자료',
+      label: '발표 자료 (PDF)',
+      url: '/my-portfolio/docs/sellon-presentation.pdf',
+      type: 'pdf',
+    },
+    {
+      label: '발표 자료 (Drive)',
       url: 'https://drive.google.com/file/d/1Uwi3p94A6QNPQz38whTSGdtU1dAzWQ5T/view',
       type: 'article',
     },
@@ -85,4 +91,11 @@ export const sellon: Project = {
     { type: 'image', url: `${IMG}/deviceframes.png`, caption: '서비스 화면 — 디바이스 프레임' },
     { type: 'image', url: `${IMG}/infra.png`, caption: '인프라 구성도' },
   ],
+  presentation: {
+    title: 'Sellon 발표 자료',
+    caption: '11페이지 · 멋쟁이사자처럼 10기 해커톤 발표',
+    totalPages: 11,
+    pdfUrl: '/my-portfolio/docs/sellon-presentation.pdf',
+    pageImages: presentationPages('sellon', 11),
+  },
 }

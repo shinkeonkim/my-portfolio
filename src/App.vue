@@ -3,6 +3,7 @@ import { RouterView } from 'vue-router'
 import { useThemeStore } from '@/stores/theme'
 import SiteHeader from '@/components/layout/SiteHeader.vue'
 import SiteFooter from '@/components/layout/SiteFooter.vue'
+import UnderConstructionNotice from '@/components/layout/UnderConstructionNotice.vue'
 
 const themeStore = useThemeStore()
 themeStore.init()
@@ -19,6 +20,7 @@ themeStore.init()
       </RouterView>
     </main>
     <SiteFooter />
+    <UnderConstructionNotice />
   </div>
 </template>
 

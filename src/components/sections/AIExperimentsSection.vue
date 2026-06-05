@@ -112,14 +112,14 @@ function onKey(e: KeyboardEvent) {
       v-if="current"
       class="surface-card mt-6 grid gap-0 overflow-hidden md:grid-cols-[1.2fr_1fr]"
     >
-      <div class="relative aspect-[16/10] overflow-hidden bg-[var(--color-bg-overlay)] md:aspect-auto">
-        <transition name="slide-fade" mode="out-in">
+      <div class="relative aspect-[16/10] overflow-hidden bg-[var(--color-bg-overlay)]">
+        <transition name="slide-fade">
           <img
             :key="current.slug"
             :src="current.image"
             :alt="`${current.title} 스크린샷`"
-            class="h-full w-full object-cover object-top"
-            loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover object-top"
+            decoding="async"
           />
         </transition>
         <div class="absolute top-3 left-3 flex items-center gap-2">
@@ -214,6 +214,10 @@ function onKey(e: KeyboardEvent) {
 .slide-fade-enter-from {
   opacity: 0;
   transform: scale(1.02);
+}
+.slide-fade-leave-active {
+  position: absolute;
+  inset: 0;
 }
 .slide-fade-leave-to {
   opacity: 0;

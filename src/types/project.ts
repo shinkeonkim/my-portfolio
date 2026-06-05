@@ -4,7 +4,7 @@ export type ProjectStatus = 'in-progress' | 'completed' | 'archived'
 export interface ProjectLink {
   label: string
   url: string
-  type: 'github' | 'demo' | 'article' | 'video' | 'other'
+  type: 'github' | 'demo' | 'article' | 'video' | 'pdf' | 'other'
 }
 
 export interface ProjectChallenge {
@@ -18,6 +18,14 @@ export type ProjectMediaType = 'image' | 'youtube' | 'video'
 export interface ProjectMedia {
   type: ProjectMediaType
   url: string
+  caption?: string
+}
+
+export interface ProjectPresentation {
+  title: string
+  totalPages: number
+  pageImages: readonly string[]
+  pdfUrl?: string
   caption?: string
 }
 
@@ -81,4 +89,5 @@ export interface Project {
   award?: string
   hero?: string
   media?: readonly ProjectMedia[]
+  presentation?: ProjectPresentation
 }

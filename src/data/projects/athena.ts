@@ -1,4 +1,5 @@
 import type { Project } from '@/types'
+import { presentationPages } from './_helpers'
 
 const IMG = '/my-portfolio/images/projects/athena/media'
 
@@ -113,4 +114,11 @@ export const athena: Project = {
     { type: 'video', url: `${IMG}/llm-feedback.mp4`, caption: 'LLM 피드백 — 코드 분석 결과' },
     { type: 'video', url: `${IMG}/code-run.mp4`, caption: '코드 실행 — Docker 격리 환경 다언어 실행' },
   ],
+  presentation: {
+    title: 'Athena 발표 자료',
+    caption: '34페이지',
+    totalPages: 34,
+    pdfUrl: '/my-portfolio/docs/athena-presentation.pdf',
+    pageImages: presentationPages('athena', 34),
+  },
 }
