@@ -11,6 +11,8 @@ const items = computed(() =>
   identityValues.map((value) => ({
     ...value,
     icon: iconMap[value.iconName] ?? Zap,
+    // allow newline characters or <br /> in descriptions
+    descriptionHtml: String(value.description).replace(/\n/g, '<br/>'),
   })),
 )
 </script>
@@ -33,9 +35,7 @@ const items = computed(() =>
           <span class="font-mono text-xs text-[var(--color-text-muted)]">0{{ idx + 1 }}</span>
         </div>
         <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">{{ item.headline }}</h3>
-        <p class="text-sm leading-relaxed text-[var(--color-text-secondary)]">
-          {{ item.description }}
-        </p>
+        <p class="text-sm leading-relaxed text-[var(--color-text-secondary)]" v-html="item.descriptionHtml" />
       </Card>
     </div>
   </section>
