@@ -29,7 +29,7 @@ withDefaults(
     </h2>
     <p
       v-if="description"
-      class="max-w-2xl text-base leading-relaxed text-[var(--color-text-secondary)] md:text-lg"
+      class="max-w-3xl text-base leading-relaxed text-[var(--color-text-secondary)] md:text-lg"
     >
       {{ description }}
     </p>
