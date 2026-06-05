@@ -1,0 +1,75 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.tsbuildinfo
+
+# Build outputs
+dist
+dist-ssr
+*.local
+
+# Test outputs
+coverage
+*.lcov
+.nyc_output
+
+# Cache
+.cache
+.parcel-cache
+.eslintcache
+.stylelintcache
+
+# Vite
+.vite
+
+# Vitest
+.vitest
+
+# Environment variables (never commit secrets)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Bun
+.bun
+
+# Playwright (captured during research)
+.playwright-mcp/
+
+# Private working notes — content gathered from Notion / private sources
+# Never commit; used only as local data source for portfolio constants
+.private/
+
+# OS files
+Thumbs.db
+
+# Temporary planning / prompt files
+TODO-propmt.md
+
+# fetch-project-stats.py ETag cache (re-derived from GitHub responses)
+src/data/.project-stats-etags.json

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shinkeonkim.com/my-portfolio/sitemap.xml
