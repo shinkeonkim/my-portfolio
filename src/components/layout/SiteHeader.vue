@@ -9,10 +9,10 @@ const mobileOpen = ref(false)
 
 const navItems = [
   { label: 'About', hash: '#about' },
+  { label: 'Experience', hash: '#experience' },
   { label: 'Projects', hash: '#projects' },
   { label: 'Experiments', hash: '#experiments' },
   { label: 'Toys', hash: '#toys' },
-  { label: 'Experience', hash: '#experience' },
   { label: 'Community', hash: '#activities' },
   { label: 'Contact', hash: '#contact' },
 ] as const
