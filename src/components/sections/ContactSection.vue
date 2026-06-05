@@ -24,7 +24,7 @@ const items = computed(() =>
     <SectionTitle
       eyebrow="Contact"
       title="이야기를 시작해요"
-      description="새로운 도전, 사이드 프로젝트, 기술 이야기 — 무엇이든 환영합니다."
+      description="새로운 도전, 사이드 프로젝트, 기술 이야기, 무엇이든 환영합니다."
     />
 
     <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

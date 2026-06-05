@@ -39,7 +39,7 @@ export const activities: readonly Activity[] = [
         bullets: [
           'Git / GitHub 등 개발 심화 세션 강의 진행',
           'Algorithm 스터디 운영',
-          '12개 대학 연합 해커톤 운영진 — 배포 119 부서에서 실서비스 배포 담당',
+          '12개 대학 연합 해커톤 운영진: 배포 119 부서에서 실서비스 배포 담당',
         ],
       },
       {
@@ -68,7 +68,7 @@ export const activities: readonly Activity[] = [
         title: 'Challenge Backend',
         type: 'repo',
         url: 'https://github.com/likelion-kookmin/challenge_backend_2025',
-        description: '백엔드 챌린지 — 점진적 과제 모음',
+        description: '백엔드 챌린지: 점진적 과제 모음',
       },
       {
         title: 'Algorithm Study',

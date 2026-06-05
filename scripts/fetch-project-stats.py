@@ -8,8 +8,8 @@
 # ///
 """Fetch GitHub stats for projects defined in src/data/projects/*.ts.
 
-Adapted from /Users/koa/100-github-io/scripts/fetch-project-stats.py — same
-logic with ETag caching, retries, /stats/* warmup, but reads project repos
+Adapted from /Users/koa/100-github-io/scripts/fetch-project-stats.py
+same logic with ETag caching, retries, /stats/* warmup, but reads project repos
 from TypeScript source files instead of Astro frontmatter.
 """
 from __future__ import annotations
