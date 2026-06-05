@@ -26,12 +26,12 @@ export const activities: readonly Activity[] = [
       {
         period: '2024',
         title: '12기 운영진',
-        bullets: ['세션 기획·운영', 'GitHub 협업·알고리즘 세션 진행'],
+        bullets: ['세션 기획·운영'],
       },
       {
         period: '2022',
         title: '10기 운영진',
-        bullets: ['해커톤 운영진 활동', '백엔드 세션 보조'],
+        bullets: ['해커톤 운영진 활동', 'Django 세션 운영'],
       },
       {
         period: '2021',
