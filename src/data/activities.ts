@@ -36,7 +36,6 @@ export const activities: readonly Activity[] = [
       {
         period: '2021',
         title: '9기 운영진 대표',
-        role: '운영진 대표',
         bullets: [
           'Git / GitHub 등 개발 심화 세션 강의 진행',
           'Algorithm 스터디 운영',
@@ -46,7 +45,6 @@ export const activities: readonly Activity[] = [
       {
         period: '2020',
         title: '8기 부원',
-        role: '부원',
         bullets: [
           'Python · Django · HTML · CSS · JS 웹 교육 수강',
           '동아리 내 해커톤 참가 및 연합 해커톤 참가',
