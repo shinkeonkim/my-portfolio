@@ -117,12 +117,48 @@ export const activities: readonly Activity[] = [
     slug: 'kmu-helper',
     title: '국민대 소프트웨어프로젝트 헬퍼',
     organization: '국민대학교',
-    period: { start: '2020-04', end: '2025-06' },
+    period: { start: '2020-04', end: '2025-12' },
     category: 'helper',
     role: '학부 조교 / Supporter',
     highlights: [
-      '소프트웨어프로젝트1 헬퍼 — Git · 라즈베리파이 · Ubuntu 지원',
-      'LabAnywhere Supporter (2020) — 실습 환경 설정 보조',
+      '소프트웨어프로젝트1·2 헬퍼 — Git · 라즈베리파이 · Ubuntu · Arduino (회로 / 기초 프로그래밍 / PID 제어) 지원',
+      'LabAnywhere Supporter — 실습 환경 설정 지원 + Ubuntu 강의 진행',
+      '수강생 질문 답변·이슈 해결을 위한 학부 조교 활동',
+    ],
+    timeline: [
+      {
+        period: '2025-09 ~ 2025-12',
+        title: '소프트웨어프로젝트2 헬퍼',
+        bullets: [
+          '수강생 질문 답변 및 이슈 해결을 위한 학부 조교',
+          'Arduino를 활용한 회로 및 기초 프로그래밍 지원',
+          'Arduino를 활용한 PID 제어 프로젝트 지원',
+        ],
+      },
+      {
+        period: '2025-04 ~ 2025-06',
+        title: '소프트웨어프로젝트1 헬퍼 (2025-1학기)',
+        bullets: [
+          '수강생 질문 답변 및 이슈 해결을 위한 학부 조교',
+          'Git · 라즈베리파이 · Ubuntu 지원',
+        ],
+      },
+      {
+        period: '2020-09 ~ 2020-12',
+        title: 'LabAnywhere Supporter',
+        bullets: [
+          '학부 실습 환경 설정 지원',
+          'Ubuntu에 대한 강의 진행',
+        ],
+      },
+      {
+        period: '2020-04 ~ 2020-06',
+        title: '소프트웨어프로젝트1 헬퍼 (2020-1학기)',
+        bullets: [
+          '수강생 질문 답변 및 이슈 해결을 위한 학부 조교',
+          'Git · 라즈베리파이 · Ubuntu 지원',
+        ],
+      },
     ],
     materials: [
       {

@@ -44,40 +44,40 @@ function formatPeriod(period: { start: string; end: string | null }): string {
             <div v-if="role.stack.length" class="mt-2 flex flex-wrap gap-1.5">
               <Tag v-for="tech in role.stack" :key="tech" :label="tech" />
             </div>
-            <ul class="mt-3 space-y-1.5">
+            <ul class="mt-4 space-y-2">
               <li
                 v-for="(d, di) in role.details"
                 :key="di"
-                class="text-sm leading-relaxed text-[var(--color-text-secondary)]"
+                class="text-base leading-relaxed text-[var(--color-text-secondary)]"
               >
                 <details class="group">
                   <summary
-                    class="-mx-2 flex cursor-pointer list-none items-start gap-2 rounded-md px-2 py-1.5 transition hover:bg-[var(--color-bg-overlay)]"
+                    class="-mx-2 flex cursor-pointer list-none items-start gap-2.5 rounded-md px-2 py-2 transition hover:bg-[var(--color-bg-overlay)]"
                   >
                     <ChevronRight
-                      :size="14"
-                      class="mt-0.5 shrink-0 text-[var(--color-accent)] transition-transform duration-200 group-open:rotate-90"
+                      :size="16"
+                      class="mt-1 shrink-0 text-[var(--color-accent)] transition-transform duration-200 group-open:rotate-90"
                     />
                     <span class="flex flex-1 flex-wrap items-baseline gap-x-2">
                       <span
-                        class="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)]"
+                        class="text-base font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)]"
                       >
                         {{ d.title }}
                       </span>
                       <span
                         v-if="d.period"
-                        class="font-mono text-[10px] text-[var(--color-text-muted)]"
+                        class="font-mono text-xs text-[var(--color-text-muted)]"
                       >
                         · {{ d.period }}
                       </span>
                       <span
-                        class="ml-auto font-mono text-[10px] text-[var(--color-text-muted)] opacity-0 transition group-hover:opacity-100 group-open:opacity-0"
+                        class="ml-auto font-mono text-xs text-[var(--color-text-muted)] opacity-0 transition group-hover:opacity-100 group-open:opacity-0"
                       >
                         펼치기
                       </span>
                     </span>
                   </summary>
-                  <div class="mt-2 mb-3 ml-5 space-y-3 border-l border-[var(--color-border-subtle)] pl-4">
+                  <div class="mt-3 mb-4 ml-6 space-y-3 border-l border-[var(--color-border-subtle)] pl-5">
                     <div
                       v-if="d.images?.length"
                       class="grid gap-2"
@@ -99,14 +99,14 @@ function formatPeriod(period: { start: string; end: string | null }): string {
                         />
                       </a>
                     </div>
-                    <ul class="space-y-1.5">
+                    <ul class="space-y-2">
                       <li
                         v-for="(b, bi) in d.bullets"
                         :key="bi"
-                        class="flex gap-2.5 text-xs leading-relaxed text-[var(--color-text-secondary)]"
+                        class="flex gap-3 text-sm leading-relaxed text-[var(--color-text-secondary)]"
                       >
                         <span
-                          class="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-[var(--color-accent)]"
+                          class="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]"
                         />
                         <span>{{ b }}</span>
                       </li>

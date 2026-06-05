@@ -29,6 +29,6 @@ export const contactLinks: readonly ContactLink[] = [
     channel: 'blog',
     label: 'Site',
     value: '코드.kr',
-    href: 'https://xn--289a.kr',
+    href: 'https://코드.kr',
   },
 ] as const
