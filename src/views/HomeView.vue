@@ -28,10 +28,10 @@ useHead({
     <HeroLaptop />
     <IdentitySection />
     <SkillsSection />
+    <ExperienceSection />
     <ProjectsSection />
     <AIExperimentsSection />
     <ToyProjectsSection />
-    <ExperienceSection />
     <ActivitiesSection />
     <AwardsSection />
     <ContactSection />
