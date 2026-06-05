@@ -36,7 +36,7 @@ function projectLabel(slug: string): string {
     <SectionTitle
       eyebrow="Skills"
       title="Stack & Experience"
-      description="필요한 도구를 골라 쓰되, 깊이를 가진 영역과 빠르게 적응하는 영역을 구분해 표시합니다."
+      description="필요한 도구를 상황에 맞게 골라씁니다. 깊이를 가진 영역과 빠르게 적응하는 영역을 구분해 표기했습니다."
     />
 
     <div class="mt-10 flex flex-wrap gap-2">
