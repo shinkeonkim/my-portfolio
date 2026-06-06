@@ -24,6 +24,19 @@
   --color-success: #22c55e;
   --color-danger: #ef4444;
 
+  --color-award-gold-bg: rgba(250, 204, 21, 0.16);
+  --color-award-gold-border: rgba(250, 204, 21, 0.5);
+  --color-award-gold-text: #fde047;
+  --color-award-silver-bg: rgba(148, 163, 184, 0.16);
+  --color-award-silver-border: rgba(148, 163, 184, 0.5);
+  --color-award-silver-text: #cbd5e1;
+  --color-award-bronze-bg: rgba(217, 119, 6, 0.22);
+  --color-award-bronze-border: rgba(217, 119, 6, 0.55);
+  --color-award-bronze-text: #fbbf24;
+  --color-award-merit-bg: rgba(255, 255, 255, 0.06);
+  --color-award-merit-border: rgba(255, 255, 255, 0.12);
+  --color-award-merit-text: #c5c5c5;
+
   --radius-card: 0.75rem;
   --radius-pill: 9999px;
 
@@ -70,6 +83,19 @@
   --color-accent: #c87a0a;
   --color-accent-hover: #a86209;
   --color-accent-muted: #f5d9a8;
+
+  --color-award-gold-bg: rgba(202, 138, 4, 0.12);
+  --color-award-gold-border: rgba(161, 98, 7, 0.45);
+  --color-award-gold-text: #854d0e;
+  --color-award-silver-bg: rgba(100, 116, 139, 0.12);
+  --color-award-silver-border: rgba(100, 116, 139, 0.4);
+  --color-award-silver-text: #334155;
+  --color-award-bronze-bg: rgba(180, 83, 9, 0.12);
+  --color-award-bronze-border: rgba(146, 64, 14, 0.4);
+  --color-award-bronze-text: #92400e;
+  --color-award-merit-bg: rgba(10, 10, 10, 0.05);
+  --color-award-merit-border: rgba(10, 10, 10, 0.12);
+  --color-award-merit-text: #4a4a4a;
 }
 
 @layer base {

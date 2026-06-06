@@ -3,6 +3,16 @@ import SectionTitle from '@/components/common/SectionTitle.vue'
 import Card from '@/components/common/Card.vue'
 import Tag from '@/components/common/Tag.vue'
 import { awards, certifications, educations } from '@/data'
+
+type AwardVariant = 'gold' | 'silver' | 'bronze' | 'merit'
+
+function awardVariant(rank: string | undefined): AwardVariant {
+  if (!rank) return 'merit'
+  if (/금상|대상|최우수상|1등|1위|gold|一等/i.test(rank)) return 'gold'
+  if (/은상|우수상|2등|2위|silver|二等/i.test(rank)) return 'silver'
+  if (/동상|3등|3위|三等|bronze/i.test(rank)) return 'bronze'
+  return 'merit'
+}
 </script>
 
 <template>
@@ -30,7 +40,12 @@ import { awards, certifications, educations } from '@/data'
             <div class="space-y-1">
               <p class="text-sm font-medium text-[var(--color-text-primary)]">
                 {{ award.title }}
-                <Tag v-if="award.rank" :label="award.rank" variant="accent" class="ml-1" />
+                <Tag
+                  v-if="award.rank"
+                  :label="award.rank"
+                  :variant="awardVariant(award.rank)"
+                  class="ml-1"
+                />
               </p>
               <p class="text-xs text-[var(--color-text-secondary)]">{{ award.organization }}</p>
               <p v-if="award.detail" class="text-xs text-[var(--color-text-muted)]">{{ award.detail }}</p>
