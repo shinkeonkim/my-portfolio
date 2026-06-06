@@ -45,14 +45,17 @@ function formatPeriod(p: { start: string; end: string | null }): string {
 const heroMedia = computed<ProjectMedia | undefined>(() => {
   const p = project.value
   if (!p) return undefined
-  if (p.media && p.media.length > 0) return p.media[0]
   if (p.hero) return { type: 'image', url: p.hero }
+  if (p.media && p.media.length > 0) return p.media[0]
   return undefined
 })
 
 const galleryMedia = computed(() => {
   const list = project.value?.media ?? []
-  return list.length > 1 ? list.slice(1) : []
+  if (!list.length) return []
+  const heroUrl = project.value?.hero
+  if (heroUrl) return list.filter((m) => m.url !== heroUrl)
+  return list.slice(1)
 })
 
 const stats = computed(() => (project.value ? getProjectStats(project.value.slug) : undefined))

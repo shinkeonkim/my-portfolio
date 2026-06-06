@@ -1,4 +1,5 @@
 import type { Project } from '@/types'
+import { presentationPages } from './_helpers'
 
 const IMG = '/my-portfolio/images/projects/ttl'
 
@@ -68,4 +69,11 @@ export const ttl: Project = {
     { type: 'image', url: `${IMG}/docs/swagger.png`, caption: 'Swagger API 문서' },
     { type: 'image', url: `${IMG}/docs/redoc.png`, caption: 'Redoc API 문서' },
   ],
+  presentation: {
+    title: 'TTL 발표 자료',
+    caption: '8페이지',
+    totalPages: 8,
+    pdfUrl: '/my-portfolio/docs/ttl-presentation.pdf',
+    pageImages: presentationPages('ttl', 8),
+  },
 }
