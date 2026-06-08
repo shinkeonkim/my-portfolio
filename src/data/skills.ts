@@ -192,7 +192,7 @@ export const skillsByCategory: readonly SkillCategoryGroup[] = [
   {
     category: 'frontend',
     label: 'Frontend',
-    description: '필요할 때 직접 만듭니다 — SPA 포팅, 모듈러 아키텍처 경험.',
+    description: '백엔드에 국한되지 않은 SPA 포팅, 모듈러 아키텍처 경험.',
     skills: skills.filter((s) => s.category === 'frontend'),
   },
   {
