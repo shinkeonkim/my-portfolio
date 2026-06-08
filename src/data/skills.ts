@@ -15,9 +15,9 @@ const skills: readonly Skill[] = [
     slug: 'ruby',
     category: 'language',
     level: 'core',
-    experienceYears: 3,
+    experienceYears: 2,
     projectSlugs: [],
-    description: 'Rails 풀스택 개발 3년',
+    description: 'Rails 풀스택 개발 2년',
   },
   {
     name: 'TypeScript / JavaScript',
@@ -42,6 +42,7 @@ const skills: readonly Skill[] = [
     category: 'language',
     level: 'familiar',
     projectSlugs: [],
+    description: '알고리즘 문제 출제, Java에 대한 기본적인 이해 보유',
   },
   {
     name: 'Rust',
@@ -56,7 +57,7 @@ const skills: readonly Skill[] = [
     slug: 'django',
     category: 'backend',
     level: 'core',
-    experienceYears: 5,
+    experienceYears: 3,
     projectSlugs: ['athena', 'kkambbaki', 'mefit', 'peacepiece', 'ttl', 'lotteng', 'sellon', 'daedong-mokjido'],
     description: 'API 서버 설계, DB/모델 설계, Celery/Redis 비동기 작업, 무중단 배포.',
   },
@@ -65,7 +66,7 @@ const skills: readonly Skill[] = [
     slug: 'rails',
     category: 'backend',
     level: 'core',
-    experienceYears: 3,
+    experienceYears: 2,
     projectSlugs: [],
     description: '프로그래머스 LMS / 채용서비스 백엔드 풀스택 개발.',
   },
@@ -107,7 +108,7 @@ const skills: readonly Skill[] = [
     category: 'database',
     level: 'core',
     projectSlugs: ['athena', 'kkambbaki', 'mefit', 'peacepiece', 'sellon', 'daedong-mokjido'],
-    description: 'jsonb 비정규화 → 항목별 정규화 무중단 마이그레이션 등.',
+    description: 'jsonb 비정규화 → 항목별 정규화 무중단 마이그레이션 등.\n스키마 설계, 인덱싱, 쿼리 최적화 경험.',
   },
   {
     name: 'Redis',
@@ -116,13 +117,6 @@ const skills: readonly Skill[] = [
     level: 'proficient',
     projectSlugs: ['athena', 'kkambbaki', 'ttl'],
     description: 'Celery 브로커, 캐싱.',
-  },
-  {
-    name: 'MySQL',
-    slug: 'mysql',
-    category: 'database',
-    level: 'familiar',
-    projectSlugs: [],
   },
   {
     name: 'Docker / docker-compose',
@@ -137,7 +131,7 @@ const skills: readonly Skill[] = [
     slug: 'kubernetes',
     category: 'devops',
     level: 'proficient',
-    projectSlugs: ['mefit', 'kkambbaki'],
+    projectSlugs: ['kkambbaki'],
     description: '홈랩 K3s + EC2 클러스터 프로비저닝, 서비스별 독립 배포.',
   },
   {
@@ -146,7 +140,7 @@ const skills: readonly Skill[] = [
     category: 'devops',
     level: 'core',
     projectSlugs: ['mefit', 'kkambbaki', 'peacepiece', 'sellon', 'lotteng'],
-    description: 'EC2 / RDS / ELB / S3 / SNS / SQS / Lambda / Personalize 활용.',
+    description: 'EC2 / RDS / ELB / S3 / SNS / SQS / Lambda 등 요구사항에 맞게 활용.',
   },
   {
     name: 'GitHub Actions',
@@ -154,7 +148,7 @@ const skills: readonly Skill[] = [
     category: 'devops',
     level: 'core',
     projectSlugs: ['mefit', 'kkambbaki', 'athena'],
-    description: 'CI/CD 파이프라인 구축, 멀티 리포 자동 배포.',
+    description: 'CI/CD 파이프라인 구축, 코드 품질 검사, 자동 배포 설정',
   },
   {
     name: 'ArgoCD',
@@ -170,7 +164,7 @@ const skills: readonly Skill[] = [
     category: 'devops',
     level: 'familiar',
     projectSlugs: [],
-    description: 'NICE 본인인증 서비스 인프라 IaC.',
+    description: 'NICE 본인인증 서비스 인프라 IaC 구성 경험',
   },
   {
     name: 'Git / GitHub',

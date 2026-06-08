@@ -15,7 +15,7 @@ const codeLines = [
   '$ koa --hello',
   '> initializing portfolio...',
   '> loading stack: python, ruby, ts',
-  '> hydrating projects [10/10]',
+  '> hydrating projects [09/09]',
   '> ready ✓',
 ] as const
 

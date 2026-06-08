@@ -29,6 +29,11 @@ function projectLabel(slug: string): string {
   const p = getProjectBySlug(slug)
   return p?.displayName ?? p?.name ?? slug
 }
+
+function formatDescription(text: string): string {
+  return text.replace(/\\n/g, '<br>')
+}
+
 </script>
 
 <template>
@@ -76,8 +81,9 @@ function projectLabel(slug: string): string {
         <p v-if="skill.experienceYears" class="mt-2 font-mono text-xs text-[var(--color-text-muted)]">
           {{ skill.experienceYears }}년+ 경력
         </p>
-        <p v-if="skill.description" class="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">
-          {{ skill.description }}
+
+        <p v-if="skill.description" class="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]"
+          v-html="formatDescription(skill.description)">
         </p>
         <div v-if="skill.projectSlugs.length" class="mt-3 flex flex-wrap gap-1.5">
           <RouterLink
