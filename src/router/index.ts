@@ -21,6 +21,12 @@ const routes: RouteRecordRaw[] = [
     meta: { title: '프로젝트 상세 · 김신건' },
   },
   {
+    path: '/pdf',
+    name: 'pdf-export',
+    component: () => import('@/views/PdfExportView.vue'),
+    meta: { title: 'PDF 내보내기 · 김신건' },
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: () => import('@/views/NotFoundView.vue'),
