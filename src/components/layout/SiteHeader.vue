@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import ThemeToggle from '@/components/common/ThemeToggle.vue'
-import { Menu, X } from 'lucide-vue-next'
+import { FileDown, Menu, X } from 'lucide-vue-next'
 
 const route = useRoute()
 const mobileOpen = ref(false)
@@ -46,6 +46,13 @@ function close() {
         >
           {{ item.label }}
         </RouterLink>
+        <RouterLink
+          to="/pdf"
+          class="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] px-3 py-1 text-xs font-medium text-[var(--color-text-secondary)] transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+          :class="{ 'border-[var(--color-accent)] text-[var(--color-accent)]': route.path === '/pdf' }"
+        >
+          <FileDown :size="12" /> PDF
+        </RouterLink>
         <ThemeToggle />
       </nav>
 
@@ -77,6 +84,13 @@ function close() {
           @click="close"
         >
           {{ item.label }}
+        </RouterLink>
+        <RouterLink
+          to="/pdf"
+          class="inline-flex items-center gap-1 py-2 text-sm text-[var(--color-text-secondary)] transition hover:text-[var(--color-accent)]"
+          @click="close"
+        >
+          <FileDown :size="14" /> PDF 내보내기
         </RouterLink>
       </nav>
     </div>
