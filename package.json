@@ -23,6 +23,7 @@
     "lucide-vue-next": "^1.0.0",
     "pinia": "^3.0.4",
     "vue": "^3.5.35",
+    "vue-draggable-plus": "^0.6.1",
     "vue-router": "^5.1.0"
   },
   "devDependencies": {
@@ -36,7 +37,6 @@
     "@vue/tsconfig": "^0.9.1",
     "eslint": "^9.31.0",
     "eslint-plugin-vue": "^10.9.2",
-
     "jiti": "^2.5.1",
     "prettier": "^3.6.2",
     "tailwindcss": "^4.3.0",
