@@ -2,7 +2,7 @@
 import { RouterLink } from 'vue-router'
 import { useHead } from '@unhead/vue'
 
-useHead({ title: '404 — 페이지를 찾을 수 없습니다' })
+useHead({ title: '404: 페이지를 찾을 수 없습니다' })
 </script>
 
 <template>

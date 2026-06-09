@@ -77,14 +77,9 @@ export const activities: readonly Activity[] = [
         description: '알고리즘 스터디 자료',
       },
       {
-        title: 'Git · GitHub 심화 세션 영상 (9기) — 정리 예정',
+        title: 'Git · GitHub 심화 세션 영상 (9기): 정리 예정',
         type: 'youtube',
         description: '강의 영상을 곧 추가합니다.',
-      },
-      {
-        title: '12기 / 10기 / 8기 자료 — 정리 예정',
-        type: 'pdf',
-        description: '발표 자료 / 사진 등을 곧 추가합니다.',
       },
     ],
   },
@@ -96,22 +91,34 @@ export const activities: readonly Activity[] = [
     category: 'community',
     role: '미션 발제 / 진행',
     highlights: [
-      '"AI가 나를 소개해줘요" 미션 발제 — AI/LLM 활용 자기 소개 시스템',
+      '"AI가 나를 소개해줘요" 미션 발제: AI/LLM 활용 자기 소개 시스템',
       '본인 구현체 twin-ai 공개',
     ],
     materials: [
       {
-        title: 'Twin AI — 본인 구현체',
+        title: 'Twin AI: 본인 구현체',
         type: 'repo',
         url: 'https://github.com/shinkeonkim/twin-ai',
         description: 'SIPE 4기 발제 미션의 본인 구현',
       },
       {
-        title: '발표 슬라이드 — 정리 예정',
-        type: 'slide',
-        description: 'SIPE 4기 발제 자료를 곧 추가합니다.',
+        title: '발표 슬라이드 PDF 원본',
+        type: 'pdf',
+        url: '/my-portfolio/docs/sipe-mission-presentation.pdf',
+        description: 'SIPE 4기 미션 발표 자료 · 34페이지',
       },
     ],
+    presentation: {
+      title: 'SIPE 4기 미션 발표',
+      caption: '34페이지 · "AI가 나를 소개해줘요" 미션 발제',
+      totalPages: 34,
+      pdfUrl: '/my-portfolio/docs/sipe-mission-presentation.pdf',
+      pageImages: Array.from(
+        { length: 34 },
+        (_, i) =>
+          `/my-portfolio/images/activities/sipe-4/presentation/page-${String(i + 1).padStart(2, '0')}.jpg`,
+      ),
+    },
   },
   {
     slug: 'kmu-helper',
@@ -121,8 +128,8 @@ export const activities: readonly Activity[] = [
     category: 'helper',
     role: '학부 조교 / Supporter',
     highlights: [
-      '소프트웨어프로젝트1·2 헬퍼 — Git · 라즈베리파이 · Ubuntu · Arduino (회로 / 기초 프로그래밍 / PID 제어) 지원',
-      'LabAnywhere Supporter — 실습 환경 설정 지원 + Ubuntu 강의 진행',
+      '소프트웨어프로젝트1·2 헬퍼: Git · 라즈베리파이 · Ubuntu · Arduino (회로 / 기초 프로그래밍 / PID 제어) 지원',
+      'LabAnywhere Supporter: 실습 환경 설정 지원 + Ubuntu 강의 진행',
       '수강생 질문 답변·이슈 해결을 위한 학부 조교 활동',
     ],
     timeline: [
@@ -160,13 +167,6 @@ export const activities: readonly Activity[] = [
         ],
       },
     ],
-    materials: [
-      {
-        title: '실습 가이드 — 정리 예정',
-        type: 'blog',
-        description: '학부 헬퍼 시절 정리한 가이드를 곧 추가합니다.',
-      },
-    ],
   },
   {
     slug: 'high-school-teaching',
@@ -176,16 +176,9 @@ export const activities: readonly Activity[] = [
     category: 'teaching',
     role: '보조강사 / 강사',
     highlights: [
-      '구일고 · 구로고 연합 교육과정 보조강사 — Python3 · 데이터 과학',
-      '한민고 동계 캠프 강사 (4박 5일) — C언어 기초',
-      '한국장학재단 하계 재능봉사 — 마이크로비트 · 엔트리',
-    ],
-    materials: [
-      {
-        title: '교안 — 정리 예정',
-        type: 'pdf',
-        description: '강의 자료 / 사진을 곧 추가합니다.',
-      },
+      '구일고 · 구로고 연합 교육과정 보조강사: Python3 · 데이터 과학',
+      '한민고 동계 캠프 강사 (4박 5일): C언어 기초',
+      '한국장학재단 하계 재능봉사: 마이크로비트 · 엔트리',
     ],
   },
 ] as const

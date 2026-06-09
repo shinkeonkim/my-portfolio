@@ -21,7 +21,7 @@ export const siteProjects: readonly ToyProject[] = [
   {
     slug: 'twin-ai',
     name: 'Twin AI',
-    tagline: 'SIPE 4기 미션 본인 구현 — AI가 나를 소개해줘요',
+    tagline: 'SIPE 4기 미션 본인 구현: AI가 나를 소개해줘요',
     category: 'site',
     emoji: '👯',
     stack: ['Python', 'LLM'],

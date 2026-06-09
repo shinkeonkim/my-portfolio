@@ -84,7 +84,7 @@ const skills: readonly Skill[] = [
     category: 'backend',
     level: 'proficient',
     projectSlugs: ['athena'],
-    description: 'MSA 설계 — Code Executor, Judger, Testcase Generator 연동.',
+    description: 'MSA 설계: Code Executor, Judger, Testcase Generator 연동.',
   },
   {
     name: 'Vue.js',

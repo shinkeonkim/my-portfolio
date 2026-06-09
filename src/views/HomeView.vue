@@ -13,10 +13,10 @@ import ContactSection from '@/components/sections/ContactSection.vue'
 import { profile } from '@/data'
 
 useHead({
-  title: `${profile.name} — ${profile.title}`,
+  title: `${profile.name} / ${profile.title}`,
   meta: [
     { name: 'description', content: profile.summary[0] ?? profile.tagline },
-    { property: 'og:title', content: `${profile.name} — ${profile.title}` },
+    { property: 'og:title', content: `${profile.name} / ${profile.title}` },
     { property: 'og:description', content: profile.summary[0] ?? profile.tagline },
     { property: 'og:type', content: 'profile' },
   ],

@@ -4,7 +4,7 @@ export const gameProjects: readonly ToyProject[] = [
   {
     slug: 'snake-game',
     name: 'Snake Game (C++)',
-    tagline: 'KMU SW C++ 수업 작품 — 콘솔 스네이크',
+    tagline: 'KMU SW C++ 수업 작품: 콘솔 스네이크',
     category: 'game',
     emoji: '🐍',
     stack: ['C++'],
@@ -28,7 +28,7 @@ export const gameProjects: readonly ToyProject[] = [
   {
     slug: 'can-you-catch-circle',
     name: 'Can You Catch Circle?',
-    tagline: '원을 잡으세요 — Vue 미니 게임',
+    tagline: '원을 잡으세요: Vue 미니 게임',
     category: 'game',
     emoji: '⭕',
     stack: ['Vue'],
@@ -68,7 +68,7 @@ export const gameProjects: readonly ToyProject[] = [
   {
     slug: 'khonshu',
     name: 'Khonshu',
-    tagline: 'God of Mooooon — 미니 인터랙션',
+    tagline: 'God of Mooooon: 미니 인터랙션',
     category: 'game',
     emoji: '🌙',
     stack: ['JavaScript'],

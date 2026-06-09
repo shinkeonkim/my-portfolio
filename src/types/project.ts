@@ -7,10 +7,34 @@ export interface ProjectLink {
   type: 'github' | 'demo' | 'article' | 'video' | 'pdf' | 'other'
 }
 
+export interface ProjectChallengeOption {
+  label: string
+  pros?: readonly string[]
+  cons?: readonly string[]
+  chosen?: boolean
+}
+
+export interface ProjectChallengeDetail {
+  background?: string
+  options?: readonly ProjectChallengeOption[]
+  decision?: string
+  implementation?: readonly string[]
+  learnings?: readonly string[]
+  metrics?: readonly string[]
+}
+
 export interface ProjectChallenge {
+  title?: string
+  tags?: readonly string[]
   problem: string
   approach: string
   result: string
+  detail?: ProjectChallengeDetail
+}
+
+export interface ProjectFeature {
+  title: string
+  content: readonly string[]
 }
 
 export type ProjectMediaType = 'image' | 'youtube' | 'video'
@@ -82,7 +106,7 @@ export interface Project {
   stack: readonly string[]
   oneLiner: string
   description: string
-  features: readonly string[]
+  features: readonly ProjectFeature[]
   challenges: readonly ProjectChallenge[]
   contributions: readonly string[]
   links: readonly ProjectLink[]

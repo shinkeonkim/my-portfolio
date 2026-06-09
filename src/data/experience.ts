@@ -4,7 +4,7 @@ const EXP_IMG = '/my-portfolio/images/experience'
 
 export const experiences: readonly Experience[] = [
   {
-    company: '(주) 그렙 — 프로그래머스',
+    company: '(주) 그렙: 프로그래머스',
     totalPeriod: '2019.06 ~ 2025.03 (3년 3개월)',
     developerPeriod: '개발 경력 2년 8개월',
     roles: [
@@ -66,7 +66,7 @@ export const experiences: readonly Experience[] = [
             images: [`${EXP_IMG}/notion-03.png`],
           },
           {
-            title: '이력서 Github 분석 정밀도 개선 — 커밋 미분석 건수 0건 달성',
+            title: '이력서 Github 분석 정밀도 개선: 커밋 미분석 건수 0건 달성',
             period: '2021.08 ~ 2021.09',
             bullets: [
               '기술 스택: Ruby · Docker · Rugged · AWS ECS',
@@ -76,7 +76,7 @@ export const experiences: readonly Experience[] = [
             ],
           },
           {
-            title: '추천 채용공고 ES → AWS Personalize 개인화 추천 전환 — 클릭률 2배 증가',
+            title: '추천 채용공고 ES → AWS Personalize 개인화 추천 전환: 클릭률 2배 증가',
             period: '2021.07',
             bullets: [
               'ElasticSearch 기반 고정 추천 → AWS Personalize 기반 개인화 추천 고도화',
@@ -95,7 +95,7 @@ export const experiences: readonly Experience[] = [
             images: [`${EXP_IMG}/notion-05.png`],
           },
           {
-            title: '비즈니스 프로그래머스 — 개발자 검색 기능 리팩토링',
+            title: '비즈니스 프로그래머스: 개발자 검색 기능 리팩토링',
             period: '2019.12 ~ 2021.03',
             bullets: [
               '레거시 SSR(CoffeeScript) 제거 → 백엔드 API 분리',
@@ -104,7 +104,7 @@ export const experiences: readonly Experience[] = [
             images: [`${EXP_IMG}/notion-06.png`],
           },
           {
-            title: '서비스 품질 개선 — 테스트 커버리지 70 → 80%',
+            title: '서비스 품질 개선: 테스트 커버리지 70 → 80%',
             period: '2020.12 ~ 2022.10',
             bullets: [
               '테스트 커버리지 70% → 80% 개선 기여',
@@ -134,7 +134,7 @@ export const experiences: readonly Experience[] = [
     ],
   },
   {
-    company: '대한민국 육군 특전사령부 — 제11공수특전여단',
+    company: '대한민국 육군 특전사령부: 제11공수특전여단',
     totalPeriod: '2022.11 ~ 2024.05',
     roles: [
       {

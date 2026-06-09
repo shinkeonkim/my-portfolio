@@ -13,6 +13,7 @@ import {
   type LucideIcon,
 } from 'lucide-vue-next'
 import type { Activity, LessonType } from '@/types'
+import PresentationSlideViewer from '@/components/common/PresentationSlideViewer.vue'
 
 const props = defineProps<{ activity: Activity | null }>()
 const emit = defineEmits<{ close: [] }>()
@@ -152,6 +153,13 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeyDown))
             </ul>
           </li>
         </ol>
+      </section>
+
+      <section v-if="activity.presentation" class="mt-5 space-y-2">
+        <h4 class="font-mono text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)]">
+          발표 자료
+        </h4>
+        <PresentationSlideViewer :presentation="activity.presentation" />
       </section>
 
       <section v-if="activity.materials?.length" class="mt-5 space-y-2">

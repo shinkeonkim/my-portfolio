@@ -105,7 +105,7 @@ export const toolProjects: readonly ToyProject[] = [
   {
     slug: 'boj-to-pdf',
     name: 'BOJ → PDF',
-    tagline: '백준 문제를 iPad용 PDF로 (2★)',
+    tagline: '백준 문제를 iPad용 PDF로',
     category: 'tool',
     emoji: '📚',
     stack: ['Python'],

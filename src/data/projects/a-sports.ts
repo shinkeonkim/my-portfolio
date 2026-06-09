@@ -11,35 +11,111 @@ export const aSports: Project = {
   status: 'completed',
   roles: ['디자이너', '프론트엔드'],
   team: { size: 4, lead: false },
-  stack: ['React.js', 'Canvas', 'AdobeXD'],
-  oneLiner: '알고리즘 학습을 게임화하여 즐겁게 공부할 수 있도록 돕는 플랫폼.',
+  stack: ['React', 'JavaScript', 'Canvas API', 'Netlify'],
+  oneLiner:
+    'AlgoSports: 알고리즘을 게임처럼 즐기면서 공부할 수 있도록 돕는 알고리즘 게임 플랫폼.',
   description:
-    '알고리즘 학습을 게임화하여 즐겁게 공부할 수 있도록 돕는 플랫폼입니다. 서비스 디자인과 프런트엔드 개발을 담당했습니다.',
+    '<p>AlgoSports 는 알고리즘 학습을 게임화한 플랫폼입니다. (백엔드 README 원문)</p>' +
+    '<p>프런트엔드(<code>algo-sports-front</code>) 를 담당했습니다.</p>' +
+    '<p>구현 범위:</p>' +
+    '<ul>' +
+    '<li>게임 매치 / 참여자 목록</li>' +
+    '<li>코드 제출 / 댓글 / 답글</li>' +
+    '<li>토큰 갱신</li>' +
+    '<li>Canvas 게임 화면</li>' +
+    '</ul>' +
+    '<p>React 로 작성하고 Netlify 에 배포했습니다.</p>',
   features: [
-    'React.js 기반 SPA — 게임 매치/참여자 목록/실시간 렌더링',
-    'Canvas로 게임 화면 구현 + 반응형 navbar',
-    '코드 제출 / 코멘트 / 답글 / 토큰 자동 갱신',
-    'AdobeXD로 화면 디자인',
-    'Netlify 배포 (reload 404 이슈 해결)',
+    {
+      title: 'React SPA',
+      content: [
+        '게임 매치 / 참여자 목록',
+        '게임 dummy 데이터 포맷',
+        '게임 페이지 API 연결',
+      ],
+    },
+    {
+      title: 'Canvas API',
+      content: [
+        '게임 화면 렌더링',
+      ],
+    },
+    {
+      title: '댓글 흐름',
+      content: [
+        '코드 제출',
+        '댓글 / 답글',
+        '댓글 입력 (textArea UI)',
+        '댓글 응답 조건 처리',
+      ],
+    },
+    {
+      title: '토큰 갱신',
+      content: [
+        'API fetch 토큰 자동 갱신',
+        'fetch timing 을 loading state 로 가시화',
+      ],
+    },
+    {
+      title: 'SPA 배포',
+      content: [
+        'Netlify 사용',
+        '<code>_redirects</code> 로 reload 시 404 우회',
+      ],
+    },
+    {
+      title: '데이터 렌더링',
+      content: [
+        'profile / game / post 데이터 표시',
+      ],
+    },
   ],
   challenges: [
     {
-      problem: '디자인과 프런트엔드를 한 사람이 맡으면 우선순위 충돌이 잦음.',
-      approach: '화면을 디자인 → 컴포넌트로 분해 → 구현 순으로 단계화하고, 각 단계의 완료 기준을 명확히 정함.',
-      result: '디자인 변경이 구현 막바지에 일어나는 것을 막고, 기획 의도가 화면에 일관되게 반영.',
+      title: 'API fetch token 오류 → Promise 객체가 그대로 렌더링되는 이슈',
+      tags: ['React', 'Token refresh', 'Loading state'],
+      problem:
+        '<p>fetch 결과로 받은 Promise 가 토큰 만료 / 오류 상태에서 그대로 화면에 렌더링됐습니다.</p>' +
+        '<p>사용자에게 의미 없는 출력이 노출되는 버그가 있었습니다.</p>',
+      approach:
+        '<ul>' +
+        '<li>token refresh 로직을 별도로 분리</li>' +
+        '<li>fetch timing 을 loading state 로 명시적으로 표현</li>' +
+        '<li>댓글 응답 조건도 함께 정리</li>' +
+        '</ul>',
+      result:
+        '<p>에러 시점에 사용자에게 명확한 피드백이 가고, 새로고침 없이도 자연스럽게 복구됩니다.</p>',
     },
     {
-      problem: 'API fetch token error로 인해 Promise 객체가 그대로 렌더링되는 이슈.',
-      approach: 'token refresh logic을 별도 훅으로 분리하고, fetch timing을 loading state로 가시화. 댓글 응답 조건도 함께 정리.',
-      result: '에러 시점에 사용자에게 명확한 피드백 + 새로고침 없이도 정상 복구.',
+      title: 'Netlify SPA 배포 reload 404',
+      tags: ['Netlify', 'SPA fallback'],
+      problem:
+        '<p>Netlify 에 SPA 를 그대로 올리면 새로고침마다 404 가 발생합니다.</p>',
+      approach:
+        '<p><code>_redirects</code> 파일로 모든 경로를 <code>index.html</code> 로 fallback 처리했습니다.</p>',
+      result:
+        '<p>딥링크 / 새로고침 시에도 정상 동작합니다.</p>',
     },
     {
-      problem: 'Netlify에 SPA 배포 시 새로고침마다 404가 발생.',
-      approach: '_redirects 파일로 모든 경로를 index.html로 fallback 처리.',
-      result: '딥링크 / 새로고침 시에도 정상 동작.',
+      title: 'Canvas 게임 화면: 데이터 포맷과 렌더링 분리',
+      tags: ['Canvas API', 'React state'],
+      problem:
+        '<p>게임 dummy 데이터 포맷과 실제 Canvas 렌더링이 섞이면서 변경 비용이 컸습니다.</p>',
+      approach:
+        '<ol>' +
+        '<li>게임 dummy 데이터 포맷을 먼저 안정화</li>' +
+        '<li>Canvas 렌더링을 그 위에 얹음</li>' +
+        '<li>dummy 단계에서 UI 를 먼저 다듬고 API 를 나중에 붙임</li>' +
+        '</ol>',
+      result:
+        '<p>API 가 늦게 붙어도 화면 작업이 멈추지 않습니다. 데이터 포맷 변경이 한 곳에서만 일어납니다.</p>',
     },
   ],
-  contributions: ['UI/UX 디자인', 'React.js 프런트엔드 구현 (게임 매치 · 코드 제출 · 토큰 갱신)', 'Netlify 배포 설정'],
+  contributions: [
+    '<strong>React 프런트엔드</strong>(<code>algo-sports-front</code>). 게임 매치 / 코드 제출 / 댓글 / 답글 / 토큰 갱신 흐름 구현.',
+    '<strong>Canvas API</strong>. 게임 화면 렌더링.',
+    '<strong>배포</strong>. Netlify + <code>_redirects</code> SPA fallback.',
+  ],
   links: [
     {
       label: 'Frontend repo',

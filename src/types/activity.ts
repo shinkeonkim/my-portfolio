@@ -1,4 +1,5 @@
 import type { LessonMaterial } from './teaching'
+import type { ProjectPresentation } from './project'
 
 export type ActivityCategory = 'club' | 'helper' | 'teaching' | 'community'
 
@@ -20,4 +21,5 @@ export interface Activity {
   details?: readonly string[]
   timeline?: readonly ActivityTimelineEntry[]
   materials?: readonly LessonMaterial[]
+  presentation?: ProjectPresentation
 }
