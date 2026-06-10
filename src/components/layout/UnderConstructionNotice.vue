@@ -60,7 +60,7 @@ onMounted(() => {
             미리 찾아와주셔서 감사합니다.
           </p>
           <p class="text-xs leading-relaxed text-[var(--color-text-secondary)]">
-            2026.06.10 까지 내용을 보강하고 있는 중이에요.
+            2026.06.12 까지 내용을 보강하고 있는 중이에요.
           </p>
         </div>
       </div>
