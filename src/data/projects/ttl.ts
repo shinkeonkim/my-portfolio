@@ -131,17 +131,17 @@ export const ttl: Project = {
         '<p>환경별 settings 가 최종적으로 안정된 형태로 자리잡았습니다.</p>',
     },
     {
-      title: 'Swagger 자동화로 프런트엔드 협업 비용 절감',
+      title: 'Swagger 자동화로 프론트엔드 협업 비용 절감',
       tags: ['drf-yasg', 'Swagger', 'Redoc'],
       problem:
-        '<p>API 가 빠르게 늘면서 프런트엔드와의 인터페이스 명세 비용이 커졌습니다.</p>',
+        '<p>API 가 빠르게 늘면서 프론트엔드와의 인터페이스 명세 비용이 커졌습니다.</p>',
       approach:
         '<ul>' +
         '<li>drf-yasg 로 Swagger / Redoc 을 자동 생성</li>' +
         '<li>모델 / 시리얼라이저 변경이 즉시 문서에 반영되도록 구성</li>' +
         '</ul>',
       result:
-        '<p>프런트엔드와의 의사소통 비용이 줄었습니다. 변경 이력이 문서에 자연스럽게 따라왔습니다.</p>',
+        '<p>프론트엔드와의 의사소통 비용이 줄었습니다. 변경 이력이 문서에 자연스럽게 따라왔습니다.</p>',
     },
   ],
   contributions: [

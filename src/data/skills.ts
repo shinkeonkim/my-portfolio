@@ -100,7 +100,7 @@ const skills: readonly Skill[] = [
     category: 'frontend',
     level: 'proficient',
     projectSlugs: ['mefit', 'a-sports'],
-    description: 'Feature-Sliced Design 적용, 모듈러 프런트엔드 아키텍처 수립.',
+    description: 'Feature-Sliced Design 적용, 모듈러 프론트엔드 아키텍처 수립.',
   },
   {
     name: 'PostgreSQL',

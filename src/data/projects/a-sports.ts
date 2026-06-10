@@ -16,7 +16,7 @@ export const aSports: Project = {
     'AlgoSports: 알고리즘을 게임처럼 즐기면서 공부할 수 있도록 돕는 알고리즘 게임 플랫폼.',
   description:
     '<p>AlgoSports 는 알고리즘 학습을 게임화한 플랫폼입니다. (백엔드 README 원문)</p>' +
-    '<p>프런트엔드(<code>algo-sports-front</code>) 를 담당했습니다.</p>' +
+    '<p>프론트엔드(<code>algo-sports-front</code>) 를 담당했습니다.</p>' +
     '<p>구현 범위:</p>' +
     '<ul>' +
     '<li>게임 매치 / 참여자 목록</li>' +
@@ -112,7 +112,7 @@ export const aSports: Project = {
     },
   ],
   contributions: [
-    '<strong>React 프런트엔드</strong>(<code>algo-sports-front</code>). 게임 매치 / 코드 제출 / 댓글 / 답글 / 토큰 갱신 흐름 구현.',
+    '<strong>React 프론트엔드</strong>(<code>algo-sports-front</code>). 게임 매치 / 코드 제출 / 댓글 / 답글 / 토큰 갱신 흐름 구현.',
     '<strong>Canvas API</strong>. 게임 화면 렌더링.',
     '<strong>배포</strong>. Netlify + <code>_redirects</code> SPA fallback.',
   ],

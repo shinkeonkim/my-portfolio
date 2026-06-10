@@ -36,10 +36,10 @@ export const daedongMokjido: Project = {
     '<p>검수 후 지도에 노출됩니다. 제보 / 리뷰 / 신고에 리워드를 부여해 선순환을 만들었습니다.</p>' +
     '<p>기술 스택은 다음과 같습니다.</p>' +
     '<ul>' +
-    '<li><strong>프런트엔드</strong>: React + Redux + redux-saga + KakaoMap</li>' +
+    '<li><strong>프론트엔드</strong>: React + Redux + redux-saga + KakaoMap</li>' +
     '<li><strong>백엔드</strong>: Django + DRF</li>' +
     '<li><strong>리포지토리</strong>: 같은 레포에서 두 코드를 분리 관리</li>' +
-    '<li><strong>배포</strong>: 백엔드 Heroku(git subtree) + 프런트엔드 Netlify</li>' +
+    '<li><strong>배포</strong>: 백엔드 Heroku(git subtree) + 프론트엔드 Netlify</li>' +
     '</ul>',
   features: [
     {
@@ -95,7 +95,7 @@ export const daedongMokjido: Project = {
       title: '자동 배포',
       content: [
         '백엔드: Heroku (git subtree)',
-        '프런트엔드: Netlify',
+        '프론트엔드: Netlify',
       ],
     },
   ],
@@ -167,7 +167,7 @@ export const daedongMokjido: Project = {
       '</ul>',
     '<strong>지도 연동</strong>. KakaoMap Web API 로 지도 / 마커 / 주변 매장 표시.',
     '<strong>비동기 흐름</strong>. React + Redux + redux-saga watcher / worker 분리.',
-    '<strong>자동 배포</strong>. 백엔드 Heroku(git subtree) + 프런트엔드 Netlify 파이프라인.',
+    '<strong>자동 배포</strong>. 백엔드 Heroku(git subtree) + 프론트엔드 Netlify 파이프라인.',
   ],
   links: [
     {
