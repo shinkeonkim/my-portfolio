@@ -82,7 +82,8 @@ function formatDescription(text: string): string {
           {{ skill.experienceYears }}년+ 경력
         </p>
 
-        <p v-if="skill.description" class="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]"
+        <p
+v-if="skill.description" class="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]"
           v-html="formatDescription(skill.description)">
         </p>
         <div v-if="skill.projectSlugs.length" class="mt-3 flex flex-wrap gap-1.5">

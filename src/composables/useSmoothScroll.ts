@@ -22,7 +22,7 @@ export function initSmoothScroll(): Lenis | null {
     touchMultiplier: 1.5,
   })
 
-  lenisInstance.on('scroll', ScrollTrigger.update)
+  lenisInstance.on('scroll', () => ScrollTrigger.update())
 
   tickerCallback = (time: number) => lenisInstance?.raf(time * 1000)
   gsap.ticker.add(tickerCallback)

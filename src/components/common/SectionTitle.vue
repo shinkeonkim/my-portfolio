@@ -6,7 +6,7 @@ withDefaults(
     description?: string
     align?: 'left' | 'center'
   }>(),
-  { align: 'center' },
+  { eyebrow: '', description: '', align: 'center' },
 )
 </script>
 
