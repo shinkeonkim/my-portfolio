@@ -28,6 +28,10 @@ const store = usePdfSelectionStore()
         v-else-if="id === 'identity' && store.state.sections.identity"
         :items="identityValues"
       />
+      <PdfContactBlock
+        v-else-if="id === 'contact' && store.state.sections.contact"
+        :links="store.includedContacts"
+      />
       <PdfSkillsBlock
         v-else-if="id === 'skills' && store.state.sections.skills"
         :groups="skillsByCategory"
@@ -36,10 +40,28 @@ const store = usePdfSelectionStore()
         v-else-if="id === 'experience' && store.state.sections.experience"
         :experiences="store.includedExperiences"
       />
+      <PdfEducationBlock
+        v-else-if="id === 'education' && store.state.sections.education"
+        :educations="store.includedEducations"
+      />
+      <PdfAwardsBlock
+        v-else-if="id === 'certifications' && store.state.sections.certifications"
+        :awards="[]"
+        :certifications="store.includedCertifications"
+      />
+      <PdfAwardsBlock
+        v-else-if="id === 'awards' && store.state.sections.awards"
+        :awards="store.includedAwards"
+        :certifications="[]"
+      />
       <PdfProjectsBlock
         v-else-if="id === 'projects' && store.state.sections.projects"
         :projects="store.includedProjects"
         :get-field="store.getProjectField"
+      />
+      <PdfActivitiesBlock
+        v-else-if="id === 'activities' && store.state.sections.activities"
+        :items="store.includedActivities"
       />
       <PdfAiExperimentsBlock
         v-else-if="id === 'aiExperiments' && store.state.sections.aiExperiments"
@@ -48,28 +70,6 @@ const store = usePdfSelectionStore()
       <PdfToyProjectsBlock
         v-else-if="id === 'toyProjects' && store.state.sections.toyProjects"
         :items="store.includedToyProjects"
-      />
-      <PdfActivitiesBlock
-        v-else-if="id === 'activities' && store.state.sections.activities"
-        :items="store.includedActivities"
-      />
-      <PdfAwardsBlock
-        v-else-if="id === 'awards' && store.state.sections.awards"
-        :awards="store.includedAwards"
-        :certifications="[]"
-      />
-      <PdfAwardsBlock
-        v-else-if="id === 'certifications' && store.state.sections.certifications"
-        :awards="[]"
-        :certifications="store.includedCertifications"
-      />
-      <PdfEducationBlock
-        v-else-if="id === 'education' && store.state.sections.education"
-        :educations="store.includedEducations"
-      />
-      <PdfContactBlock
-        v-else-if="id === 'contact' && store.state.sections.contact"
-        :links="store.includedContacts"
       />
     </template>
   </div>

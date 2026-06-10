@@ -26,13 +26,13 @@ const DEFAULT_SECTION_ORDER: PdfSectionId[] = [
   'identity',
   'skills',
   'experience',
+  'education',
+  'certifications',
+  'awards',
   'projects',
+  'activities',
   'aiExperiments',
   'toyProjects',
-  'activities',
-  'awards',
-  'certifications',
-  'education',
 ]
 
 const DEFAULT_SECTIONS: Record<PdfSectionId, boolean> = {
