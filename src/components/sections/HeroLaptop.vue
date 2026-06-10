@@ -20,22 +20,31 @@ const codeLines = [
 ] as const
 
 onMounted(() => {
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+  const prefersReducedMotion =
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  tl.set([nameRef.value, taglineRef.value, ctasRef.value], { opacity: 0, y: 16 })
-  tl.set(codeRef.value, { opacity: 0 })
-  tl.set(lidRef.value, { transformOrigin: '50% 100%', rotateX: -98 })
+  if (prefersReducedMotion) {
+    gsap.set([nameRef.value, taglineRef.value, ctasRef.value], { opacity: 1, y: 0 })
+    gsap.set([lidRef.value, codeRef.value], { opacity: 1, rotateX: 0 })
+    if (codeRef.value) codeRef.value.textContent = codeLines.join('\n')
+    return
+  }
 
-  tl.to(lidRef.value, {
-    rotateX: 0,
-    duration: 1.2,
-    ease: 'power4.out',
-  })
-    .to(codeRef.value, { opacity: 1, duration: 0.3 }, '-=0.2')
-    .add(() => animateTyping(), '+=0.05')
-    .to(nameRef.value, { opacity: 1, y: 0, duration: 0.6 }, '+=1.6')
-    .to(taglineRef.value, { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
-    .to(ctasRef.value, { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
+  gsap.set([nameRef.value, taglineRef.value, ctasRef.value], { opacity: 0, y: 12 })
+  gsap.set(codeRef.value, { opacity: 0 })
+  gsap.set(lidRef.value, { transformOrigin: '50% 100%', rotateX: -98 })
+
+  const textTl = gsap.timeline({ defaults: { ease: 'power2.out' } })
+  textTl
+    .to(nameRef.value, { opacity: 1, y: 0, duration: 0.5 }, 0.1)
+    .to(taglineRef.value, { opacity: 1, y: 0, duration: 0.5 }, 0.25)
+    .to(ctasRef.value, { opacity: 1, y: 0, duration: 0.5 }, 0.4)
+
+  const laptopTl = gsap.timeline()
+  laptopTl
+    .to(lidRef.value, { rotateX: 0, duration: 0.8, ease: 'power4.out' }, 0)
+    .to(codeRef.value, { opacity: 1, duration: 0.25, ease: 'power2.out' }, 0.55)
+    .add(() => animateTyping(), 0.7)
 })
 
 function animateTyping() {
@@ -54,9 +63,9 @@ function animateTyping() {
         window.clearInterval(interval)
         target.textContent += '\n'
         lineIndex += 1
-        window.setTimeout(writeLine, 220)
+        window.setTimeout(writeLine, 140)
       }
-    }, 22)
+    }, 16)
   }
   writeLine()
   if (cursorRef.value) {
