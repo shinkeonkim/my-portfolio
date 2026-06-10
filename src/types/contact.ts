@@ -1,4 +1,4 @@
-export type ContactChannel = 'email' | 'github' | 'linkedin' | 'blog' | 'instagram' | 'other'
+export type ContactChannel = 'email' | 'github' | 'linkedin' | 'blog' | 'instagram' | 'portfolio' | 'other'
 
 export interface ContactLink {
   channel: ContactChannel

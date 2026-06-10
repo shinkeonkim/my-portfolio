@@ -2,17 +2,21 @@
 import { computed, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useHead } from '@unhead/vue'
-import { ArrowLeft, ExternalLink, FileText, Github, Youtube } from 'lucide-vue-next'
+import { ArrowLeft, ExternalLink, FileText, Github, Youtube, ZoomIn } from 'lucide-vue-next'
 import type { Component } from 'vue'
 import Tag from '@/components/common/Tag.vue'
 import GitHubStatsCard from '@/components/common/GitHubStatsCard.vue'
 import PresentationSlideViewer from '@/components/common/PresentationSlideViewer.vue'
 import ProjectChallengeCard from '@/components/common/ProjectChallengeCard.vue'
 import ProjectChallengeModal from '@/components/common/ProjectChallengeModal.vue'
+import ImageLightbox from '@/components/common/ImageLightbox.vue'
 import { getProjectBySlug, getProjectStats } from '@/data'
 import type { ProjectMedia, ProjectLink, ProjectChallenge } from '@/types'
 
 const selectedChallenge = ref<ProjectChallenge | null>(null)
+
+const lightboxOpen = ref(false)
+const lightboxIndex = ref(0)
 
 function linkIcon(type: ProjectLink['type']): Component {
   switch (type) {
@@ -63,6 +67,23 @@ const galleryMedia = computed(() => {
 })
 
 const stats = computed(() => (project.value ? getProjectStats(project.value.slug) : undefined))
+
+const lightboxImages = computed<string[]>(() => {
+  const imgs: string[] = []
+  const heroIsImage = heroMedia.value?.type === 'image'
+  if (heroIsImage && heroMedia.value) imgs.push(heroMedia.value.url)
+  for (const m of galleryMedia.value) {
+    if (m.type === 'image') imgs.push(m.url)
+  }
+  return imgs
+})
+
+function openLightboxAt(url: string) {
+  const i = lightboxImages.value.indexOf(url)
+  if (i < 0) return
+  lightboxIndex.value = i
+  lightboxOpen.value = true
+}
 </script>
 
 <template>
@@ -100,17 +121,41 @@ const stats = computed(() => (project.value ? getProjectStats(project.value.slug
           v-if="heroMedia.type === 'youtube'"
           :src="heroMedia.url"
           class="h-full w-full"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="
+            accelerometer;
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            gyroscope;
+            picture-in-picture;
+          "
           allowfullscreen
           :title="heroMedia.caption ?? `${project.name} video`"
         />
-        <img
+        <button
           v-else
-          :src="heroMedia.url"
-          :alt="heroMedia.caption ?? `${project.name} hero`"
-          class="h-full w-full object-cover"
-          loading="lazy"
-        />
+          type="button"
+          class="group/hero relative block h-full w-full cursor-zoom-in overflow-hidden"
+          :aria-label="`${project.name} 메인 이미지 확대`"
+          @click="openLightboxAt(heroMedia.url)"
+        >
+          <img
+            :src="heroMedia.url"
+            :alt="heroMedia.caption ?? `${project.name} hero`"
+            class="h-full w-full object-cover transition-transform duration-500 group-hover/hero:scale-[1.03]"
+            loading="lazy"
+          />
+          <span
+            class="absolute inset-0 flex items-end justify-end bg-gradient-to-t from-black/40 via-transparent to-transparent p-4 opacity-0 transition group-hover/hero:opacity-100"
+          >
+            <span
+              class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 font-mono text-xs text-white backdrop-blur-sm"
+            >
+              <ZoomIn :size="13" />
+              클릭하여 확대
+            </span>
+          </span>
+        </button>
       </div>
     </section>
 
@@ -175,11 +220,17 @@ const stats = computed(() => (project.value ? getProjectStats(project.value.slug
           :key="i"
           class="flex flex-col gap-2 rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-bg-overlay)] p-5 text-[15px] leading-7 text-[var(--color-text-secondary)]"
         >
-          <h3 class="flex items-start gap-2 text-base font-semibold text-[var(--color-text-primary)]">
-            <span class="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]" />
+          <h3
+            class="flex items-start gap-2 text-base font-semibold text-[var(--color-text-primary)]"
+          >
+            <span
+              class="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]"
+            />
             <span>{{ f.title }}</span>
           </h3>
-          <ul class="prose-body ml-3.5 list-disc space-y-1 pl-5 text-sm leading-7 text-[var(--color-text-secondary)]">
+          <ul
+            class="prose-body ml-3.5 list-disc space-y-1 pl-5 text-sm leading-7 text-[var(--color-text-secondary)]"
+          >
             <li v-for="(c, ci) in f.content" :key="ci" v-html="c" />
           </ul>
         </li>
@@ -220,7 +271,9 @@ const stats = computed(() => (project.value ? getProjectStats(project.value.slug
           :key="i"
           class="flex gap-3 text-[15px] leading-8 text-[var(--color-text-secondary)]"
         >
-          <span class="mt-3 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]" />
+          <span
+            class="mt-3 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]"
+          />
           <div class="prose-body flex-1" v-html="c" />
         </li>
       </ul>
@@ -242,11 +295,7 @@ const stats = computed(() => (project.value ? getProjectStats(project.value.slug
         미디어 · 다이어그램
       </h2>
       <div class="grid gap-4 sm:grid-cols-2">
-        <figure
-          v-for="(m, i) in galleryMedia"
-          :key="i"
-          class="surface-card overflow-hidden"
-        >
+        <figure v-for="(m, i) in galleryMedia" :key="i" class="surface-card overflow-hidden">
           <div class="aspect-video w-full bg-[var(--color-bg-overlay)]">
             <iframe
               v-if="m.type === 'youtube'"
@@ -262,13 +311,30 @@ const stats = computed(() => (project.value ? getProjectStats(project.value.slug
               controls
               class="h-full w-full object-contain"
             />
-            <img
+            <button
               v-else
-              :src="m.url"
-              :alt="m.caption ?? ''"
-              class="h-full w-full object-contain"
-              loading="lazy"
-            />
+              type="button"
+              class="group/gallery relative block h-full w-full cursor-zoom-in overflow-hidden"
+              :aria-label="`${m.caption ?? '이미지'} 확대`"
+              @click="openLightboxAt(m.url)"
+            >
+              <img
+                :src="m.url"
+                :alt="m.caption ?? ''"
+                class="h-full w-full object-contain transition-transform duration-500 group-hover/gallery:scale-[1.03]"
+                loading="lazy"
+              />
+              <span
+                class="absolute inset-0 flex items-end justify-end bg-gradient-to-t from-black/40 via-transparent to-transparent p-3 opacity-0 transition group-hover/gallery:opacity-100"
+              >
+                <span
+                  class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2.5 py-1 font-mono text-[10px] text-white backdrop-blur-sm"
+                >
+                  <ZoomIn :size="12" />
+                  확대
+                </span>
+              </span>
+            </button>
           </div>
           <figcaption
             v-if="m.caption"
@@ -301,9 +367,13 @@ const stats = computed(() => (project.value ? getProjectStats(project.value.slug
       </div>
     </section>
 
-    <ProjectChallengeModal
-      :challenge="selectedChallenge"
-      @close="selectedChallenge = null"
+    <ProjectChallengeModal :challenge="selectedChallenge" @close="selectedChallenge = null" />
+
+    <ImageLightbox
+      v-model:open="lightboxOpen"
+      v-model:index="lightboxIndex"
+      :images="lightboxImages"
+      :alt="project.name"
     />
   </article>
 

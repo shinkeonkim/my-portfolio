@@ -2,6 +2,7 @@
 import SectionTitle from '@/components/common/SectionTitle.vue'
 import Card from '@/components/common/Card.vue'
 import Tag from '@/components/common/Tag.vue'
+import AnimatedCounter from '@/components/common/AnimatedCounter.vue'
 import { awards, certifications, educations } from '@/data'
 
 type AwardVariant = 'gold' | 'silver' | 'bronze' | 'merit'
@@ -22,6 +23,37 @@ function awardVariant(rank: string | undefined): AwardVariant {
       title="Awards · Certifications · Education"
       description="대회 수상, 자격증, 학력 등 성과 및 이력입니다"
     />
+
+    <div
+      class="mt-8 grid grid-cols-3 gap-4 rounded-[var(--radius-card)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-elevated)] px-5 py-5 sm:px-8"
+    >
+      <div class="space-y-1 text-center">
+        <p class="font-mono text-3xl font-semibold text-[var(--color-accent)] sm:text-4xl">
+          <AnimatedCounter :value="awards.length" />
+        </p>
+        <p class="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-text-muted)]">
+          Awards
+        </p>
+      </div>
+      <div
+        class="space-y-1 border-x border-[var(--color-border-subtle)] text-center"
+      >
+        <p class="font-mono text-3xl font-semibold text-[var(--color-text-primary)] sm:text-4xl">
+          <AnimatedCounter :value="certifications.length" />
+        </p>
+        <p class="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-text-muted)]">
+          Certifications
+        </p>
+      </div>
+      <div class="space-y-1 text-center">
+        <p class="font-mono text-3xl font-semibold text-[var(--color-text-primary)] sm:text-4xl">
+          <AnimatedCounter :value="educations.length" />
+        </p>
+        <p class="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-text-muted)]">
+          Education
+        </p>
+      </div>
+    </div>
 
     <div class="mt-12 grid gap-10 lg:grid-cols-2">
       <div class="space-y-5">
