@@ -31,4 +31,10 @@ export const contactLinks: readonly ContactLink[] = [
     value: '코드.kr',
     href: 'https://코드.kr',
   },
+  {
+    channel: 'portfolio',
+    label: 'Portfolio',
+    value: 'shinkeonkim.com/my-portfolio',
+    href: 'https://shinkeonkim.com/my-portfolio',
+  },
 ] as const
