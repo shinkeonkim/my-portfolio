@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Mail, Github, Linkedin, Globe, type LucideIcon } from 'lucide-vue-next'
+import { Mail, Github, Linkedin, Globe, Briefcase, type LucideIcon } from 'lucide-vue-next'
 import SectionTitle from '@/components/common/SectionTitle.vue'
 import { contactLinks } from '@/data'
 import type { ContactChannel } from '@/types'
@@ -11,6 +11,7 @@ const iconMap: Record<ContactChannel, LucideIcon> = {
   linkedin: Linkedin,
   blog: Globe,
   instagram: Globe,
+  portfolio: Briefcase,
   other: Globe,
 }
 
