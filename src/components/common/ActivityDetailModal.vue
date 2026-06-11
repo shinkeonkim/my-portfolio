@@ -14,11 +14,22 @@ import {
 } from 'lucide-vue-next'
 import type { Activity, LessonType } from '@/types'
 import PresentationSlideViewer from '@/components/common/PresentationSlideViewer.vue'
+import { getSmoothScroll } from '@/composables/useSmoothScroll'
 
 const props = defineProps<{ activity: Activity | null }>()
 const emit = defineEmits<{ close: [] }>()
 
 const dialogRef = ref<HTMLDialogElement | null>(null)
+
+function lockScroll() {
+  document.body.style.overflow = 'hidden'
+  getSmoothScroll()?.stop()
+}
+
+function unlockScroll() {
+  document.body.style.overflow = ''
+  getSmoothScroll()?.start()
+}
 
 const iconMap: Record<LessonType, LucideIcon> = {
   repo: Github,
@@ -48,8 +59,14 @@ function close() {
 watch(isOpen, (next) => {
   const dialog = dialogRef.value
   if (!dialog) return
-  if (next && !dialog.open) dialog.showModal()
-  if (!next && dialog.open) dialog.close()
+  if (next && !dialog.open) {
+    dialog.showModal()
+    lockScroll()
+  }
+  if (!next && dialog.open) {
+    dialog.close()
+    unlockScroll()
+  }
 })
 
 function onKeyDown(event: KeyboardEvent) {
@@ -57,7 +74,10 @@ function onKeyDown(event: KeyboardEvent) {
 }
 
 onMounted(() => window.addEventListener('keydown', onKeyDown))
-onBeforeUnmount(() => window.removeEventListener('keydown', onKeyDown))
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', onKeyDown)
+  unlockScroll()
+})
 </script>
 
 <template>
@@ -71,6 +91,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeyDown))
     <div
       v-if="activity"
       class="surface-card relative max-h-[85vh] w-[min(90vw,640px)] overflow-y-auto p-6 md:p-8"
+      data-lenis-prevent
       @click.stop
     >
       <button
@@ -102,7 +123,9 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeyDown))
             :key="i"
             class="flex gap-2 text-sm leading-relaxed text-[var(--color-text-secondary)]"
           >
-            <span class="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-[var(--color-accent)]" />
+            <span
+              class="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-[var(--color-accent)]"
+            />
             <span>{{ h }}</span>
           </li>
         </ul>
@@ -189,10 +212,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeyDown))
                   · {{ typeLabel[m.type] }}
                 </span>
               </p>
-              <p
-                v-if="m.description"
-                class="mt-0.5 text-xs text-[var(--color-text-secondary)]"
-              >
+              <p v-if="m.description" class="mt-0.5 text-xs text-[var(--color-text-secondary)]">
                 {{ m.description }}
               </p>
             </div>

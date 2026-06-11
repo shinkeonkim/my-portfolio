@@ -3,6 +3,7 @@ import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import { X, Check, Minus } from 'lucide-vue-next'
 import Tag from '@/components/common/Tag.vue'
 import type { ProjectChallenge } from '@/types'
+import { getSmoothScroll } from '@/composables/useSmoothScroll'
 
 const props = defineProps<{ challenge: ProjectChallenge | null }>()
 const emit = defineEmits<{ close: [] }>()
@@ -14,11 +15,26 @@ function close() {
   emit('close')
 }
 
+function lockScroll() {
+  document.body.style.overflow = 'hidden'
+  getSmoothScroll()?.stop()
+}
+
+function unlockScroll() {
+  document.body.style.overflow = ''
+  getSmoothScroll()?.start()
+}
+
 watch(isOpen, (next) => {
   const dialog = dialogRef.value
   if (!dialog) return
-  if (next && !dialog.open) dialog.showModal()
-  else if (!next && dialog.open) dialog.close()
+  if (next && !dialog.open) {
+    dialog.showModal()
+    lockScroll()
+  } else if (!next && dialog.open) {
+    dialog.close()
+    unlockScroll()
+  }
 })
 
 function onCancel(e: Event) {
@@ -28,6 +44,7 @@ function onCancel(e: Event) {
 
 onBeforeUnmount(() => {
   if (dialogRef.value?.open) dialogRef.value.close()
+  unlockScroll()
 })
 </script>
 
@@ -38,7 +55,7 @@ onBeforeUnmount(() => {
     @cancel="onCancel"
     @close="close"
   >
-    <div v-if="challenge" class="max-h-[85vh] w-full overflow-y-auto">
+    <div v-if="challenge" class="max-h-[85vh] w-full overflow-y-auto" data-lenis-prevent>
       <header
         class="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-[var(--color-border-subtle)] bg-[var(--color-bg-elevated)]/95 px-6 py-4 backdrop-blur md:px-8"
       >
@@ -66,20 +83,20 @@ onBeforeUnmount(() => {
         </section>
 
         <section v-if="challenge.detail?.background" class="space-y-2">
-          <h3 class="font-mono text-xs tracking-wider text-[var(--color-text-muted)]">
-            배경
-          </h3>
+          <h3 class="font-mono text-xs tracking-wider text-[var(--color-text-muted)]">배경</h3>
           <div
             class="prose-modal text-[15px] leading-8 text-[var(--color-text-secondary)]"
             v-html="challenge.detail.background"
           />
         </section>
 
-        <section class="space-y-3 rounded-[var(--radius-card)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-overlay)] p-5">
-          <h3 class="font-mono text-xs tracking-wider text-[var(--color-text-muted)]">
-            요약
-          </h3>
-          <div class="flex gap-2 text-[15px] font-medium leading-7 text-[var(--color-text-primary)]">
+        <section
+          class="space-y-3 rounded-[var(--radius-card)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-overlay)] p-5"
+        >
+          <h3 class="font-mono text-xs tracking-wider text-[var(--color-text-muted)]">요약</h3>
+          <div
+            class="flex gap-2 text-[15px] font-medium leading-7 text-[var(--color-text-primary)]"
+          >
             <span aria-hidden="true">🧩</span>
             <div class="prose-modal flex-1" v-html="challenge.problem" />
           </div>
@@ -94,9 +111,7 @@ onBeforeUnmount(() => {
         </section>
 
         <section v-if="challenge.detail?.options?.length" class="space-y-3">
-          <h3 class="font-mono text-xs tracking-wider text-[var(--color-text-muted)]">
-            대안 비교
-          </h3>
+          <h3 class="font-mono text-xs tracking-wider text-[var(--color-text-muted)]">대안 비교</h3>
           <div class="grid gap-3 sm:grid-cols-2">
             <article
               v-for="(opt, i) in challenge.detail.options"
@@ -144,9 +159,7 @@ onBeforeUnmount(() => {
         </section>
 
         <section v-if="challenge.detail?.decision" class="space-y-2">
-          <h3 class="font-mono text-xs tracking-wider text-[var(--color-text-muted)]">
-            결정
-          </h3>
+          <h3 class="font-mono text-xs tracking-wider text-[var(--color-text-muted)]">결정</h3>
           <div
             class="prose-modal rounded border-l-2 border-[var(--color-accent)] bg-[var(--color-accent-muted)]/10 px-4 py-3 text-[15px] leading-8 text-[var(--color-text-primary)]"
             v-html="challenge.detail.decision"
@@ -154,9 +167,7 @@ onBeforeUnmount(() => {
         </section>
 
         <section v-if="challenge.detail?.implementation?.length" class="space-y-2">
-          <h3 class="font-mono text-xs tracking-wider text-[var(--color-text-muted)]">
-            구현
-          </h3>
+          <h3 class="font-mono text-xs tracking-wider text-[var(--color-text-muted)]">구현</h3>
           <ul class="space-y-2">
             <li
               v-for="(line, i) in challenge.detail.implementation"
@@ -172,9 +183,7 @@ onBeforeUnmount(() => {
         </section>
 
         <section v-if="challenge.detail?.learnings?.length" class="space-y-2">
-          <h3 class="font-mono text-xs tracking-wider text-[var(--color-text-muted)]">
-            배운 점
-          </h3>
+          <h3 class="font-mono text-xs tracking-wider text-[var(--color-text-muted)]">배운 점</h3>
           <ul class="space-y-2">
             <li
               v-for="(line, i) in challenge.detail.learnings"

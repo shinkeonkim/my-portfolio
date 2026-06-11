@@ -15,7 +15,7 @@ export const aSports: Project = {
   oneLiner:
     'AlgoSports: 알고리즘을 게임처럼 즐기면서 공부할 수 있도록 돕는 알고리즘 게임 플랫폼.',
   description:
-    '<p>AlgoSports 는 알고리즘 학습을 게임화한 플랫폼입니다. (백엔드 README 원문)</p>' +
+    '<p>AlgoSports 는 알고리즘 학습을 게임화한 플랫폼입니다. </p>' +
     '<p>프론트엔드(<code>algo-sports-front</code>) 를 담당했습니다.</p>' +
     '<p>구현 범위:</p>' +
     '<ul>' +

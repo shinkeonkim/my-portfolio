@@ -65,9 +65,10 @@ export const mefit: Project = {
     {
       title: 'AI 면접',
       content: [
-        '이력서를 RAG 컨텍스트로 주입',
-        '모드: 꼬리질문 / 전체 프로세스',
-        '면접관 톤: 친근 / 일반 / 압박',
+        '이력서와 채용공고 정보를 RAG 컨텍스트로 주입',
+        '질문 종류: 꼬리질문 / 전체 프로세스',
+        '면접관 톤(난이도): 친근 / 일반 / 압박',
+        '모드: 연슴 / 실전'
       ],
     },
     {
@@ -105,12 +106,12 @@ export const mefit: Project = {
       ],
     },
     {
-      title: '학습 루프',
+      title: '학습 루프 / 요금제 · 티켓',
       content: [
-        '스트릭 캘린더 (GitHub 기여도 형태)',
-        '업적 4개 카테고리: Interview / Streak / Profile / Custom',
-        '티켓: Free / Pro. daily 가 먼저 차감되고 purchased 가 뒤따름',
-        'Celery Beat 가 매일 KST 00:00 에 daily 리셋',
+        '스트릭 캘린더',
+        '업적 4개 카테고리 제공으로 티켓 보상 지급: Interview / Streak / Profile / Custom',
+        '매일 정각마다 Free, Pro 요금제에 따라 일일 티켓 초기화 및 지급',
+        'daily 티켓 모두 소모 시, purchased 티켓으로 대체 차감되는 구조 수립'
       ],
     },
     {
@@ -118,8 +119,7 @@ export const mefit: Project = {
       content: [
         '<strong>WebSocket</strong>: 양방향 통신. Connection Fencing code 4409',
         '<strong>SSE</strong>: 서버 → 클라이언트 분석 진행 알림',
-        '<strong>JWT</strong>: Access 5분 / Refresh 7일',
-        '<strong>저장</strong>: HttpOnly Cookie + 메모리에 분리 저장',
+        'JWT 인증 및 WebSocket 연결용 인증 티켓',
       ],
     },
     {
@@ -129,14 +129,6 @@ export const mefit: Project = {
         '스크롤 인터랙션: GSAP ScrollTrigger',
         '모션: Lottie',
         'Vite manualChunks 코드 스플리팅: 면접 세션 페이지에서는 로드되지 않음',
-      ],
-    },
-    {
-      title: '코드 RAG 챗봇',
-      content: [
-        '하이브리드 검색: ChromaDB 벡터 + BM25Okapi + NetworkX Personalised PageRank (약 2400 청크)',
-        '5중 검색 강화: Query Rewrite / Multi-Query / HyDE / MMR / BM25',
-        '비밀값 11종 자동 마스킹 + 회귀 테스트로 안전성 확보',
       ],
     },
   ],

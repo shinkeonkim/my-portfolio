@@ -2,12 +2,12 @@ import type { ProjectChallenge } from '@/types'
 
 export const mefitChallenges: readonly ProjectChallenge[] = [
   {
-    title: 'Django 6 도메인 모듈 분리 설계',
-    tags: ['Django 6', 'DRF', 'BaseService', 'Python 3.12'],
+    title: 'Django 도메인 모듈 분리 설계',
+    tags: ['Django', 'DRF', 'Python'],
     problem:
-      '면접 도메인이 넓고 4인이 함께 개발해야 했습니다. 어떤 프레임워크로 풀고, 어떻게 충돌 없이 병렬 작업할지가 문제였습니다.',
+      '면접 도메인이 넓고 백엔드 개발은 3인이 함께해야 했습니다. 어떤 프레임워크로 풀고, 어떻게 충돌 없이 병렬 작업할지가 문제였습니다.',
     approach:
-      '<p>Django 6 / FastAPI / Spring Boot 를 비교하고 Django 6 을 선택했습니다.</p>' +
+      '<p>Django/ FastAPI / Spring Boot 를 비교하고 Django를 선택했습니다.</p>' +
       '<ul>' +
       '<li>도메인 레이어 <code>webapp/&lt;도메인&gt;/</code> 와 API 레이어 <code>webapp/api/v1/&lt;도메인&gt;/</code> 을 물리 분리</li>' +
       '<li>BaseService + <code>validate</code> / <code>execute</code> 패턴으로 트랜잭션 경계 명시</li>' +
@@ -85,14 +85,12 @@ export const mefitChallenges: readonly ProjectChallenge[] = [
     approach:
       '<ul>' +
       '<li>K3s on EC2 에 server / agent 노드를 나누고 무거운 워크로드는 server 에 핀</li>' +
-      '<li>iptables NAT 로 Pod 가 EC2 인스턴스 메타데이터에 접근해 IAM Role 자격 증명 사용. AWS Secret 을 코드 밖으로 제거</li>' +
-      '<li>LLM Gateway 후보 5종(LiteLLM · OneAPI · Portkey · Helicone · Kong) 비교 후 LiteLLM Proxy 선정</li>' +
+      '<li>iptables NAT 로 Pod 가 EC2 인스턴스 메타데이터에 접근해 IAM Role 자격 증명 사용</li>' +
       '<li>OpenAI 호환 API 라 각 서비스의 base_url 만 바꾸는 작은 변경으로 마이그레이션</li>' +
       '</ul>',
     result:
       '<ul>' +
       '<li>EKS 대비 컨트롤 플레인 비용 제거 + 야간 정지로 EC2 비용 추가 절감</li>' +
-      '<li>AWS Secret 을 한 곳으로 중앙화</li>' +
       '<li>backend / voice-api / analysis-resume / analysis-stt / interview-analysis-report / scraping 의 LLM 호출이 LiteLLM 한 곳을 통해 흐르고, Bedrock / Gemini 폴백과 Spend 추적이 한 대시보드에서 보입니다</li>' +
       "<li>cert-manager + Let's Encrypt 로 api.mefit.kr · llm.mefit.kr · voice.mefit.kr 자동 인증서</li>" +
       '</ul>',
@@ -194,7 +192,7 @@ export const mefitChallenges: readonly ProjectChallenge[] = [
   },
   {
     title: '임베딩 모델 폴백 금지, silent corruption 방지',
-    tags: ['pgvector', 'OpenAI Embeddings', 'fail-fast'],
+    tags: ['pgvector', 'OpenAI Embeddings'],
     problem:
       '<p>LLM Gateway 에서 프로바이더 폴백을 쓰니, "임베딩도 폴백하면 가용성이 올라가지 않을까?" 라는 질문이 자연스럽게 나왔습니다.</p>' +
       '<p>분석해보니 silent corruption 위험이 있었습니다.</p>',

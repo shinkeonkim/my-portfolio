@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import { ChevronLeft, ChevronRight, X, Maximize2, Minimize2 } from 'lucide-vue-next'
+import { getSmoothScroll } from '@/composables/useSmoothScroll'
 
 const props = defineProps<{
   open: boolean
@@ -51,9 +52,11 @@ watch(
     if (typeof document === 'undefined') return
     if (open) {
       document.body.style.overflow = 'hidden'
+      getSmoothScroll()?.stop()
       window.addEventListener('keydown', handleKeydown)
     } else {
       document.body.style.overflow = ''
+      getSmoothScroll()?.start()
       window.removeEventListener('keydown', handleKeydown)
     }
   },
@@ -62,6 +65,7 @@ watch(
 onBeforeUnmount(() => {
   if (typeof document === 'undefined') return
   document.body.style.overflow = ''
+  getSmoothScroll()?.start()
   window.removeEventListener('keydown', handleKeydown)
 })
 </script>
