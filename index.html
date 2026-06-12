@@ -1,16 +1,27 @@
 <!doctype html>
 <html lang="ko" class="dark">
   <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-50146NTYMB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-50146NTYMB', { anonymize_ip: true, send_page_view: true });
+    </script>
+
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0a0a0a" />
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
     <meta
       name="description"
       content="김신건(Koa) / Backend Engineer. 파악하고 바로 움직이는, 직접 만들고 운영하는 백엔드 엔지니어의 포트폴리오."
     />
     <meta name="keywords" content="김신건, Koa, Backend Engineer, 포트폴리오, Django, Rails, Vue, Kubernetes, AWS" />
     <meta name="author" content="김신건 (Koa)" />
+    <link rel="canonical" href="https://shinkeonkim.com/my-portfolio/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="김신건 / Backend Engineer Portfolio" />
@@ -21,11 +32,31 @@
     <meta property="og:url" content="https://shinkeonkim.com/my-portfolio/" />
     <meta property="og:image" content="https://shinkeonkim.com/my-portfolio/og-image.png" />
     <meta property="og:locale" content="ko_KR" />
+    <meta property="og:site_name" content="김신건의 로그" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="김신건 / Backend Engineer Portfolio" />
     <meta name="twitter:description" content="파악하고 바로 움직이는 백엔드 엔지니어." />
     <meta name="twitter:image" content="https://shinkeonkim.com/my-portfolio/og-image.png" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "김신건",
+        "alternateName": "Koa",
+        "jobTitle": "Backend Engineer",
+        "url": "https://shinkeonkim.com",
+        "sameAs": ["https://github.com/shinkeonkim"]
+      },
+      "name": "김신건 / Backend Engineer Portfolio",
+      "description": "파악하고 바로 움직이는, 직접 만들고 운영하는 백엔드 엔지니어의 포트폴리오.",
+      "url": "https://shinkeonkim.com/my-portfolio/"
+    }
+    </script>
 
     <title>김신건 / Backend Engineer Portfolio</title>
   </head>

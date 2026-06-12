@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, type RouteRecordRaw, type RouteLocationNormalized } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -42,4 +42,15 @@ export const router = createRouter({
     if (to.hash) return { el: to.hash, behavior: 'smooth', top: 80 }
     return { top: 0, behavior: 'smooth' }
   },
+})
+
+// Google Analytics SPA page view tracking
+router.afterEach((to: RouteLocationNormalized) => {
+  const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag
+  if (typeof gtag !== 'function') return
+  gtag('event', 'page_view', {
+    page_path: to.fullPath,
+    page_location: window.location.origin + to.fullPath,
+    page_title: (to.meta?.title as string) ?? document.title,
+  })
 })
