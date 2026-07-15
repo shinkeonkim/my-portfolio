@@ -93,6 +93,9 @@ const store = usePdfSelectionStore()
   width: 210mm;
   margin: 0 auto;
   box-sizing: border-box;
+  /* Prevent single-line orphans / widows across the whole document */
+  orphans: 2;
+  widows: 2;
 }
 .pdf-document * {
   -webkit-print-color-adjust: exact;

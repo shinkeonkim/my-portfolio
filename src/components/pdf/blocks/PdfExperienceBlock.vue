@@ -61,7 +61,6 @@ defineProps<{ experiences: readonly Experience[] }>()
 .pdf-exp-company {
   padding-left: 8pt;
   border-left: 2pt solid #0f172a;
-  break-inside: avoid;
 }
 .pdf-exp-company + .pdf-exp-company {
   margin-top: 14pt;
@@ -74,6 +73,11 @@ defineProps<{ experiences: readonly Experience[] }>()
   gap: 8pt;
   flex-wrap: wrap;
   margin-bottom: 2pt;
+  /* Keep the company header line together and glue it to the first role */
+  break-inside: avoid;
+  page-break-inside: avoid;
+  break-after: avoid;
+  page-break-after: avoid;
 }
 .pdf-exp-company-title {
   display: flex;
@@ -103,9 +107,6 @@ defineProps<{ experiences: readonly Experience[] }>()
   padding: 0;
   margin: 6pt 0 0 0;
 }
-.pdf-exp-role {
-  break-inside: avoid;
-}
 .pdf-exp-role + .pdf-exp-role {
   margin-top: 10pt;
   padding-top: 8pt;
@@ -119,6 +120,11 @@ defineProps<{ experiences: readonly Experience[] }>()
   gap: 8pt;
   flex-wrap: wrap;
   margin-bottom: 3pt;
+  /* Keep role header on the same page as its first detail */
+  break-inside: avoid;
+  page-break-inside: avoid;
+  break-after: avoid;
+  page-break-after: avoid;
 }
 .pdf-exp-role-name {
   display: flex;
@@ -164,7 +170,6 @@ defineProps<{ experiences: readonly Experience[] }>()
 .pdf-exp-detail {
   position: relative;
   padding: 2pt 0 2pt 8pt;
-  break-inside: avoid;
 }
 .pdf-exp-detail::before {
   content: '';
@@ -187,6 +192,11 @@ defineProps<{ experiences: readonly Experience[] }>()
   gap: 8pt;
   flex-wrap: wrap;
   margin-bottom: 2pt;
+  /* Keep the detail title with at least the first bullet */
+  break-inside: avoid;
+  page-break-inside: avoid;
+  break-after: avoid;
+  page-break-after: avoid;
 }
 .pdf-exp-detail-header h4 {
   margin: 0;
@@ -213,6 +223,12 @@ defineProps<{ experiences: readonly Experience[] }>()
   font-size: 9pt;
   line-height: 1.5;
   color: #334155;
+  /* Prevent orphaned/widowed single lines within a bullet */
+  orphans: 2;
+  widows: 2;
+  /* Keep individual bullets from splitting across a page break */
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 .pdf-exp-bullets li + li {
   margin-top: 2pt;

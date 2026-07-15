@@ -74,7 +74,7 @@ function isIncluded(map: Record<string, boolean>, key: string): boolean {
 </script>
 
 <template>
-  <aside class="pdf-panel">
+  <aside class="pdf-panel" data-lenis-prevent>
     <header class="pdf-panel-header">
       <h2>포함할 항목 · 순서</h2>
       <div class="pdf-panel-header-actions">
@@ -245,6 +245,8 @@ function isIncluded(map: Record<string, boolean>, key: string): boolean {
   overflow-y: auto;
   position: sticky;
   top: 80px;
+  /* Prevent scroll chaining from panel to the page (Lenis is bypassed via data-lenis-prevent) */
+  overscroll-behavior: contain;
 }
 .pdf-panel-header {
   display: flex;
