@@ -66,7 +66,8 @@ export const awards: readonly Award[] = [
 ] as const
 
 export const certifications: readonly Certification[] = [
-  { title: 'AWS AIF (AWS Certified AI Practitioner)', date: '2026-07' },
+  { title: 'AWS Certified Cloud Practitioner (CLF-C02)', date: '2026-07' },
+  { title: 'AWS Certified AI Practitioner (AIF)', date: '2026-07' },
   { title: '정보처리기사', date: '2025-09' },
   { title: 'ADsP (데이터 분석 준전문가)', date: '2025-09' },
   { title: '제한무선통신사', date: '2025-06' },
