@@ -65,6 +65,10 @@ coverage
 # Never commit; used only as local data source for portfolio constants
 .private/
 
+# Original (uncompressed) presentation PDFs — source material for scripts/compress-docs.ts
+# Committed public/docs/*.pdf must stay under Cloudflare Workers' 25 MiB per-file limit.
+docs-originals/
+
 # OS files
 Thumbs.db
 

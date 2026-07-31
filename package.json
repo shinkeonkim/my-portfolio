@@ -14,7 +14,8 @@
     "format:check": "prettier --check \"src/**/*.{ts,vue,css,json,md}\"",
     "test": "vitest run",
     "test:watch": "vitest",
-    "type-check": "vue-tsc --noEmit"
+    "type-check": "vue-tsc --noEmit",
+    "docs:compress": "bun run scripts/compress-docs.ts"
   },
   "dependencies": {
     "@unhead/vue": "^3.1.1",
