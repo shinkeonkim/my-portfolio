@@ -34,7 +34,7 @@ export const contactLinks: readonly ContactLink[] = [
   {
     channel: 'portfolio',
     label: 'Portfolio',
-    value: 'shinkeonkim.com/my-portfolio',
-    href: 'https://shinkeonkim.com/my-portfolio',
+    value: 'portfolio.shinkeonkim.com',
+    href: 'https://portfolio.shinkeonkim.com',
   },
 ] as const

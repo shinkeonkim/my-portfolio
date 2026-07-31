@@ -6,12 +6,12 @@
 
 Backend 를 중심으로 인프라 · 프론트엔드 · AI 모델까지, 서비스 전체 흐름을 고민하는 엔지니어의 이력 · 프로젝트 · 활동을 한 페이지에 정리합니다.
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-shinkeonkim.com/my--portfolio-f5a524?style=for-the-badge)](https://shinkeonkim.com/my-portfolio/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-shinkeonkim.com/my-portfolio-f5a524?style=for-the-badge)](https://shinkeonkim.com/my-portfolio/)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5-4FC08D?style=flat-square&logo=vue.js&logoColor=white)](https://vuejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.3-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![GitHub Pages](https://img.shields.io/badge/Deployed_on-GitHub_Pages-181717?style=flat-square&logo=github&logoColor=white)](https://pages.github.com/)
+[![Cloudflare Workers](https://img.shields.io/badge/Deployed_on-Cloudflare_Workers-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
 
 </div>
 
@@ -34,9 +34,9 @@ Backend 를 중심으로 인프라 · 프론트엔드 · AI 모델까지, 서비
 
 |               | URL                                                                      |
 | ------------- | ------------------------------------------------------------------------ |
-| 메인          | [`shinkeonkim.com/my-portfolio/`](https://shinkeonkim.com/my-portfolio/) |
+| 메인          | [`shinkeonkim.com/my-portfolio/`](https://shinkeonkim.com/my-portfolio/)       |
 | 프로젝트 상세 | `/projects/:slug` (예: `/projects/mefit`)                                |
-| PDF 내보내기  | [`/my-portfolio/pdf`](https://shinkeonkim.com/my-portfolio/pdf)          |
+| PDF 내보내기  | [`/pdf`](https://shinkeonkim.com/my-portfolio/pdf)                          |
 
 <br />
 

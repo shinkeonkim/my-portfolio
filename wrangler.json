@@ -1,0 +1,17 @@
+{
+  "name": "my-portfolio",
+  "compatibility_date": "2026-07-31",
+  "assets": {
+    "directory": "dist",
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [
+    {
+      "pattern": "portfolio.shinkeonkim.com",
+      "custom_domain": true
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
