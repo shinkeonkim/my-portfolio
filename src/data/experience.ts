@@ -5,7 +5,7 @@ const EXP_IMG = '/my-portfolio/images/experience'
 export const experiences: readonly Experience[] = [
   {
     company: '(주) 그렙: 프로그래머스',
-    totalPeriod: '2019.06 ~ 2025.03 (3년 3개월)',
+    totalPeriod: '2019.06 ~ 2025.03 (총 경력 3년 2개월)',
     developerPeriod: '개발 경력 2년 8개월',
     roles: [
       {
@@ -105,8 +105,8 @@ export const experiences: readonly Experience[] = [
         ],
         details: [
           {
-            title: '이력서 모델 jsonb → 정규화 무중단 마이그레이션',
-            period: '2022.10 집중 작업 · 2022.05 ~ 10 무중단 정리 방법론 일관 적용',
+            title: '이력서 모델 jsonb → 정규화 무중단 마이그레이션 + schema 방법론 확립',
+            period: '2022.05 ~ 2022.10 (집중) · 무중단 정리 방법론 일관 적용',
             bullets: [
               '개선 전: 경력 / 프로젝트 / 교육 / 수상 / 활동 / 논문 6개 도메인이 jsonb 컬럼에 저장. 필터링·집계는 앱 레벨 파싱 대신 jsonb_array_elements + EXISTS 서브쿼리로 이미 DB 위임하는 하이브리드 구조였으나, 필터/정렬/집계 요구가 늘면서 JSONB 인덱싱 한계·쿼리 복잡도가 병목화',
               '대안 검토: (1) GIN 인덱스(jsonb_path_ops) 로 JSONB 유지 + 부분 튜닝, (2) 정규화 테이블로 전환. 필터 조건 다양성이 계속 증가하는 이력서 도메인 특성상 GIN 만으로는 정렬/조인/통계 요구를 감당하기 어렵다고 판단함. 그리고 jsonb 내에 중복되는 데이터 저장으로 저장 공간 낭비가 발생한다고 판단함. → 도메인 별 모델 (ResumeExperience / ResumeProject / ResumeEducation / ResumeAward / ResumeActivity / ResumePublication) 로 정규화 결정',
@@ -127,30 +127,24 @@ export const experiences: readonly Experience[] = [
             ],
           },
           {
-            title: '비즈니스 프로그래머스 — 개발자 검색 SSR → SPA 전환 + 어드민 개선',
-            period: '2021.01 ~ 2022.04',
+            title: '채용 도메인 SSR → SPA 전환 (개발자 검색 + 채용공고) + 서브도메인 분리',
+            period: '2021.01 ~ 2022.07',
             bullets: [
-              'Ruby on Rails SSR + CoffeeScript 강결합 컨트롤러를 백엔드 API 분리 + Vue.js Composition API + TypeScript 도메인 모델 SPA 로 전환. CoffeeScript(.coffee.erb) 잔재 → Vue app 대체 + jbuilder API 마이그레이션 병행',
+              '개발자 검색 리팩토링 (807 files 규모): Ruby on Rails SSR + CoffeeScript 강결합 컨트롤러를 백엔드 API 분리 + Vue.js Composition API + TypeScript 도메인 모델 SPA 로 전환. CoffeeScript(.coffee.erb) 잔재 → Vue app 대체 + jbuilder API 마이그레이션 병행',
+              '채용공고 페이지 Vue SPA 전환: 채용공고 #index 부터 vue-router + Composition API + TypeScript 도메인 모델 SPA 로 전환. 필터 시스템 컴포넌트화 (Tag / Company / Location / MinEmployees / MinSalary / MinCareer 분리 + chip 렌더링 + URL 동기화 + AutoComplete + sticky)',
               '검색 백엔드는 텍스트/랭킹은 ElasticSearch (한국어 analyzer, bool 쿼리로 기술스택 매칭 점수·경력 일치·차단 회사 제외 등 조합), 정확 매칭/집합/접근 제어는 PostgreSQL (배열 연산자, JSONB 서브쿼리, ransack scope 조합) 로 나눈 하이브리드 설계. 대안(RDB 로 유사도·스코어링까지 처리) 은 쿼리가 훨씬 무거워지고 형태소 분석 인프라를 자체 구축해야 함',
               '회사 관점 접근 제어 (열람 / 차단 / 북마크 / 제안 / 인재풀 / 이미 본 프로필 제외 등) 를 조합 가능한 scope 체인으로 설계 → 새 화면 추가 시 기존 scope 조합만으로 표현 가능한 재사용 구조 확보',
-              'ransack scope 화이트리스트 + Arel 바인드 파라미터로 SQL Injection 원천 차단. 컨트롤러에 흩어져 있던 필터 if 체인을 도메인 모델의 명명된 scope 로 이관해 다른 컨트롤러(대회 채용공고 등) 와 공통 재사용',
-              'SPA 전환에 수반된 vue-router / 스켈레톤 UI / 북마크 그룹 / 제안 관리 / 페이지네이션 일괄 정리 + 컴포넌트 단위 RSpec / Jest 테스트 보강 (모달 / Util / 라우터 / 인터셉터 mock)',
-            ],
-            images: [`${EXP_IMG}/notion-06.png`],
-          },
-          {
-            title: '채용공고 페이지 SSR → SPA 전환 (Vue + Composition API + TypeScript)',
-            period: '2021.03 ~ 2022.07',
-            bullets: [
-              'Rails ERB SSR + CoffeeScript 를 채용공고 #index 부터 Vue SPA (vue-router + Composition API + TypeScript 도메인 모델) 로 전환. 필터 시스템 컴포넌트화: Tag / Company / Location / MinEmployees / MinSalary / MinCareer 분리 + chip 렌더링 + URL 동기화 + AutoComplete + sticky',
               '백엔드 필터 쿼리는 컨트롤러 액션의 절차형 if 체인을 도메인 모델의 명명된 scope + ransack 화이트리스트로 이관. 여러 컨트롤러(일반 채용공고, 대회 채용공고 등) 에서 중복 구현되던 필터 로직을 concern 으로 통합 → 인덱스 튜닝/쿼리 최적화 변경 지점을 한 곳으로 수렴',
               '회사 필터 배열 순서를 결과 정렬에 반영하는 요구를 Ruby sort_by 대신 SQL CASE 정렬로 DB 위임. 대안(Ruby 정렬) 은 페이지네이션과 결합 시 매 페이지마다 필터 결과 전체를 로드해야 함 → DB 위임으로 LIMIT/OFFSET 과 자연스러운 결합 + 새 파라미터 없이 기존 company_ids 순서 재사용해 API 계약 단순 유지',
+              'ransack scope 화이트리스트 + Arel 바인드 파라미터로 SQL Injection 원천 차단. 컨트롤러에 흩어져 있던 필터 if 체인을 도메인 모델의 명명된 scope 로 이관해 다른 컨트롤러(대회 채용공고 등) 와 공통 재사용',
+              'SPA 전환에 수반된 vue-router / 스켈레톤 UI / 북마크 그룹 / 제안 관리 / 페이지네이션 일괄 정리 + 컴포넌트 단위 RSpec / Jest 테스트 보강 (모달 / Util / 라우터 / 인터셉터 mock)',
+              '2022 후속: career.programmers.co.kr 서브도메인 + 별도 Sidekiq job 서버 (job_career) 분리 + hera-client SPA 저장소 통합으로 자원 격리 및 배포 독립성 확보',
             ],
-            images: [`${EXP_IMG}/notion-05.png`],
+            images: [`${EXP_IMG}/notion-06.png`, `${EXP_IMG}/notion-05.png`],
           },
           {
-            title: '이력서 GitHub 분석기 정밀도·운영 안정성 개선 + 프로그래머스 프로젝트 통합',
-            period: '2021.07 ~ 2021.09 + 2022.03 후속 대응',
+            title: '이력서 GitHub 분석기 정밀도·운영 안정성 개선',
+            period: '2021.07 ~ 2021.09 · 2022.03 후속 대응',
             bullets: [
               'Ruby · Rugged · github-linguist · ActionCable WebSocket · Docker · AWS ECS · Sentry 기반. Rugged::Walker 정렬 옵션 명시화 + 단일 커밋 레포 엣지 케이스 (parents.empty?) 대응으로 커밋 미분석 건수 0건 달성',
               '분석 로직 별도 클래스 분리 + 로컬 단독 실행 스크립트로 디버깅 환경 마련, Gemfile / Gemfile.lock + bundle exec 로 컨테이너 빌드 재현성 확보',
@@ -171,37 +165,25 @@ export const experiences: readonly Experience[] = [
             images: [`${EXP_IMG}/notion-04.png`],
           },
           {
-            title: '대회 / 과제테스트 연습 도메인 확장',
-            period: '2021.09 ~ 2022.09',
+            title: '대회 도메인 확장 + 서비스 품질 개선 (커버리지·에러 알림)',
+            period: '2020.12 ~ 2022.10',
             bullets: [
-              '회사 어드민 / 상세 검색 / 등록 엑셀 다운로드 / 통계 지원 / 반응형 레이아웃 등 점진 출시. 대회 V1 API (대회 상세 / 지원 / 리더보드 / 지원 취소 등 기능 확장',
+              '대회 시스템 확장: 회사 어드민 / 상세 검색 / 등록 엑셀 다운로드 / 통계 지원 / 반응형 레이아웃 점진 출시 + V1 API (대회 상세 / 지원 / 리더보드 / 지원 취소 등) 기능 확장',
               '대회 참가 기업 대량 등록은 반복 create 루프 대신 activerecord-import 배치 삽입 + on_duplicate_key_ignore 로 중복 무시를 DB 제약에 위임. 대안(find_or_create_by 루프) 은 등록 건수만큼 SELECT/INSERT 반복 발생 → 왕복 횟수를 상수 수준으로 축소',
               '"대회 → 참여 회사" 집합 계산은 Ruby map/flatten/uniq 대신 has_many :through + distinct association 으로 DB 위임. 이름 있는 관계로 승격해 여러 호출부에서 재사용 + distinct 와 기본 order 충돌 가능성은 unscope(:order) 로 명시적 해소',
               '방치된 지원서 만료 처리는 매 조회 시 계산(applied_at + 기간) 대신 revoke_at 컬럼을 미리 계산·저장해 배치 스캔 조건 단순화. 대안(표현식 인덱스) 은 정책 변경 시마다 인덱스 재생성 부담 → 컬럼화로 인덱스 활용도와 정책 유연성 동시 확보 (쓰기 시 계산 비용을 지불하는 트레이드오프)',
               '종료된 대회 목록에 페이지네이션 선제 적용. "쌓이기만 하는" 데이터 특성상 시간이 지날수록 응답 크기가 단조 증가할 것을 인지 → 문제가 심각해지기 전에 페이지 단위로 잘라 응답 크기 상수 유지',
               '검증 로직에서는 counter_cache 사용 배제. 캐시된 카운터와 실제 카운트가 어긋난 케이스를 계기로 "목록 표시처럼 근사값이 허용되는 곳에는 유지, 검증 로직처럼 정확성이 중요한 곳에는 실시간 count" 기준 정착',
-            ],
-            images: [`${EXP_IMG}/notion-03.png`],
-          },
-          {
-            title: '채용사업부 에러 알림 채널 분리',
-            period: '2022.06',
-            bullets: [
-              '채용 도메인 전반의 컨트롤러 / 채널 / 잡에 dept.career 분류 태그를 일괄 부착 → 에러 핸들러에서 태그 기반으로 채용사업부 / 다른 부서 Slack 채널 라우팅 → 응답 책임자 명확화 + 다른 부서 알람 노이즈 감소',
-            ],
-          },
-          {
-            title: '서비스 품질 개선: 테스트 커버리지 70 → 80% + 무중단 schema 정리 방법론',
-            period: '2020.12 ~ 2022.10',
-            bullets: [
               '테스트 커버리지 70% → 80% 개선 기여 (컨트롤러 / 모델 / 정책 / 팩토리 spec 보강). 백오피스 모니터링 · APM 에서 발견된 N+1 · 인덱스 누락 · 비효율 쿼리를 관계 사용 형태별 도구 선택 원칙(JOIN 필요 여부 vs 지연 preload vs ID 비교) 에 따라 정리',
               'Test Suite 자체를 최적화 대상으로 삼아 let_it_be 로 전면 전환 (파일 단위 리뷰 가능한 크기로 40+회 나눠 진행). 매 example 마다 재생성되던 팩토리가 describe 그룹당 1회로 감소. 단순 치환이 아니라 build(DB 미저장) 객체에는 refind: false 를 정확히 붙여 프레임워크 오작동 방지',
               'Flaky 테스트는 재실행 회피 대신 별도 브랜치까지 파서 근본 원인 추적 - 정렬 비결정성(id 순 first → 도메인 키 명시), 부동소수점 비교 정밀도 등. 외부 연동 스텁은 팀 컨벤션(WebMock + Sinatra Fake API) 을 따라 라우팅 구조를 가진 Fake 앱으로 확장에 대비',
               '여러 어드민 리소스에 흩어져 있던 무거운 select box(전체 collection 로딩) 와 커스텀 ransacker(중간 pluck + IN 절 2단계 쿼리) 복붙 패턴을 각각 AJAX 원격 검색과 네이티브 ransack 연관 필터로 일괄 정리. 처음엔 부분 개선하다 반복 패턴 인지 후 한 커밋에 통일 ("점진적 탐색 → 일괄 수렴")',
               '무중단 schema 정리 방법론 확립: ignored_columns 선반영 → 사용처 삭제 → 실제 컬럼/테이블 drop. 다수 도메인(이력서 / 채용공고 / 회사 / 대회 / 인재 프로필 등) 에 일관 적용해 신·구 앱 서버 병행 구간의 스키마 캐시 miss 500 에러 원천 차단',
               '데이터 정합성 안전장치 습관화: 유니크 인덱스 추가 전 기존 중복 데이터 정리 잡 선행, 사용 중 리소스 삭제를 모델 콜백에서 원천 차단, 마이그레이션 배치는 콘솔 스크립트 대신 ApplicationJob 으로 만들어 스테이징 · 프로덕션 반복 재현 가능',
+              '채용사업부 에러 알림 채널 분리: 채용 도메인 전반의 컨트롤러 / 채널 / 잡에 dept.career 분류 태그를 일괄 부착 → 에러 핸들러에서 태그 기반으로 채용사업부 / 다른 부서 Slack 채널 라우팅 → 응답 책임자 명확화 + 다른 부서 알람 노이즈 감소',
               '프로덕션 에러(Sentry) 를 근본 원인 제거 + 회귀 스펙과 함께 수정하는 사이클 정착',
             ],
+            images: [`${EXP_IMG}/notion-03.png`],
           },
         ],
       },
