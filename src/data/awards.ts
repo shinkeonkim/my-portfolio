@@ -66,6 +66,7 @@ export const awards: readonly Award[] = [
 ] as const
 
 export const certifications: readonly Certification[] = [
+  { title: 'AWS Certified Solutions Architect Associate (SAA-C03)', date: '2026-08' },
   { title: 'AWS Certified Cloud Practitioner (CLF-C02)', date: '2026-07' },
   { title: 'AWS Certified AI Practitioner (AIF)', date: '2026-07' },
   { title: '정보처리기사', date: '2025-09' },
