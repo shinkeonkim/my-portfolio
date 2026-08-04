@@ -1,5 +1,6 @@
 export interface ExperienceDetail {
   title: string
+  impact?: string
   period?: string
   bullets: readonly string[]
   images?: readonly string[]

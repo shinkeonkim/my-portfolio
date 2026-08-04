@@ -224,6 +224,10 @@ dialog {
   padding: 0;
   margin: auto;
 }
+.prose-modal {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
 .prose-modal :deep(ul) {
   margin: 0.5rem 0;
   padding-left: 1.25rem;

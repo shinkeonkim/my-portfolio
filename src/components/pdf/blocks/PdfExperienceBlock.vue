@@ -40,6 +40,7 @@ defineProps<{ experiences: readonly Experience[] }>()
                 <h4>{{ d.title }}</h4>
                 <span v-if="d.period" class="pdf-exp-detail-period">{{ d.period }}</span>
               </header>
+              <p v-if="d.impact" class="pdf-exp-impact">{{ d.impact }}</p>
               <ul v-if="d.bullets.length" class="pdf-exp-bullets">
                 <li v-for="(b, bi) in d.bullets" :key="bi">{{ b }}</li>
               </ul>
@@ -210,6 +211,13 @@ defineProps<{ experiences: readonly Experience[] }>()
   color: #64748b;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+}
+
+.pdf-exp-impact {
+  margin: 1pt 0 2pt 0;
+  font-size: 8.5pt;
+  line-height: 1.45;
+  color: #475569;
 }
 
 .pdf-exp-bullets {

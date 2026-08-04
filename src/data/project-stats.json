@@ -1,9 +1,9 @@
 {
   "a-sports": {
-    "fetchedAt": "2026-06-05T01:20:08.155277+00:00",
+    "fetchedAt": "2026-08-04T10:57:57.720237+00:00",
     "repos": [
       {
-        "_statsFetchedAt": "2026-06-05T01:20:05.683720+00:00",
+        "_statsFetchedAt": "2026-08-04T10:57:55.203906+00:00",
         "additions": 50775,
         "deletions": 16324,
         "firstCommitDate": "2020-10-04T00:00:00+00:00",
@@ -53,7 +53,7 @@
         "url": "https://github.com/Algo-Sports/algo-sports-front"
       },
       {
-        "_statsFetchedAt": "2026-06-05T01:20:08.155053+00:00",
+        "_statsFetchedAt": "2026-08-04T10:57:57.719213+00:00",
         "additions": 164,
         "deletions": 42,
         "firstCommitDate": "2020-11-29T00:00:00+00:00",
@@ -125,10 +125,10 @@
     ]
   },
   "athena": {
-    "fetchedAt": "2026-06-05T01:20:17.991588+00:00",
+    "fetchedAt": "2026-08-04T10:58:07.220185+00:00",
     "repos": [
       {
-        "_statsFetchedAt": "2026-06-05T01:20:10.941038+00:00",
+        "_statsFetchedAt": "2026-08-04T10:58:00.096521+00:00",
         "additions": 19387,
         "deletions": 3737,
         "firstCommitDate": "2025-05-11T00:00:00+00:00",
@@ -185,7 +185,7 @@
         "url": "https://github.com/shinkeonkim/AD_project_athena"
       },
       {
-        "_statsFetchedAt": "2026-06-05T01:20:13.284524+00:00",
+        "_statsFetchedAt": "2026-08-04T10:58:02.566572+00:00",
         "additions": 1811,
         "deletions": 53,
         "firstCommitDate": "2025-06-01T00:00:00+00:00",
@@ -227,7 +227,7 @@
         "url": "https://github.com/shinkeonkim/code-executor"
       },
       {
-        "_statsFetchedAt": "2026-06-05T01:20:15.730985+00:00",
+        "_statsFetchedAt": "2026-08-04T10:58:04.950896+00:00",
         "additions": 1855,
         "deletions": 9,
         "firstCommitDate": "2025-06-01T00:00:00+00:00",
@@ -264,7 +264,7 @@
         "url": "https://github.com/shinkeonkim/code-judger"
       },
       {
-        "_statsFetchedAt": "2026-06-05T01:20:17.991520+00:00",
+        "_statsFetchedAt": "2026-08-04T10:58:07.220070+00:00",
         "additions": 1747,
         "deletions": 0,
         "firstCommitDate": "2025-06-01T00:00:00+00:00",
@@ -303,10 +303,10 @@
     ]
   },
   "daedong-mokjido": {
-    "fetchedAt": "2026-06-05T01:20:20.639110+00:00",
+    "fetchedAt": "2026-08-04T10:58:09.887556+00:00",
     "repos": [
       {
-        "_statsFetchedAt": "2026-06-05T01:20:20.639005+00:00",
+        "_statsFetchedAt": "2026-08-04T10:58:09.887527+00:00",
         "additions": 25749,
         "deletions": 6174,
         "firstCommitDate": "2021-07-25T00:00:00+00:00",
@@ -384,10 +384,10 @@
     ]
   },
   "kkambbaki": {
-    "fetchedAt": "2026-06-05T02:15:52.267446+00:00",
+    "fetchedAt": "2026-08-04T10:58:19.909862+00:00",
     "repos": [
       {
-        "_statsFetchedAt": "2026-06-05T02:15:44.968417+00:00",
+        "_statsFetchedAt": "2026-08-04T10:58:12.465082+00:00",
         "additions": 26628,
         "deletions": 2482,
         "firstCommitDate": "2025-10-12T00:00:00+00:00",
@@ -442,7 +442,7 @@
         "url": "https://github.com/kkambbaki/backend"
       },
       {
-        "_statsFetchedAt": "2026-06-05T02:15:47.465306+00:00",
+        "_statsFetchedAt": "2026-08-04T10:58:14.983966+00:00",
         "additions": 69,
         "deletions": 9,
         "firstCommitDate": "2025-11-09T00:00:00+00:00",
@@ -500,7 +500,7 @@
         "url": "https://github.com/kkambbaki/frontend"
       },
       {
-        "_statsFetchedAt": "2026-06-05T02:15:49.844013+00:00",
+        "_statsFetchedAt": "2026-08-04T10:58:17.265679+00:00",
         "additions": 1715,
         "deletions": 225,
         "firstCommitDate": "2025-10-12T00:00:00+00:00",
@@ -532,7 +532,7 @@
         "url": "https://github.com/kkambbaki/infra"
       },
       {
-        "_statsFetchedAt": "2026-06-05T02:15:52.267263+00:00",
+        "_statsFetchedAt": "2026-08-04T10:58:19.909794+00:00",
         "additions": 115,
         "deletions": 85,
         "firstCommitDate": "2025-11-09T00:00:00+00:00",
@@ -568,10 +568,10 @@
     ]
   },
   "lotteng": {
-    "fetchedAt": "2026-06-05T01:20:25.515920+00:00",
+    "fetchedAt": "2026-08-04T10:58:22.504330+00:00",
     "repos": [
       {
-        "_statsFetchedAt": "2026-06-05T01:20:25.515794+00:00",
+        "_statsFetchedAt": "2026-08-04T10:58:22.504212+00:00",
         "additions": 78850,
         "deletions": 2226,
         "firstCommitDate": "2020-09-20T00:00:00+00:00",
@@ -681,99 +681,66 @@
     ]
   },
   "mefit": {
-    "fetchedAt": "2026-06-05T01:20:30.992816+00:00",
+    "fetchedAt": "2026-08-04T10:58:49.226238+00:00",
     "repos": [
       {
-        "_statsFetchedAt": "2026-06-05T01:20:28.300733+00:00",
-        "additions": 175731,
-        "deletions": 27949,
+        "_statsFetchedAt": "2026-08-04T10:58:25.025512+00:00",
+        "additions": 46843,
+        "deletions": 10075,
         "firstCommitDate": "2026-03-08T00:00:00+00:00",
         "forks": 0,
         "languages": [
           {
-            "bytes": 2720291,
-            "name": "Python",
-            "percent": 55
-          },
-          {
-            "bytes": 1839778,
+            "bytes": 1797454,
             "name": "TypeScript",
-            "percent": 37
+            "percent": 97
           },
           {
-            "bytes": 118994,
-            "name": "Shell",
-            "percent": 2
-          },
-          {
-            "bytes": 117777,
-            "name": "HTML",
-            "percent": 2
-          },
-          {
-            "bytes": 56626,
+            "bytes": 34995,
             "name": "CSS",
+            "percent": 2
+          },
+          {
+            "bytes": 25315,
+            "name": "HTML",
             "percent": 1
           },
           {
-            "bytes": 24379,
+            "bytes": 2682,
             "name": "JavaScript",
-            "percent": 0
-          },
-          {
-            "bytes": 14714,
-            "name": "Makefile",
-            "percent": 0
-          },
-          {
-            "bytes": 11944,
-            "name": "Dockerfile",
-            "percent": 0
-          },
-          {
-            "bytes": 1654,
-            "name": "Batchfile",
             "percent": 0
           }
         ],
-        "myCommits": 1319,
-        "myPercent": 73,
-        "owner": "kookmin-sw",
-        "pushedAt": "2026-05-19T06:22:05Z",
-        "repo": "2026-capstone-54",
-        "stars": 2,
+        "myCommits": 331,
+        "myPercent": 49,
+        "owner": "kmu-aws-capstone-team-4",
+        "pushedAt": "2026-05-21T06:39:07Z",
+        "repo": "frontend",
+        "stars": 0,
         "topContributors": [
           {
             "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
-            "contributions": 1319,
+            "contributions": 331,
             "htmlUrl": "https://github.com/shinkeonkim",
             "isMe": true,
             "login": "shinkeonkim",
-            "percent": 73
+            "percent": 49
           },
           {
             "avatarUrl": "https://avatars.githubusercontent.com/u/171876428?v=4",
-            "contributions": 314,
+            "contributions": 311,
             "htmlUrl": "https://github.com/joan4720",
             "isMe": false,
             "login": "joan4720",
-            "percent": 17
+            "percent": 46
           },
           {
             "avatarUrl": "https://avatars.githubusercontent.com/u/158272773?v=4",
-            "contributions": 90,
+            "contributions": 31,
             "htmlUrl": "https://github.com/youzinnnnn",
             "isMe": false,
             "login": "youzinnnnn",
             "percent": 5
-          },
-          {
-            "avatarUrl": "https://avatars.githubusercontent.com/u/170993855?v=4",
-            "contributions": 43,
-            "htmlUrl": "https://github.com/sonnyseokjun",
-            "isMe": false,
-            "login": "sonnyseokjun",
-            "percent": 2
           },
           {
             "avatarUrl": "https://avatars.githubusercontent.com/u/197492417?v=4",
@@ -781,15 +748,7 @@
             "htmlUrl": "https://github.com/jjoanne-l",
             "isMe": false,
             "login": "jjoanne-l",
-            "percent": 0
-          },
-          {
-            "avatarUrl": "https://avatars.githubusercontent.com/in/68187?v=4",
-            "contributions": 2,
-            "htmlUrl": "https://github.com/apps/github-classroom",
-            "isMe": false,
-            "login": "github-classroom[bot]",
-            "percent": 0
+            "percent": 1
           },
           {
             "avatarUrl": "https://avatars.githubusercontent.com/in/85455?v=4",
@@ -800,11 +759,64 @@
             "percent": 0
           }
         ],
-        "totalCommits": 1798,
-        "url": "https://github.com/kookmin-sw/2026-capstone-54"
+        "totalCommits": 678,
+        "url": "https://github.com/kmu-aws-capstone-team-4/frontend"
       },
       {
-        "_statsFetchedAt": "2026-06-05T01:20:30.992679+00:00",
+        "_statsFetchedAt": "2026-08-04T10:58:27.415729+00:00",
+        "additions": 2334,
+        "deletions": 283,
+        "firstCommitDate": "2026-04-05T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 84301,
+            "name": "Python",
+            "percent": 98
+          },
+          {
+            "bytes": 1564,
+            "name": "Dockerfile",
+            "percent": 2
+          }
+        ],
+        "myCommits": 15,
+        "myPercent": 45,
+        "owner": "kmu-aws-capstone-team-4",
+        "pushedAt": "2026-05-21T06:26:51Z",
+        "repo": "interview-analysis-report",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/158272773?v=4",
+            "contributions": 17,
+            "htmlUrl": "https://github.com/youzinnnnn",
+            "isMe": false,
+            "login": "youzinnnnn",
+            "percent": 52
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 15,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 45
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/170993855?v=4",
+            "contributions": 1,
+            "htmlUrl": "https://github.com/sonnyseokjun",
+            "isMe": false,
+            "login": "sonnyseokjun",
+            "percent": 3
+          }
+        ],
+        "totalCommits": 33,
+        "url": "https://github.com/kmu-aws-capstone-team-4/interview-analysis-report"
+      },
+      {
+        "_statsFetchedAt": "2026-08-04T10:58:30.230396+00:00",
         "additions": 91322,
         "deletions": 13511,
         "firstCommitDate": "2026-03-08T00:00:00+00:00",
@@ -865,14 +877,376 @@
         ],
         "totalCommits": 815,
         "url": "https://github.com/kmu-aws-capstone-team-4/backend"
+      },
+      {
+        "_statsFetchedAt": "2026-08-04T10:58:32.727067+00:00",
+        "additions": 8658,
+        "deletions": 48,
+        "firstCommitDate": "2026-04-19T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 100063,
+            "name": "Python",
+            "percent": 90
+          },
+          {
+            "bytes": 11624,
+            "name": "Shell",
+            "percent": 10
+          }
+        ],
+        "myCommits": 25,
+        "myPercent": 96,
+        "owner": "kmu-aws-capstone-team-4",
+        "pushedAt": "2026-05-16T02:09:07Z",
+        "repo": "mefit-diagrams",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 25,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 96
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/158272773?v=4",
+            "contributions": 1,
+            "htmlUrl": "https://github.com/youzinnnnn",
+            "isMe": false,
+            "login": "youzinnnnn",
+            "percent": 4
+          }
+        ],
+        "totalCommits": 26,
+        "url": "https://github.com/kmu-aws-capstone-team-4/mefit-diagrams"
+      },
+      {
+        "_statsFetchedAt": "2026-08-04T10:58:35.209067+00:00",
+        "additions": 2669,
+        "deletions": 606,
+        "firstCommitDate": "2026-04-12T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 45441,
+            "name": "Python",
+            "percent": 81
+          },
+          {
+            "bytes": 10425,
+            "name": "Shell",
+            "percent": 19
+          }
+        ],
+        "myCommits": 29,
+        "myPercent": 88,
+        "owner": "kmu-aws-capstone-team-4",
+        "pushedAt": "2026-05-13T07:07:02Z",
+        "repo": "analysis-video",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 29,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 88
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/170993855?v=4",
+            "contributions": 3,
+            "htmlUrl": "https://github.com/sonnyseokjun",
+            "isMe": false,
+            "login": "sonnyseokjun",
+            "percent": 9
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/158272773?v=4",
+            "contributions": 1,
+            "htmlUrl": "https://github.com/youzinnnnn",
+            "isMe": false,
+            "login": "youzinnnnn",
+            "percent": 3
+          }
+        ],
+        "totalCommits": 33,
+        "url": "https://github.com/kmu-aws-capstone-team-4/analysis-video"
+      },
+      {
+        "_statsFetchedAt": "2026-08-04T10:58:37.600450+00:00",
+        "additions": 2142,
+        "deletions": 9,
+        "firstCommitDate": "2026-03-29T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 19989,
+            "name": "Python",
+            "percent": 96
+          },
+          {
+            "bytes": 832,
+            "name": "Dockerfile",
+            "percent": 4
+          }
+        ],
+        "myCommits": 11,
+        "myPercent": 85,
+        "owner": "kmu-aws-capstone-team-4",
+        "pushedAt": "2026-05-11T11:36:39Z",
+        "repo": "voice-api",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 11,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 85
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/170993855?v=4",
+            "contributions": 2,
+            "htmlUrl": "https://github.com/sonnyseokjun",
+            "isMe": false,
+            "login": "sonnyseokjun",
+            "percent": 15
+          }
+        ],
+        "totalCommits": 13,
+        "url": "https://github.com/kmu-aws-capstone-team-4/voice-api"
+      },
+      {
+        "_statsFetchedAt": "2026-08-04T10:58:39.810799+00:00",
+        "additions": 4145,
+        "deletions": 1018,
+        "firstCommitDate": "2026-04-05T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 50240,
+            "name": "Python",
+            "percent": 97
+          },
+          {
+            "bytes": 1610,
+            "name": "Dockerfile",
+            "percent": 3
+          }
+        ],
+        "myCommits": 12,
+        "myPercent": 92,
+        "owner": "kmu-aws-capstone-team-4",
+        "pushedAt": "2026-05-11T10:17:08Z",
+        "repo": "analysis-resume",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 12,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 92
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/170993855?v=4",
+            "contributions": 1,
+            "htmlUrl": "https://github.com/sonnyseokjun",
+            "isMe": false,
+            "login": "sonnyseokjun",
+            "percent": 8
+          }
+        ],
+        "totalCommits": 13,
+        "url": "https://github.com/kmu-aws-capstone-team-4/analysis-resume"
+      },
+      {
+        "_statsFetchedAt": "2026-08-04T10:58:42.160923+00:00",
+        "additions": 203,
+        "deletions": 0,
+        "firstCommitDate": "2026-05-10T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 37433,
+            "name": "Python",
+            "percent": 91
+          },
+          {
+            "bytes": 3124,
+            "name": "Shell",
+            "percent": 8
+          },
+          {
+            "bytes": 643,
+            "name": "Dockerfile",
+            "percent": 2
+          }
+        ],
+        "myCommits": 2,
+        "myPercent": 33,
+        "owner": "kmu-aws-capstone-team-4",
+        "pushedAt": "2026-05-11T08:28:18Z",
+        "repo": "face-analyzer",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/170993855?v=4",
+            "contributions": 4,
+            "htmlUrl": "https://github.com/sonnyseokjun",
+            "isMe": false,
+            "login": "sonnyseokjun",
+            "percent": 67
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 2,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 33
+          }
+        ],
+        "totalCommits": 6,
+        "url": "https://github.com/kmu-aws-capstone-team-4/face-analyzer"
+      },
+      {
+        "_statsFetchedAt": "2026-08-04T10:58:44.485965+00:00",
+        "additions": 5550,
+        "deletions": 1137,
+        "firstCommitDate": "2026-03-22T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 53882,
+            "name": "Shell",
+            "percent": 100
+          }
+        ],
+        "myCommits": 75,
+        "myPercent": 100,
+        "owner": "kmu-aws-capstone-team-4",
+        "pushedAt": "2026-05-11T04:01:42Z",
+        "repo": "infra",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 75,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 100
+          }
+        ],
+        "totalCommits": 75,
+        "url": "https://github.com/kmu-aws-capstone-team-4/infra"
+      },
+      {
+        "_statsFetchedAt": "2026-08-04T10:58:46.876956+00:00",
+        "additions": 1200,
+        "deletions": 249,
+        "firstCommitDate": "2026-03-29T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 116242,
+            "name": "Python",
+            "percent": 94
+          },
+          {
+            "bytes": 3327,
+            "name": "Shell",
+            "percent": 3
+          },
+          {
+            "bytes": 2231,
+            "name": "Dockerfile",
+            "percent": 2
+          },
+          {
+            "bytes": 1654,
+            "name": "Batchfile",
+            "percent": 1
+          }
+        ],
+        "myCommits": 11,
+        "myPercent": 65,
+        "owner": "kmu-aws-capstone-team-4",
+        "pushedAt": "2026-05-09T16:57:57Z",
+        "repo": "scraping",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 11,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 65
+          },
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/170993855?v=4",
+            "contributions": 6,
+            "htmlUrl": "https://github.com/sonnyseokjun",
+            "isMe": false,
+            "login": "sonnyseokjun",
+            "percent": 35
+          }
+        ],
+        "totalCommits": 17,
+        "url": "https://github.com/kmu-aws-capstone-team-4/scraping"
+      },
+      {
+        "_statsFetchedAt": "2026-08-04T10:58:49.226190+00:00",
+        "additions": 722,
+        "deletions": 1,
+        "firstCommitDate": "2026-04-26T00:00:00+00:00",
+        "forks": 0,
+        "languages": [
+          {
+            "bytes": 7314,
+            "name": "Python",
+            "percent": 90
+          },
+          {
+            "bytes": 822,
+            "name": "Dockerfile",
+            "percent": 10
+          }
+        ],
+        "myCommits": 5,
+        "myPercent": 100,
+        "owner": "kmu-aws-capstone-team-4",
+        "pushedAt": "2026-04-30T08:27:57Z",
+        "repo": "analysis-stt",
+        "stars": 0,
+        "topContributors": [
+          {
+            "avatarUrl": "https://avatars.githubusercontent.com/u/47373998?v=4",
+            "contributions": 5,
+            "htmlUrl": "https://github.com/shinkeonkim",
+            "isMe": true,
+            "login": "shinkeonkim",
+            "percent": 100
+          }
+        ],
+        "totalCommits": 5,
+        "url": "https://github.com/kmu-aws-capstone-team-4/analysis-stt"
       }
     ]
   },
   "peacepiece": {
-    "fetchedAt": "2026-06-05T01:20:36.106932+00:00",
+    "fetchedAt": "2026-08-04T10:58:54.413518+00:00",
     "repos": [
       {
-        "_statsFetchedAt": "2026-06-05T01:20:33.566088+00:00",
+        "_statsFetchedAt": "2026-08-04T10:58:51.884203+00:00",
         "additions": 12586,
         "deletions": 8424,
         "firstCommitDate": "2022-07-17T00:00:00+00:00",
@@ -930,7 +1304,7 @@
         "url": "https://github.com/today-they-learned/peacepiece_api"
       },
       {
-        "_statsFetchedAt": "2026-06-05T01:20:36.106860+00:00",
+        "_statsFetchedAt": "2026-08-04T10:58:54.413484+00:00",
         "additions": 22333,
         "deletions": 4467,
         "firstCommitDate": "2022-08-28T00:00:00+00:00",
@@ -1003,10 +1377,10 @@
     ]
   },
   "sellon": {
-    "fetchedAt": "2026-06-05T01:20:41.435809+00:00",
+    "fetchedAt": "2026-08-04T10:58:59.272740+00:00",
     "repos": [
       {
-        "_statsFetchedAt": "2026-06-05T01:20:38.853358+00:00",
+        "_statsFetchedAt": "2026-08-04T10:58:56.835443+00:00",
         "additions": 5937,
         "deletions": 1028,
         "firstCommitDate": "2022-07-10T00:00:00+00:00",
@@ -1072,7 +1446,7 @@
         "url": "https://github.com/bunderLikeLion/sellon_backend"
       },
       {
-        "_statsFetchedAt": "2026-06-05T01:20:41.435752+00:00",
+        "_statsFetchedAt": "2026-08-04T10:58:59.272472+00:00",
         "additions": 12574,
         "deletions": 1981,
         "firstCommitDate": "2022-07-17T00:00:00+00:00",
@@ -1164,10 +1538,10 @@
     ]
   },
   "ttl": {
-    "fetchedAt": "2026-06-05T01:20:46.615758+00:00",
+    "fetchedAt": "2026-08-04T10:59:04.778160+00:00",
     "repos": [
       {
-        "_statsFetchedAt": "2026-06-05T01:20:44.075007+00:00",
+        "_statsFetchedAt": "2026-08-04T10:59:01.916992+00:00",
         "additions": 5885,
         "deletions": 2146,
         "firstCommitDate": "2022-01-16T00:00:00+00:00",
@@ -1220,7 +1594,7 @@
         "url": "https://github.com/today-they-learned/ttl_api"
       },
       {
-        "_statsFetchedAt": "2026-06-05T01:20:46.615661+00:00",
+        "_statsFetchedAt": "2026-08-04T10:59:04.778103+00:00",
         "additions": 878,
         "deletions": 1801,
         "firstCommitDate": "2022-01-30T00:00:00+00:00",

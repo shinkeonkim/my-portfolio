@@ -104,7 +104,7 @@ export const activities: readonly Activity[] = [
       {
         title: '발표 슬라이드 PDF 원본',
         type: 'pdf',
-        url: '/my-portfolio/docs/sipe-mission-presentation.pdf',
+        url: '/docs/sipe-mission-presentation.pdf',
         description: 'SIPE 4기 미션 발표 자료 · 34페이지',
       },
     ],
@@ -112,11 +112,11 @@ export const activities: readonly Activity[] = [
       title: 'SIPE 4기 미션 발표',
       caption: '34페이지 · "AI가 나를 소개해줘요" 미션 발제',
       totalPages: 34,
-      pdfUrl: '/my-portfolio/docs/sipe-mission-presentation.pdf',
+      pdfUrl: '/docs/sipe-mission-presentation.pdf',
       pageImages: Array.from(
         { length: 34 },
         (_, i) =>
-          `/my-portfolio/images/activities/sipe-4/presentation/page-${String(i + 1).padStart(2, '0')}.jpg`,
+          `/images/activities/sipe-4/presentation/page-${String(i + 1).padStart(2, '0')}.jpg`,
       ),
     },
   },

@@ -1,6 +1,6 @@
 import type { Experience } from '@/types'
 
-const EXP_IMG = '/my-portfolio/images/experience'
+const EXP_IMG = '/images/experience'
 
 export const experiences: readonly Experience[] = [
   {
@@ -26,6 +26,7 @@ export const experiences: readonly Experience[] = [
           {
             title: 'KDT 수강생 역량진단리포트 백엔드 단독 개발',
             period: '2024.07 ~ 2025.02',
+            impact: '백엔드 단독 개발 6개월 · PM, 기획, 디자인, QA와 협업해 점진 출시',
             bullets: [
               'Ruby on Rails + ActiveAdmin 기반 백엔드 단독 개발 (PM · 기획 · 디자인 · QA 협업, 약 6개월)',
               '시험 결과 기반 분야별 역량 도출·통계 서비스로, 채점 워커 →  관련 concern 모듈이 호출되어 코스/레슨의 활성화 여부 · KDT 코스 여부· 환경 설정(Settings.features.site) 을 순차 확인 → 정규화 점수 산출·평가 기준(CompetencyStandard) 매칭 → 리포트 생성 → · 메일러 · 사내 알림 · 열람 추적까지 흐름 담당',
@@ -42,6 +43,7 @@ export const experiences: readonly Experience[] = [
           {
             title: '원티드 KDT 서비스 (wantedlms) 멀티 테넌트 분기 작업',
             period: '2024.07 ~ 2024.11',
+            impact: '동일 코드베이스로 두 LMS를 운영해 공통 변경의 원자성과 유지보수성을 확보',
             bullets: [
               '원티드 측 KDT(K-Digital Training) LMS 서비스를 동일 코드베이스 안에서 멀티 테넌트로 운영하기 위한 분기 작업',
               '환경별 YAML 설정 파일으로 프로그래머스 / wantedlms 기능 활성·비활성 분기',
@@ -51,6 +53,7 @@ export const experiences: readonly Experience[] = [
           {
             title: '프로그래머스 프로젝트 LMS V1 API 신규 도입 + service object 분리',
             period: '2024.08 ~ 2025.02',
+            impact: '레거시 API를 도메인별 V1으로 전환하고 핵심 로직을 분리해 인계 비용을 절감',
             bullets: [
               '레거시 /api/school/* → /api/v1/lms/* 로 도메인별 신규 V1 API (게시판, 알림, 학습활동, 학습이력 등) 도입. 레거시 school 도메인을 lms / learn 으로 분리해 후임자 인계 용이성 확보',
               '에러 응답 스키마를 단일 error string 에서 code + message 객체로 통일. 대안(HTTP status code 만으로 분기)은 세부 에러 컨텍스트 표현이 어려워 클라이언트에 추가 파싱 로직이 필요 → 응답 스키마 자체에서 이중 표현으로 프론트 인터페이스 일관화',
@@ -61,6 +64,7 @@ export const experiences: readonly Experience[] = [
           {
             title: '사내 PR 리뷰 알림 봇 전사 확장 (단일팀 → 4팀)',
             period: '2024.07 ~ 2024.08',
+            impact: '단일 팀 도구를 4개 팀에서 재사용할 수 있는 자동화로 확장',
             bullets: [
               'Python · slack_sdk · PyGithub · GitHub Actions cron 기반 사내 도구',
               '레거시를 인계받아 단일팀에서 4개 팀으로 범용화. 팀원 정보 하드코딩을 Slack 사용자그룹 API + 프로필의 GitHub Username 필드 활용으로 대체',
@@ -70,6 +74,7 @@ export const experiences: readonly Experience[] = [
           {
             title: '프로그래머스 스쿨 / 캠퍼스 LMS 유지보수 및 신규 기능 개발',
             period: '2024.07 ~ 2025.03',
+            impact: '운영 이슈를 근본 원인과 회귀 스펙까지 연결해 반복 장애를 예방',
             bullets: [
               'Ruby on Rails + Django 기반 LMS 서비스 유지보수',
               '운영 중 발견된 이슈(Sentry, 사내 Slack 보고)를 근본 원인까지 추적해 회귀 스펙과 함께 수정하는 사이클 유지',
@@ -107,6 +112,7 @@ export const experiences: readonly Experience[] = [
           {
             title: '이력서 모델 jsonb → 정규화 무중단 마이그레이션 + schema 방법론 확립',
             period: '2022.05 ~ 2022.10 (집중) · 무중단 정리 방법론 일관 적용',
+            impact: 'JSONB 병목을 해소하고 무중단 4단계 마이그레이션을 여러 도메인의 표준으로 확산',
             bullets: [
               '개선 전: 경력 / 프로젝트 / 교육 / 수상 / 활동 / 논문 6개 도메인이 jsonb 컬럼에 저장. 필터링·집계는 앱 레벨 파싱 대신 jsonb_array_elements + EXISTS 서브쿼리로 이미 DB 위임하는 하이브리드 구조였으나, 필터/정렬/집계 요구가 늘면서 JSONB 인덱싱 한계·쿼리 복잡도가 병목화',
               '대안 검토: (1) GIN 인덱스(jsonb_path_ops) 로 JSONB 유지 + 부분 튜닝, (2) 정규화 테이블로 전환. 필터 조건 다양성이 계속 증가하는 이력서 도메인 특성상 GIN 만으로는 정렬/조인/통계 요구를 감당하기 어렵다고 판단함. 그리고 jsonb 내에 중복되는 데이터 저장으로 저장 공간 낭비가 발생한다고 판단함. → 도메인 별 모델 (ResumeExperience / ResumeProject / ResumeEducation / ResumeAward / ResumeActivity / ResumePublication) 로 정규화 결정',
@@ -117,6 +123,7 @@ export const experiences: readonly Experience[] = [
           {
             title: '전사 본인인증 프로젝트 신규 구축 + 프로그래머스 프로젝트 통합',
             period: '2022.07 ~ 2022.09',
+            impact: '사내 공용 인증 서비스를 구축해 서비스별 NICE 연동 부담과 운영 요소를 제거',
             bullets: [
               'Python · Flask · Docker · AWS Lambda(Container Image) · API Gateway · DynamoDB · ECR · Terraform · Terragrunt 기반.',
               '사내 여러 서비스가 NICE 본인인증을 각각 직접 통합하지 않도록 공용 인증 서비스로 분리해 신규 구축',
@@ -129,6 +136,7 @@ export const experiences: readonly Experience[] = [
           {
             title: '채용 도메인 SSR → SPA 전환 (개발자 검색 + 채용공고) + 서브도메인 분리',
             period: '2021.01 ~ 2022.07',
+            impact: 'Rails SSR과 CoffeeScript 강결합 구조를 API + Vue TypeScript SPA로 전환',
             bullets: [
               '개발자 검색 리팩토링 (807 files 규모): Ruby on Rails SSR + CoffeeScript 강결합 컨트롤러를 백엔드 API 분리 + Vue.js Composition API + TypeScript 도메인 모델 SPA 로 전환. CoffeeScript(.coffee.erb) 잔재 → Vue app 대체 + jbuilder API 마이그레이션 병행',
               '채용공고 페이지 Vue SPA 전환: 채용공고 #index 부터 vue-router + Composition API + TypeScript 도메인 모델 SPA 로 전환. 필터 시스템 컴포넌트화 (Tag / Company / Location / MinEmployees / MinSalary / MinCareer 분리 + chip 렌더링 + URL 동기화 + AutoComplete + sticky)',
@@ -145,6 +153,7 @@ export const experiences: readonly Experience[] = [
           {
             title: '이력서 GitHub 분석기 정밀도·운영 안정성 개선',
             period: '2021.07 ~ 2021.09 · 2022.03 후속 대응',
+            impact: '미분석 커밋 0건 달성 · 알림 노이즈 감소 · PAT 노출 제거',
             bullets: [
               'Ruby · Rugged · github-linguist · ActionCable WebSocket · Docker · AWS ECS · Sentry 기반. Rugged::Walker 정렬 옵션 명시화 + 단일 커밋 레포 엣지 케이스 (parents.empty?) 대응으로 커밋 미분석 건수 0건 달성',
               '분석 로직 별도 클래스 분리 + 로컬 단독 실행 스크립트로 디버깅 환경 마련, Gemfile / Gemfile.lock + bundle exec 로 컨테이너 빌드 재현성 확보',
@@ -156,6 +165,7 @@ export const experiences: readonly Experience[] = [
           {
             title: '추천 채용공고 ES → AWS Personalize 개인화 추천 전환',
             period: '2021.04 PoC · 2021.07 ~ 2021.12 안정화',
+            impact: '자체 고정 추천을 관리형 개인화로 전환해 클릭률과 지원율을 개선',
             bullets: [
               'ElasticSearch 기반 고정 추천을 AWS Personalize Campaign 기반 개인화 추천으로 전환. 대안(랭킹 로직 Rails 자체 구현) 은 스코어링 인프라 · A/B 실험 설정 · 재훈련 파이프라인을 모두 자체 운영해야 함 → 관리형 서비스에 위임해 도메인 데이터와 피드백 루프에 집중',
               'API client / runtime_client 싱글톤화 + rails console PoC 명령어로 초기 검증',
@@ -167,6 +177,7 @@ export const experiences: readonly Experience[] = [
           {
             title: '대회 도메인 확장 + 서비스 품질 개선 (커버리지·에러 알림)',
             period: '2020.12 ~ 2022.10',
+            impact: '대회 시스템을 확장하고 테스트 커버리지를 70%에서 80%로 개선',
             bullets: [
               '대회 시스템 확장: 회사 어드민 / 상세 검색 / 등록 엑셀 다운로드 / 통계 지원 / 반응형 레이아웃 점진 출시 + V1 API (대회 상세 / 지원 / 리더보드 / 지원 취소 등) 기능 확장',
               '대회 참가 기업 대량 등록은 반복 create 루프 대신 activerecord-import 배치 삽입 + on_duplicate_key_ignore 로 중복 무시를 DB 제약에 위임. 대안(find_or_create_by 루프) 은 등록 건수만큼 SELECT/INSERT 반복 발생 → 왕복 횟수를 상수 수준으로 축소',
@@ -196,6 +207,7 @@ export const experiences: readonly Experience[] = [
           {
             title: '프로그래머스 알고리즘 문제 출제 / 검수 / 워크플로 자동화',
             period: '2019.06 ~ 2019.08 · 2019.12 ~ 2020.02 · 2020.06 ~ 2020.08 (인턴 3차)',
+            impact: '세 차례의 인턴십 동안 출제에서 검수와 자동화 도구 개발까지 책임 범위를 확대',
             bullets: [
               '다양한 난이도·유형의 알고리즘 문제 출제 및 정확성·품질 검수',
               '타 서비스 유사 문제와의 중복 여부까지 검수',

@@ -96,6 +96,12 @@ function openLightbox(images: readonly string[], index: number, alt: string) {
                         <Calendar :size="11" />
                         {{ d.period }}
                       </span>
+                      <span
+                        v-if="d.impact"
+                        class="text-sm leading-relaxed text-[var(--color-text-secondary)]"
+                      >
+                        {{ d.impact }}
+                      </span>
                     </div>
                     <span
                       class="mt-1 hidden shrink-0 font-mono text-[10px] tracking-wider text-[var(--color-text-muted)] uppercase opacity-60 transition group-hover:opacity-100 group-open:hidden md:inline"

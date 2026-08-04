@@ -1,6 +1,6 @@
 import type { Project } from '@/types'
 
-const IMG = '/my-portfolio/images/projects/a-sports'
+const IMG = '/images/projects/a-sports'
 
 export const aSports: Project = {
   slug: 'a-sports',

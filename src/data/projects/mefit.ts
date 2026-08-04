@@ -2,7 +2,7 @@ import type { Project } from '@/types'
 import { presentationPages } from './_helpers'
 import { mefitChallenges } from './mefit-challenges'
 
-const IMG = '/my-portfolio/images/projects/mefit'
+const IMG = '/images/projects/mefit'
 
 export const mefit: Project = {
   slug: 'mefit',
@@ -185,16 +185,21 @@ export const mefit: Project = {
       url: 'https://kookmin-sw.github.io/2026-capstone-54/',
       type: 'article',
     },
+    { label: 'Frontend repo', url: 'https://github.com/kmu-aws-capstone-team-4/frontend', type: 'github' },
     {
-      label: 'Capstone 메인 repo',
-      url: 'https://github.com/kookmin-sw/2026-capstone-54',
+      label: '면접 분석 리포트 repo',
+      url: 'https://github.com/kmu-aws-capstone-team-4/interview-analysis-report',
       type: 'github',
     },
-    {
-      label: 'Backend repo',
-      url: 'https://github.com/kmu-aws-capstone-team-4/backend',
-      type: 'github',
-    },
+    { label: 'Backend repo', url: 'https://github.com/kmu-aws-capstone-team-4/backend', type: 'github' },
+    { label: 'Mefit Diagrams', url: 'https://github.com/kmu-aws-capstone-team-4/mefit-diagrams', type: 'github' },
+    { label: '영상 분석 repo', url: 'https://github.com/kmu-aws-capstone-team-4/analysis-video', type: 'github' },
+    { label: 'Voice API', url: 'https://github.com/kmu-aws-capstone-team-4/voice-api', type: 'github' },
+    { label: '이력서 분석 repo', url: 'https://github.com/kmu-aws-capstone-team-4/analysis-resume', type: 'github' },
+    { label: 'Face Analyzer', url: 'https://github.com/kmu-aws-capstone-team-4/face-analyzer', type: 'github' },
+    { label: 'Infra repo', url: 'https://github.com/kmu-aws-capstone-team-4/infra', type: 'github' },
+    { label: 'Scraping repo', url: 'https://github.com/kmu-aws-capstone-team-4/scraping', type: 'github' },
+    { label: 'STT 분석 repo', url: 'https://github.com/kmu-aws-capstone-team-4/analysis-stt', type: 'github' },
     {
       label: '시연 영상',
       url: 'https://www.youtube.com/watch?v=IRrJmqBDQqc',
@@ -218,7 +223,7 @@ export const mefit: Project = {
     title: 'MeFit 발표 자료',
     caption: '26페이지 · 2026 국민대 캡스톤 디자인 발표',
     totalPages: 26,
-    pdfUrl: '/my-portfolio/docs/mefit-presentation.pdf',
+    pdfUrl: '/docs/mefit-presentation.pdf',
     pageImages: presentationPages('mefit', 26),
   },
 }

@@ -1,7 +1,7 @@
 import type { Project } from '@/types'
 import { presentationPages } from './_helpers'
 
-const IMG = '/my-portfolio/images/projects/ttl'
+const IMG = '/images/projects/ttl'
 
 export const ttl: Project = {
   slug: 'ttl',

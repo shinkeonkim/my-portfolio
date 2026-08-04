@@ -1,6 +1,6 @@
 import type { AIExperiment } from '@/types'
 
-const IMG = '/my-portfolio/images/ai-experiments'
+const IMG = '/images/ai-experiments'
 
 export const aiExperiments: readonly AIExperiment[] = [
   {
