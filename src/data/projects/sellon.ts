@@ -113,38 +113,38 @@ export const sellon: Project = {
         '<p>제한된 해커톤 시간 안에 백엔드와 인프라를 동시에 구축해야 했습니다.</p>',
       approach:
         '<ul>' +
-        '<li>docker-compose 로 로컬과 EC2 환경을 통일</li>' +
-        '<li>도메인을 user / product / auction / dealing 으로 빠르게 잘라 병렬 작업</li>' +
+        '<li>docker-compose로 로컬과 EC2의 실행 환경을 통일했습니다.</li>' +
+        '<li>user, product, auction, dealing 도메인으로 나눠 병렬 개발했습니다.</li>' +
         '</ul>',
       result:
-        '<p>해커톤 기간 내에 데모 가능한 API + 인프라를 동시에 완성하고 동상을 수상했습니다.</p>',
+        '<p>해커톤 안에 데모 가능한 API와 인프라를 함께 완성했고, 동상을 수상했습니다.</p>',
     },
     {
       title: '경매 목록 집계 쿼리: Signal 기반 counter cache',
       tags: ['Django Signal', 'counter cache', 'N+1'],
       problem:
-        '<p>경매 목록에서 집계를 매번 계산하면서 N+1 이 발생했습니다.</p>' +
+        '<p>경매 목록을 조회할 때 관계 집계를 항목마다 다시 계산해 N+1 쿼리가 발생했습니다.</p>' +
         '<ul>' +
         '<li>관심 경매 수</li>' +
         '<li>인기 경매 등</li>' +
         '</ul>',
       approach:
-        '<p>Django signal 로 ManyToMany 변경 시 <code>PositiveIntegerField</code> 카운터 필드를 즉시 업데이트하는 counter cache 를 도입했습니다.</p>',
+        '<p>ManyToMany 관계가 바뀔 때 Django signal로 <code>PositiveIntegerField</code>를 갱신하는 counter cache를 도입했습니다.</p>',
       result:
-        '<p>목록 API 응답 시간이 짧아지고 ManyToMany 집계 쿼리가 사라졌습니다.</p>',
+        '<p>목록 요청에서 반복되던 ManyToMany 집계 쿼리를 제거해 응답 시간을 줄였습니다.</p>',
     },
     {
       title: '경매 상품 멀티 이미지: product 와 product_image 1:N 분리',
       tags: ['Multipart upload', 'API design'],
       problem:
-        '<p>경매 상품에 이미지 여러 장이 필요했습니다. 한 번에 멀티파트 업로드로 처리하기는 복잡했습니다.</p>',
+        '<p>경매 상품은 여러 이미지를 다뤄야 했지만, 생성과 수정마다 전체 파일을 다시 보내는 방식은 복잡했습니다.</p>',
       approach:
         '<ul>' +
-        '<li>product 와 product_image 를 1:N 으로 분리</li>' +
-        '<li>멀티 이미지 업데이트와 개별 추가 / 삭제용 단순 API 를 별도 제공</li>' +
+        '<li>product와 product_image를 1:N 관계로 분리했습니다.</li>' +
+        '<li>전체 수정과 개별 추가·삭제 API를 각각 제공했습니다.</li>' +
         '</ul>',
       result:
-        '<p>프론트엔드의 이미지 관리 워크플로가 단순해졌습니다.</p>',
+        '<p>프론트엔드는 바뀐 이미지만 요청할 수 있어 업로드와 수정 흐름이 단순해졌습니다.</p>',
     },
   ],
   contributions: [
@@ -175,7 +175,7 @@ export const sellon: Project = {
     },
     {
       label: '발표 자료 (PDF)',
-      url: '/my-portfolio/docs/sellon-presentation.pdf',
+      url: '/docs/sellon-presentation.pdf',
       type: 'pdf',
     },
     {
@@ -195,7 +195,7 @@ export const sellon: Project = {
     title: 'Sellon 발표 자료',
     caption: '11페이지 · 멋쟁이사자처럼 10기 해커톤 발표',
     totalPages: 11,
-    pdfUrl: '/my-portfolio/docs/sellon-presentation.pdf',
+    pdfUrl: '/docs/sellon-presentation.pdf',
     pageImages: presentationPages('sellon', 11),
   },
 }

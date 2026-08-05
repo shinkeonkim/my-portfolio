@@ -92,43 +92,43 @@ export const ttl: Project = {
       title: '외부 플랫폼 동기화: 어댑터 추상화 + 신뢰성 있는 메시지 브로커',
       tags: ['Celery', 'django-celery-beat', 'RabbitMQ', 'Adapter'],
       problem:
-        '<p>외부 플랫폼 동기화는 다음 이유로 실패가 빈번할 수 있었습니다.</p>' +
+        '<p>외부 플랫폼 동기화는 구조 변경과 호출 제한 때문에 실패 가능성이 높았습니다.</p>' +
         '<ul>' +
         '<li>RSS / HTML 구조가 자주 바뀜</li>' +
         '<li>호출 한도 존재</li>' +
         '</ul>',
       approach:
         '<ul>' +
-        '<li>Celery + django-celery-beat 로 주기 동기화 스케줄</li>' +
-        '<li>플랫폼별 어댑터 추상화</li>' +
-        '<li>실패 시 재시도 / 백오프 적용</li>' +
-        '<li>메시지 브로커는 신뢰성을 위해 RabbitMQ 채택</li>' +
+        '<li>Celery와 django-celery-beat로 주기 동기화를 예약했습니다.</li>' +
+        '<li>플랫폼별 수집 로직을 어댑터로 분리했습니다.</li>' +
+        '<li>실패 시 재시도와 백오프를 적용했습니다.</li>' +
+        '<li>메시지 전달의 신뢰성을 위해 RabbitMQ를 사용했습니다.</li>' +
         '</ul>',
       result:
-        '<p>동기화 누락이 줄었습니다. 새 플랫폼을 추가할 때 어댑터 한 개만 구현하면 되는 구조가 정리됐습니다.</p>',
+        '<p>동기화 누락을 줄였고, 새 플랫폼은 어댑터 하나만 추가해 연결할 수 있게 됐습니다.</p>',
     },
     {
       title: 'article sub API: 글 상세 + feedback 묶음 반환',
       tags: ['API design'],
       problem:
-        '<p>글 상세와 feedback 을 별도로 호출하면 상세 페이지 진입이 느렸습니다.</p>',
+        '<p>글 상세와 feedback을 별도로 요청해 상세 페이지 진입마다 네트워크 왕복이 늘어났습니다.</p>',
       approach:
         '<p>feedback 을 함께 반환하는 article sub API 를 별도 설계했습니다.</p>',
       result:
-        '<p>네트워크 왕복이 줄어 상세 페이지 진입 속도가 체감 가능하게 빨라졌습니다.</p>',
+        '<p>두 요청을 한 번으로 줄여 상세 페이지의 초기 응답을 빠르게 만들었습니다.</p>',
     },
     {
       title: '환경별 CORS 설정 안정화',
       tags: ['CORS', 'Django settings'],
       problem:
-        '<p>CORS 설정이 개발 / 배포 환경별로 다르게 동작해 배포마다 깨졌습니다.</p>',
+        '<p>개발과 배포 환경의 CORS 설정이 달라, 배포할 때마다 허용 출처가 어긋났습니다.</p>',
       approach:
         '<ul>' +
-        '<li>환경별 settings 를 환경 변수로 분리</li>' +
-        '<li>commit 단위로 디버깅 사이클을 짧게 가져가며 정상 동작 검증</li>' +
+        '<li>환경별 설정을 환경 변수로 분리했습니다.</li>' +
+        '<li>작은 커밋 단위로 변경하고 각 환경의 동작을 확인했습니다.</li>' +
         '</ul>',
       result:
-        '<p>환경별 settings 가 최종적으로 안정된 형태로 자리잡았습니다.</p>',
+        '<p>배포 환경이 달라도 같은 기준으로 CORS 정책을 관리할 수 있게 됐습니다.</p>',
     },
     {
       title: 'Swagger 자동화로 프론트엔드 협업 비용 절감',
@@ -137,11 +137,11 @@ export const ttl: Project = {
         '<p>API 가 빠르게 늘면서 프론트엔드와의 인터페이스 명세 비용이 커졌습니다.</p>',
       approach:
         '<ul>' +
-        '<li>drf-yasg 로 Swagger / Redoc 을 자동 생성</li>' +
-        '<li>모델 / 시리얼라이저 변경이 즉시 문서에 반영되도록 구성</li>' +
+        '<li>drf-yasg로 Swagger와 Redoc을 자동 생성했습니다.</li>' +
+        '<li>모델과 시리얼라이저 변경이 문서에 바로 반영되도록 구성했습니다.</li>' +
         '</ul>',
       result:
-        '<p>프론트엔드와의 의사소통 비용이 줄었습니다. 변경 이력이 문서에 자연스럽게 따라왔습니다.</p>',
+        '<p>API 변경과 문서의 시차를 없애 프론트엔드와의 명세 확인 비용을 줄였습니다.</p>',
     },
   ],
   contributions: [
@@ -170,7 +170,7 @@ export const ttl: Project = {
     title: 'TTL 발표 자료',
     caption: '8페이지',
     totalPages: 8,
-    pdfUrl: '/my-portfolio/docs/ttl-presentation.pdf',
+    pdfUrl: '/docs/ttl-presentation.pdf',
     pageImages: presentationPages('ttl', 8),
   },
 }

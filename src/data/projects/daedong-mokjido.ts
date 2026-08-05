@@ -104,11 +104,11 @@ export const daedongMokjido: Project = {
       title: '사용자 제보의 신뢰도와 데이터 일관성',
       tags: ['Curation', 'Data integrity'],
       problem:
-        '<p>제보가 자유롭다 보니 신뢰도와 데이터 일관성을 지키기 어려웠습니다.</p>',
+        '<p>사용자가 자유롭게 장소를 제보할 수 있어 잘못된 정보와 게시 후 수정으로 데이터가 흔들릴 수 있었습니다.</p>',
       approach:
         '<ul>' +
-        '<li>관리자 검수 단계와 사용자 리뷰 / 신고 시스템을 결합</li>' +
-        '<li>report 가 published 상태가 된 이후에는 patch 자체를 막아 데이터를 보호</li>' +
+        '<li>관리자 검수와 사용자 리뷰·신고 절차를 결합했습니다.</li>' +
+        '<li>report가 published 상태가 되면 PATCH 요청을 막아 승인된 정보를 보호했습니다.</li>' +
         '</ul>',
       result:
         '<p>신뢰 가능한 정보만 지도에 노출되도록 데이터 품질을 유지했습니다.</p>',
@@ -117,15 +117,15 @@ export const daedongMokjido: Project = {
       title: 'KakaoMap 통합 + 좌표 자동화',
       tags: ['KakaoMap', 'Geocoding'],
       problem:
-        '<p>두 가지 이슈가 잦았습니다.</p>' +
+        '<p>제보 좌표가 누락되거나, 좁은 검색 반경 때문에 주변 결과가 비는 일이 잦았습니다.</p>' +
         '<ul>' +
         '<li>제보된 장소의 좌표 누락</li>' +
         '<li>현재 위치 주변 검색 결과가 비어버림</li>' +
         '</ul>',
       approach:
         '<ul>' +
-        '<li>제보 시 주소 → 좌표 자동 변환 추가</li>' +
-        '<li>주변 범위를 임시로 확장</li>' +
+        '<li>제보한 주소를 좌표로 자동 변환했습니다.</li>' +
+        '<li>현재 위치 검색의 반경을 넓혀 빈 결과를 줄였습니다.</li>' +
         '</ul>',
       result:
         '<p>검색 빈 결과 케이스가 줄고, 신규 제보의 좌표 누락이 사라졌습니다.</p>',
@@ -134,11 +134,11 @@ export const daedongMokjido: Project = {
       title: '평점 평균을 매번 계산하지 않기',
       tags: ['Caching', 'review aggregation'],
       problem:
-        '<p>리뷰가 추가 / 수정될 때마다 평균을 다시 계산하면 목록 조회가 느려졌습니다.</p>',
+        '<p>목록을 조회할 때마다 모든 리뷰의 평균을 계산하면 리뷰 수에 따라 조회 비용이 커졌습니다.</p>',
       approach:
         '<ul>' +
-        '<li>review 저장 시 <code>total_score</code> 를 즉시 갱신</li>' +
-        '<li>평균은 소수 단위로 정밀도 유지</li>' +
+        '<li>review를 저장할 때 <code>total_score</code>를 함께 갱신했습니다.</li>' +
+        '<li>평균 점수는 소수 단위의 정밀도를 유지했습니다.</li>' +
         '</ul>',
       result:
         '<p>목록 조회의 평균 계산 부담이 사라지고 화면에도 즉시 반영됐습니다.</p>',
@@ -147,15 +147,15 @@ export const daedongMokjido: Project = {
       title: 'redux-saga 기반 비동기 흐름',
       tags: ['Redux', 'redux-saga'],
       problem:
-        '<p>여러 비동기 액션을 컴포넌트가 직접 들고 있기에는 복잡했습니다.</p>' +
+        '<p>좌표 변환과 검색처럼 여러 단계가 이어지는 비동기 흐름을 컴포넌트가 직접 관리해 복잡도가 커졌습니다.</p>' +
         '<ul>' +
         '<li>제보 등록 → 좌표 변환 → 지도 마커 갱신</li>' +
         '<li>검색 → 결과 표시</li>' +
         '</ul>',
       approach:
-        '<p>redux-saga 로 각 흐름을 watcher / worker 단위로 분리했습니다. 컴포넌트는 dispatch 만 담당합니다.</p>',
+        '<p>redux-saga에서 각 흐름을 watcher와 worker로 분리하고, 컴포넌트는 dispatch만 담당하게 했습니다.</p>',
       result:
-        '<p>컴포넌트가 가벼워지고 비동기 흐름을 한 곳에서 추적할 수 있게 됐습니다.</p>',
+        '<p>컴포넌트의 책임을 줄이고 비동기 실행 순서와 오류 지점을 한곳에서 추적할 수 있게 됐습니다.</p>',
     },
   ],
   contributions: [

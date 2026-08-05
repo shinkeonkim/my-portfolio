@@ -98,14 +98,13 @@ export const athena: Project = {
       title: 'Code 실행을 별도 gRPC 마이크로서비스로 분리',
       tags: ['Rust', 'gRPC', 'Docker sandbox'],
       problem:
-        '<p>사용자 코드를 안전하게 실행해야 했습니다.</p>' +
-        '<p>같은 Django 프로세스에서 돌리면 다음 리스크가 있습니다.</p>' +
+        '<p>사용자 코드를 Django 프로세스에서 직접 실행하면 서비스 전체가 실행 리소스와 보안 위험을 함께 떠안게 됩니다.</p>' +
         '<ul>' +
-        '<li>한 컨테이너의 폭주가 전체 서비스에 영향</li>' +
-        '<li>언어 추가 시 메인 앱이 무거워짐</li>' +
+        '<li>한 실행 컨테이너의 폭주가 전체 서비스에 영향을 줍니다.</li>' +
+        '<li>언어를 추가할수록 메인 애플리케이션이 무거워집니다.</li>' +
         '</ul>',
       approach:
-        '<p>실행 / 채점 / 테스트 생성을 별도 repo + 별도 컨테이너로 분리했습니다. 모두 proto 로 인터페이스를 명시했습니다.</p>' +
+        '<p>실행, 채점, 테스트 생성을 별도 저장소와 컨테이너로 분리하고 proto로 인터페이스를 고정했습니다.</p>' +
         '<ul>' +
         '<li><strong>code-executor</strong>: Rust + gRPC + Docker 샌드박스</li>' +
         '<li><strong>code-judger</strong>: Rust + gRPC. code-executor 호출.</li>' +
@@ -114,8 +113,8 @@ export const athena: Project = {
       result:
         '<ul>' +
         '<li>한 마이크로서비스의 폭주가 다른 영역에 영향을 주지 않습니다.</li>' +
-        '<li>신규 언어 / 채점 정책 / 테스트 생성 전략을 각자 독립적으로 변경할 수 있습니다.</li>' +
-        '<li>proto 가 단일 진실 공급원(SSOT) 역할을 합니다.</li>' +
+        '<li>언어, 채점 정책, 테스트 생성 전략을 서로 독립적으로 변경할 수 있습니다.</li>' +
+        '<li>proto가 서비스 간 계약의 단일 진실 공급원 역할을 합니다.</li>' +
         '</ul>',
       detail: {
         background:
@@ -150,7 +149,7 @@ export const athena: Project = {
       title: '문제 자동 수집: API 우선 + 웹 파싱 fallback + LLM 검증',
       tags: ['Celery', 'BeautifulSoup', 'LLM validation'],
       problem:
-        '<p>외부 사이트에서 문제를 수집할 때 다음 이슈가 자주 발생했습니다.</p>' +
+        '<p>외부 문제를 대량 수집할 때 API 제한, 페이지 구조 변경, 잘못된 데이터 유입을 함께 다뤄야 했습니다.</p>' +
         '<ul>' +
         '<li>API 호출 한도 초과</li>' +
         '<li>파싱 규격 변동</li>' +
@@ -159,38 +158,37 @@ export const athena: Project = {
       approach:
         '<p>Celery 워커에서 다음 흐름으로 수집하도록 설계했습니다.</p>' +
         '<ol>' +
-        '<li>solved.ac API 호출을 우선</li>' +
-        '<li>실패 시 웹 파싱으로 fallback</li>' +
-        '<li>LLM 으로 한 번 더 검증해 비정상 데이터를 걸러냄</li>' +
-        '<li>토큰 버킷으로 호출량을 조절</li>' +
+        '<li>solved.ac API를 우선 호출했습니다.</li>' +
+        '<li>API가 실패하면 웹 파싱으로 전환했습니다.</li>' +
+        '<li>LLM 검증으로 비정상 데이터를 걸러냈습니다.</li>' +
+        '<li>토큰 버킷으로 호출량을 조절했습니다.</li>' +
         '</ol>',
       result:
-        '<p>대량 수집 중에도 실패 비율을 통제 가능한 수준으로 유지했습니다. 운영 중 직접 손대는 일이 거의 없었습니다.</p>',
+        '<p>대량 수집의 실패를 자동으로 복구하고 검증해 수동 개입이 거의 필요 없는 흐름을 만들었습니다.</p>',
     },
     {
       title: 'LLM 호출 실패 시 ticket 원복 보상 트랜잭션',
       tags: ['Compensation transaction', 'Billing'],
       problem:
-        '<p>LLM 호출은 비용과 실패율 변동이 큽니다.</p>' +
-        '<p>사용자가 답변을 받지 못한 채 ticket(할당량) 만 차감되는 사례가 발생했습니다.</p>',
+        '<p>LLM 호출이 실패했는데도 사용자의 ticket만 차감되면 비용과 신뢰를 함께 잃게 됩니다.</p>',
       approach:
         '<ul>' +
-        '<li>LLM 호출이 오류로 끝나면 차감된 ticket 을 원복하는 보상 트랜잭션을 추가</li>' +
-        '<li>Free / Pro 별로 할당량을 분리해 무료 남용을 막고 유료 안정성을 확보</li>' +
+        '<li>LLM 호출이 실패하면 차감된 ticket을 돌려주는 보상 트랜잭션을 추가했습니다.</li>' +
+        '<li>Free와 Pro의 할당량을 분리해 무료 남용과 유료 사용자의 영향을 격리했습니다.</li>' +
         '</ul>',
       result:
-        '<p>사용자 신뢰가 회복되고 비용도 통제됐습니다. 환불 정책 없이도 사용자 불만이 사라졌습니다.</p>',
+        '<p>답변을 받지 못한 사용자의 할당량을 보존하면서 서비스 비용도 예측 가능한 범위로 관리했습니다.</p>',
     },
     {
       title: 'GIN Index 한국어 trigram 적용',
       tags: ['PostgreSQL', 'pg_trgm', 'GIN'],
       problem:
-        '<p>문제 / 질문 검색이 데이터가 늘어나면서 느려졌습니다.</p>',
+        '<p>문제와 질문 데이터가 늘면서 한국어 부분 문자열 검색의 응답 시간이 길어졌습니다.</p>',
       approach:
         '<ul>' +
-        '<li>PostgreSQL <code>pg_trgm</code> 확장을 도입</li>' +
-        '<li>GIN Index 를 trigram 에 적용</li>' +
-        '<li>Dockerfile 에서 해당 확장 모듈을 빌드하도록 변경</li>' +
+        '<li>PostgreSQL <code>pg_trgm</code> 확장을 도입했습니다.</li>' +
+        '<li>검색 대상에 trigram 기반 GIN Index를 적용했습니다.</li>' +
+        '<li>Docker 이미지에서 확장 모듈을 함께 빌드했습니다.</li>' +
         '</ul>',
       result:
         '<p>문제 검색 응답 시간이 체감 가능한 수준으로 단축됐습니다.</p>',
@@ -199,14 +197,14 @@ export const athena: Project = {
       title: 'LLM 피드백 품질을 어떻게 측정하고 개선할 것인가',
       tags: ['Prompt engineering', 'User feedback'],
       problem:
-        '<p>LLM 피드백이 좋은지 나쁜지 정량으로 알 길이 없었습니다.</p>',
+        '<p>LLM 피드백의 품질을 운영자의 감각이 아니라 사용자 반응으로 측정할 기준이 없었습니다.</p>',
       approach:
         '<ul>' +
-        '<li>LLM 답변마다 사용자가 👍 / 👎 평가를 남길 수 있도록 추가</li>' +
-        '<li>수집된 평가 데이터를 다음 프롬프트에 반영</li>' +
+        '<li>각 답변에 긍정·부정 평가를 남길 수 있게 했습니다.</li>' +
+        '<li>수집한 평가를 다음 프롬프트 개선에 반영했습니다.</li>' +
         '</ul>',
       result:
-        '<p>피드백 품질에 대한 정량 지표를 확보했습니다. 프롬프트를 점진적으로 다듬는 사이클이 확립됐습니다.</p>',
+        '<p>피드백 품질을 수치로 비교하고, 사용자 평가를 바탕으로 프롬프트를 개선하는 사이클을 만들었습니다.</p>',
     },
   ],
   contributions: [
@@ -263,16 +261,16 @@ export const athena: Project = {
     },
   ],
   award: '2025 소프트웨어융합대학 크리에이터 경진대회 1등',
-  hero: '/my-portfolio/images/projects/athena/main-page.png',
+  hero: '/images/projects/athena/main-page.png',
   media: [
     {
       type: 'image',
-      url: '/my-portfolio/images/projects/athena/main-page.png',
+      url: '/images/projects/athena/main-page.png',
       caption: '메인 화면: 문제 목록 + 검색',
     },
     {
       type: 'image',
-      url: '/my-portfolio/images/projects/athena/question-page.png',
+      url: '/images/projects/athena/question-page.png',
       caption: '문제 페이지: LLM 피드백 + 코드 실행',
     },
     { type: 'video', url: `${IMG}/main.mp4`, caption: '메인 화면 인터랙션' },
@@ -285,7 +283,7 @@ export const athena: Project = {
     title: 'Athena 발표 자료',
     caption: '34페이지',
     totalPages: 34,
-    pdfUrl: '/my-portfolio/docs/athena-presentation.pdf',
+    pdfUrl: '/docs/athena-presentation.pdf',
     pageImages: presentationPages('athena', 34),
   },
 }

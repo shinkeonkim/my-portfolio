@@ -105,25 +105,24 @@ export const kkambbaki: Project = {
       title: 'alpha 는 홈랩 Kubernetes, production 은 AWS: 멀티 환경 전략',
       tags: ['Kubernetes', 'AWS', 'Multi-env'],
       problem:
-        '<p>개발 / 테스트 환경에서는 비용 부담 없이 실험하고 싶었습니다.</p>' +
-        '<p>하지만 4호선톤 발표 환경에서는 다음 리스크를 그대로 가져갈 수 없었습니다.</p>' +
+        '<p>개발 환경에서는 비용 없이 실험하고 싶었지만, 발표 환경에서는 홈랩의 장애 위험을 감수할 수 없었습니다.</p>' +
         '<ul>' +
         '<li>홈랩의 물리적 접근성 부족</li>' +
         '<li>홈 네트워크 / 전원 장애 가능성</li>' +
         '</ul>',
       approach:
-        '<p>두 환경의 장점을 모두 살리도록 분리했습니다.</p>' +
+        '<p>환경별 SLA에 맞춰 alpha와 production을 분리했습니다.</p>' +
         '<ul>' +
-        '<li><strong>alpha</strong>: 홈랩 Kubernetes 위에서 비용 0 으로 운영하면서 컨테이너 오케스트레이션 경험을 가져갑니다.</li>' +
-        '<li><strong>production</strong>: AWS EC2 + RDS 로 안정성을 확보합니다.</li>' +
+        '<li><strong>alpha</strong>: 홈랩 Kubernetes에서 비용 없이 실험했습니다.</li>' +
+        '<li><strong>production</strong>: AWS EC2와 RDS로 시연 안정성을 확보했습니다.</li>' +
         '</ul>' +
-        '<p>infra repo 에 환경별 manifest 를 분리해 차이를 명시적으로 흡수했습니다.</p>',
+        '<p>infra 저장소의 환경별 manifest가 두 환경의 차이를 담당하게 했습니다.</p>',
       result:
         '<ul>' +
         '<li><code>alpha.singun11.wtf</code>: 자유롭게 실험</li>' +
         '<li><code>kkambbaki.singun11.wtf</code>: 안정적으로 시연</li>' +
         '</ul>' +
-        '<p>해커톤 이후에도 비용 측면에서 홈랩 production 운영이 가능한 구조를 유지했습니다.</p>',
+        '<p>발표는 AWS에서 안정적으로 마쳤고, 이후에는 홈랩으로 옮겨 운영 비용을 낮출 수 있는 구조를 유지했습니다.</p>',
       detail: {
         background:
           '<p>홈랩 Kubernetes 는 매력적이었습니다.</p>' +
@@ -175,7 +174,7 @@ export const kkambbaki: Project = {
       title: 'reports 도메인: LLM / PDF / 이메일을 한 도메인 안에 묶기',
       tags: ['Celery', 'LLM', 'PDF', 'Email'],
       problem:
-        '<p>AI 리포트 생성 흐름이 길게 이어집니다.</p>' +
+        '<p>게임 결과부터 이메일 발송까지 이어지는 긴 리포트 생성 흐름의 책임과 재시도 경계를 정해야 했습니다.</p>' +
         '<ol>' +
         '<li>게임 결과 누적</li>' +
         '<li>LLM 분석</li>' +
@@ -183,9 +182,9 @@ export const kkambbaki: Project = {
         '<li>PDF 렌더링</li>' +
         '<li>이메일 발송</li>' +
         '</ol>' +
-        '<p>이 흐름을 어떻게 모듈화할지가 문제였습니다.</p>',
+        '<p>단계를 분리하되 하나의 도메인 안에서 전체 흐름을 추적할 수 있어야 했습니다.</p>',
       approach:
-        '<p>reports 도메인 안에서 책임을 나눴습니다.</p>' +
+        '<p>reports 도메인 안에서 모델, 서비스, LLM, 비동기 작업, 인증의 책임을 분리했습니다.</p>' +
         '<ul>' +
         '<li><strong>models</strong>: Report / GameReport / GameReportAdvice / ReportPin</li>' +
         '<li><strong>services</strong>: report_generation_service / game_report_generation_service / report_email_service / base_pdf_generator</li>' +
@@ -194,8 +193,8 @@ export const kkambbaki: Project = {
         '<li><strong>authentication</strong>: 리포트 접근 인증</li>' +
         '</ul>',
       result:
-        '<p>전체 흐름이 같은 도메인 안에서 단계별로 합성됩니다. 각 단계는 services 의 클래스 하나가 책임집니다.</p>' +
-        '<p>Django management command 도 동일한 services 를 호출하므로, 운영 중 재실행이 가능합니다.</p>',
+        '<p>각 단계는 독립된 서비스 클래스로 실행되지만 전체 흐름은 reports 도메인 안에서 추적됩니다.</p>' +
+        '<p>Django management command도 같은 서비스를 호출해 운영 중 실패한 단계를 다시 실행할 수 있습니다.</p>',
       detail: {
         background:
           '<p>AI 리포트 생성은 외부 I/O 가 긴 작업입니다.</p>' +
@@ -224,9 +223,9 @@ export const kkambbaki: Project = {
       title: '단순 정답률이 아닌 다차원 지표',
       tags: ['Game design', 'LLM prompt'],
       problem:
-        '<p>아이의 회복탄력성과 집중력을 보려면 단순 점수 / 정답률만으로는 부족했습니다.</p>',
+        '<p>단순 점수와 정답률만으로는 아이의 집중력과 회복탄력성이 어떻게 드러났는지 설명하기 어려웠습니다.</p>',
       approach:
-        '<p>게임 라운드마다 다차원 지표를 GameResult 에 저장하고, LLM 프롬프트에 그대로 주입했습니다.</p>' +
+        '<p>게임 라운드마다 행동 지표를 GameResult에 저장하고 LLM 프롬프트의 근거로 사용했습니다.</p>' +
         '<ul>' +
         '<li>최대 도달 라운드</li>' +
         '<li>평균 도달 라운드</li>' +
@@ -235,7 +234,7 @@ export const kkambbaki: Project = {
         '<li>제한시간 초과율</li>' +
         '</ul>',
       result:
-        '<p>학부모에게 "몇 점" 이 아니라 "어떤 영역이 강하고 어떤 영역이 약한지" 를 정량과 자연어 조언으로 함께 전달합니다.</p>',
+        '<p>학부모에게 단일 점수 대신 강점과 보완 영역을 수치와 자연어 조언으로 함께 전달했습니다.</p>',
     },
   ],
   contributions: [
@@ -263,7 +262,7 @@ export const kkambbaki: Project = {
     { label: 'GitHub Org', url: 'https://github.com/kkambbaki', type: 'github' },
     {
       label: '발표 자료 (PDF)',
-      url: '/my-portfolio/docs/kkambbaki-presentation.pdf',
+      url: '/docs/kkambbaki-presentation.pdf',
       type: 'pdf',
     },
   ],
@@ -277,7 +276,7 @@ export const kkambbaki: Project = {
     title: '4호선톤 발표 자료',
     caption: '2025 멋쟁이사자처럼 13기 4호선톤 출품 · 18페이지',
     totalPages: 18,
-    pdfUrl: '/my-portfolio/docs/kkambbaki-presentation.pdf',
+    pdfUrl: '/docs/kkambbaki-presentation.pdf',
     pageImages: presentationPages('kkambbaki', 18),
   },
 }
