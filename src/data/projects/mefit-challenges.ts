@@ -5,23 +5,23 @@ export const mefitChallenges: readonly ProjectChallenge[] = [
     title: 'Django 도메인 모듈 분리 설계',
     tags: ['Django', 'DRF', 'Python'],
     problem:
-      '면접 도메인이 넓고 백엔드 개발은 3인이 함께해야 했습니다. 어떤 프레임워크로 풀고, 어떻게 충돌 없이 병렬 작업할지가 문제였습니다.',
+      '<p>면접 도메인이 넓고 세 명이 백엔드를 함께 개발해야 했습니다. 프레임워크 선택과 병렬 작업 구조를 동시에 결정해야 했습니다.</p>',
     approach:
-      '<p>Django/ FastAPI / Spring Boot 를 비교하고 Django를 선택했습니다.</p>' +
+      '<p>Django, FastAPI, Spring Boot를 팀 역량과 남은 기간 기준으로 비교해 Django를 선택했습니다.</p>' +
       '<ul>' +
       '<li>도메인 레이어 <code>webapp/&lt;도메인&gt;/</code> 와 API 레이어 <code>webapp/api/v1/&lt;도메인&gt;/</code> 을 물리 분리</li>' +
       '<li>BaseService + <code>validate</code> / <code>execute</code> 패턴으로 트랜잭션 경계 명시</li>' +
       '<li>LLM 호출은 트랜잭션 외부에서 수행하도록 규약화</li>' +
       '</ul>',
     result:
-      '<p>다음 도메인 앱을 도메인 / API 레이어로 분리해 운영합니다.</p>' +
+      '<p>각 앱을 도메인 레이어와 API 레이어로 분리했습니다.</p>' +
       '<ul>' +
       '<li>users / profiles / interviews / resumes / job_descriptions</li>' +
       '<li>achievements / streaks / dashboard</li>' +
       '<li>subscriptions / tickets / notifications</li>' +
       '<li>terms_documents / llm_trackers / realtime_docs</li>' +
       '</ul>' +
-      '<p>Factory Boy + <code>@patch</code> 기반 테스트 스위트를 갖춘 상태에서, 4인 병렬 작업 중 merge conflict 가 거의 발생하지 않았습니다.</p>',
+      '<p>Factory Boy와 <code>@patch</code> 기반 테스트를 유지하면서 네 명이 병렬로 작업했고, merge conflict를 거의 없앴습니다.</p>',
     detail: {
       background:
         '<p>면접 도메인은 영역이 넓었습니다. 인증 · 이력서 · 면접 세션 · 실시간 알림 · 구독 · 티켓 · 분석 리포트 · 업적 · 연속 학습 보상 체계까지 포함했습니다.</p>' +
@@ -76,7 +76,7 @@ export const mefitChallenges: readonly ProjectChallenge[] = [
     title: 'K3s on EC2 + LiteLLM Gateway',
     tags: ['K3s', 'LiteLLM', 'EC2', 'AWS Bedrock', 'iptables NAT'],
     problem:
-      '<p>예산 안에서 다음을 모두 해결해야 했습니다.</p>' +
+      '<p>제한된 예산 안에서 Kubernetes 운영, LLM 키 관리, 프로바이더 폴백과 비용 추적을 함께 해결해야 했습니다.</p>' +
       '<ul>' +
       '<li>EKS 컨트롤 플레인 비용</li>' +
       '<li>여러 Pod 에서 OpenAI 를 직접 호출하면서 분산된 API 키</li>' +
@@ -84,15 +84,15 @@ export const mefitChallenges: readonly ProjectChallenge[] = [
       '</ul>',
     approach:
       '<ul>' +
-      '<li>K3s on EC2 에 server / agent 노드를 나누고 무거운 워크로드는 server 에 핀</li>' +
-      '<li>iptables NAT 로 Pod 가 EC2 인스턴스 메타데이터에 접근해 IAM Role 자격 증명 사용</li>' +
-      '<li>OpenAI 호환 API 라 각 서비스의 base_url 만 바꾸는 작은 변경으로 마이그레이션</li>' +
+      '<li>K3s의 server와 agent 노드를 분리하고 무거운 워크로드를 server에 고정했습니다.</li>' +
+      '<li>iptables NAT로 Pod가 EC2 인스턴스 메타데이터의 IAM Role 자격 증명을 사용하게 했습니다.</li>' +
+      '<li>OpenAI 호환 LiteLLM API를 도입해 각 서비스는 base URL만 변경했습니다.</li>' +
       '</ul>',
     result:
       '<ul>' +
-      '<li>EKS 대비 컨트롤 플레인 비용 제거 + 야간 정지로 EC2 비용 추가 절감</li>' +
-      '<li>backend / voice-api / analysis-resume / analysis-stt / interview-analysis-report / scraping 의 LLM 호출이 LiteLLM 한 곳을 통해 흐르고, Bedrock / Gemini 폴백과 Spend 추적이 한 대시보드에서 보입니다</li>' +
-      "<li>cert-manager + Let's Encrypt 로 api.mefit.kr · llm.mefit.kr · voice.mefit.kr 자동 인증서</li>" +
+      '<li>EKS 컨트롤 플레인 비용을 없애고 야간 정지로 EC2 비용도 줄였습니다.</li>' +
+      '<li>여섯 서비스의 LLM 호출을 LiteLLM으로 모아 Bedrock·Gemini 폴백과 비용을 한곳에서 추적했습니다.</li>' +
+      "<li>cert-manager와 Let's Encrypt로 서비스 인증서를 자동 갱신했습니다.</li>" +
       '</ul>',
     detail: {
       background:
@@ -137,22 +137,21 @@ export const mefitChallenges: readonly ProjectChallenge[] = [
     title: 'AWS Lambda Fan-out 기반 영상 처리 파이프라인',
     tags: ['AWS Lambda', 'SNS', 'SQS', 'ffmpeg', 'MediaPipe'],
     problem:
-      '<p>면접 영상은 용량이 크고 분석이 오래 걸리며 실패 재시도가 필요했습니다.</p>' +
-      '<p>같은 K3s 클러스터에서 ffmpeg 를 돌리면 다른 Pod 가 영향을 받았습니다.</p>',
+      '<p>면접 영상은 크고 분석 시간이 길었습니다. K3s에서 ffmpeg를 실행하면 다른 Pod의 자원까지 잠식했습니다.</p>',
     approach:
-      '<p>S3 ObjectCreated 이벤트를 SNS 의 <code>video-uploaded</code> 토픽으로 받아 SQS 로 fan-out 합니다. 각 SQS 에 연결된 Lambda 가 병렬로 처리합니다.</p>' +
+      '<p>S3 ObjectCreated 이벤트를 SNS와 SQS로 fan-out하고, 각 Lambda가 독립적으로 병렬 처리하게 했습니다.</p>' +
       '<ol>' +
       '<li>video-converter / frame-extractor / audio-extractor 가 동시에 시작</li>' +
       '<li>frame 결과는 face-trigger SQS 를 거쳐 face-analyzer 로 이어짐</li>' +
       '<li>audio 결과는 voice-analyzer 로 이어짐</li>' +
       '</ol>' +
-      '<p>공통 코드는 <code>mefit-video-common</code> Layer 로 분리하고, K3s 쪽 sqs-celery-worker 가 Celery v2 step-complete 메시지를 소비해 백엔드 상태를 갱신합니다.</p>',
+      '<p>공통 코드는 <code>mefit-video-common</code> Layer로 분리했습니다. K3s의 worker는 step-complete 메시지를 소비해 백엔드 상태를 갱신합니다.</p>',
     result:
       '<ul>' +
-      '<li>K3s 리소스에 영향을 주지 않으면서 영상 업로드 즉시 변환 · 프레임 · 오디오 · 음성 · 표정 작업이 동시에 시작</li>' +
-      '<li>모든 S3 버킷은 private + presigned URL 로만 접근</li>' +
-      '<li>face-analyzer 는 MediaPipe blendshape (smile / frown / brow_down / jaw_open / eye_squint) 규칙 기반</li>' +
-      '<li>voice-analyzer 는 librosa 를 제거하고 pydub silence detection 만 사용해 Lambda 패키지 크기 제한 통과</li>' +
+      '<li>K3s 자원을 사용하지 않고 변환, 프레임, 오디오, 음성, 표정 분석을 동시에 시작했습니다.</li>' +
+      '<li>S3 버킷은 private으로 두고 presigned URL로만 접근하게 했습니다.</li>' +
+      '<li>표정 분석은 MediaPipe blendshape 규칙으로 구현했습니다.</li>' +
+      '<li>음성 분석은 pydub 기반으로 단순화해 Lambda 패키지 크기 제한을 통과했습니다.</li>' +
       '</ul>',
     detail: {
       background:
@@ -194,21 +193,20 @@ export const mefitChallenges: readonly ProjectChallenge[] = [
     title: '임베딩 모델 폴백 금지, silent corruption 방지',
     tags: ['pgvector', 'OpenAI Embeddings'],
     problem:
-      '<p>LLM Gateway 에서 프로바이더 폴백을 쓰니, "임베딩도 폴백하면 가용성이 올라가지 않을까?" 라는 질문이 자연스럽게 나왔습니다.</p>' +
-      '<p>분석해보니 silent corruption 위험이 있었습니다.</p>',
+      '<p>LLM처럼 임베딩 모델도 폴백하면 가용성은 높아지지만, 서로 다른 벡터 공간이 섞여 검색 인덱스를 조용히 오염시킬 수 있었습니다.</p>',
     approach:
-      '<p>OpenAI text-embedding-3-small(1536d) 과 Bedrock Titan(1024d) 을 비교 분석.</p>' +
+      '<p>OpenAI text-embedding-3-small(1536d)과 Bedrock Titan(1024d)의 호환성을 비교했습니다.</p>' +
       '<ul>' +
-      '<li>차원 자체가 다름</li>' +
-      '<li>차원이 같아도 학습 분포가 다르면 cosine similarity 비교가 무의미</li>' +
-      '<li>"한 번이라도 다른 모델로 저장되면 검색 인덱스가 영구히 오염" 이라는 결론</li>' +
+      '<li>두 모델은 벡터 차원부터 다릅니다.</li>' +
+      '<li>차원이 같아도 학습 분포가 다르면 cosine similarity를 비교할 수 없습니다.</li>' +
+      '<li>다른 모델의 벡터가 한 번만 저장돼도 기존 인덱스의 의미가 훼손됩니다.</li>' +
       '</ul>' +
-      '<p>임베딩 폴백을 의도적으로 금지. 장애 시 즉시 raise + Slack 알림 구조를 문서화.</p>',
+      '<p>임베딩 폴백을 금지하고, 장애 시 즉시 실패한 뒤 Slack으로 알리도록 문서화했습니다.</p>',
     result:
       '<ul>' +
-      '<li>pgvector 는 단일 임베딩 모델로만 운영해 인덱스 무결성 보장</li>' +
-      '<li>이력서는 원문 청크(자연어 질문에 강함) + parsed_data 구조화(역량 매칭에 강함) 의 이중 임베딩</li>' +
-      '<li>사용자가 이력서를 편집할 때는 구조화 임베딩만 재생성해 비용 절약</li>' +
+      '<li>pgvector 인덱스를 단일 모델로만 운영해 무결성을 지켰습니다.</li>' +
+      '<li>이력서는 원문 청크와 구조화 데이터로 나눠 각각의 검색 목적에 맞게 임베딩했습니다.</li>' +
+      '<li>이력서 편집 시 구조화 임베딩만 다시 생성해 호출 비용을 줄였습니다.</li>' +
       '</ul>',
     detail: {
       background:
@@ -249,19 +247,19 @@ export const mefitChallenges: readonly ProjectChallenge[] = [
     title: '프로덕션 인시던트 두 건과 운영 프로세스 수립',
     tags: ['RDS', 'Celery', 'K8s env precedence', 'CloudWatch', 'Postmortem'],
     problem:
-      '<p>운영 중 두 가지 인시던트가 발생했습니다. 모두 발견 자체가 어려웠습니다.</p>' +
+      '<p>운영 중 RDS 커넥션 고갈과 STT 자동 처리 중단이 발생했습니다. 두 문제 모두 명확한 오류 로그가 없어 발견이 어려웠습니다.</p>' +
       '<ol>' +
       '<li>RDS 커넥션 풀 고갈</li>' +
       '<li>예외도 로그도 없이 STT 자동 처리가 멈추는 silent failure</li>' +
       '</ol>',
     approach:
-      '<p>두 건을 각각 다음과 같이 처리했습니다.</p>' +
+      '<p>증상, 원인, 복구, 재발 방지를 분리해 두 인시던트를 분석했습니다.</p>' +
       '<ul>' +
-      '<li><strong>RDS 풀 고갈</strong>: Celery 시그널 누수 + SQLAlchemy 풀 설정 부재가 원인. 코드와 RDS 파라미터(<code>idle_session_timeout</code>) 를 함께 수정</li>' +
-      '<li><strong>STT silent failure</strong>: K8s 의 <code>envFrom</code> 보다 <code>env</code> 가 우선이라 <code>CELERY_BROKER_URL=""</code> 이 주입 → Celery 가 <code>memory://</code> 로 silent fallback. infra manifest 한 줄 제거 + Slack 에러 알림을 <code>.apply()</code> 로 동기 실행하도록 변경</li>' +
+      '<li><strong>RDS 풀 고갈</strong>: Celery 시그널 누수와 SQLAlchemy 풀 설정을 수정하고 <code>idle_session_timeout</code>을 적용했습니다.</li>' +
+      '<li><strong>STT 중단</strong>: 빈 broker URL 주입을 제거하고 Slack 오류 알림을 동기 실행으로 바꿨습니다.</li>' +
       '</ul>',
     result:
-      '<p>두 건 모두 포스트모템으로 남기고 운영 프로세스를 정비했습니다.</p>' +
+      '<p>두 건을 포스트모템으로 남기고 같은 유형의 장애를 더 빨리 찾도록 운영 체계를 정비했습니다.</p>' +
       '<ul>' +
       '<li>Grafana Cloud + alloy 기반 메트릭 / 로그</li>' +
       '<li>Slack 채널 분리 (애플리케이션 / 인프라)</li>' +
@@ -296,8 +294,7 @@ export const mefitChallenges: readonly ProjectChallenge[] = [
     title: 'React 19 + Feature-Sliced Design 으로 병렬 개발',
     tags: ['React 19', 'FSD', 'Zustand 5', 'Vite 7', 'React Compiler'],
     problem:
-      '<p>4인 팀에서 다양한 면접 화면을 병렬로 만들어야 했고, 코드 배치 논쟁을 최소화하는 구조가 필요했습니다.</p>' +
-      '<p>대상 화면이 다음과 같이 다양했습니다.</p>' +
+      '<p>네 명이 다양한 면접 화면을 병렬로 개발하려면, 기능마다 파일 위치와 의존 방향을 다시 논의하지 않는 구조가 필요했습니다.</p>' +
       '<ul>' +
       '<li>랜딩 / 인증 / 이력서 / 채용공고</li>' +
       '<li>면접 세션 / 분석 리포트</li>' +
@@ -305,20 +302,20 @@ export const mefitChallenges: readonly ProjectChallenge[] = [
       '</ul>',
     approach:
       '<ul>' +
-      '<li>React 19 + Vite 7 위에 Feature-Sliced Design 적용 (app → pages → features → entities → widgets → shared 단방향 의존)</li>' +
-      '<li>상태는 Zustand 5 로 도메인별 store 분리</li>' +
-      '<li>React Compiler 로 수동 useMemo / useCallback 제거</li>' +
-      '<li>Three.js · GSAP · Lottie 같은 무거운 라이브러리는 Vite manualChunks 로 분리. 랜딩 외 페이지에서는 로드되지 않도록 함</li>' +
+      '<li>Feature-Sliced Design의 단방향 의존 규칙을 적용했습니다.</li>' +
+      '<li>Zustand store를 도메인별로 분리했습니다.</li>' +
+      '<li>React Compiler로 수동 메모이제이션을 줄였습니다.</li>' +
+      '<li>Three.js, GSAP, Lottie는 manualChunks로 분리해 필요한 페이지에서만 불러왔습니다.</li>' +
       '</ul>',
     result:
-      '<p>다음 feature 모듈들이 단방향 의존을 유지하면서 독립 개발되었습니다.</p>' +
+      '<p>각 feature 모듈은 단방향 의존을 유지하며 독립적으로 개발됐습니다.</p>' +
       '<ul>' +
       '<li>auth / resume / jd / user-job-description</li>' +
       '<li>interview-setup / interview-precheck / interview-session / interview-analysis-report</li>' +
       '<li>achievements / streak / milestones / notifications</li>' +
       '<li>home / onboarding / settings / subscription</li>' +
       '</ul>' +
-      '<p>MediaPipe FaceLandmarker 는 클라이언트에서 실시간 자가 점검을, 별도 Lambda face-analyzer 는 정밀 분석을 담당합니다. 같은 도구를 용도에 맞춰 다른 위치에 두었습니다.</p>',
+      '<p>실시간 자가 점검은 클라이언트가, 정밀 분석은 Lambda가 맡도록 같은 도구의 실행 위치도 목적에 맞게 분리했습니다.</p>',
     detail: {
       background:
         '랜딩 · 인증 · 이력서 · 채용공고 · 면접 세션 · 분석 리포트 등 영역이 넓었습니다. 4인 팀(프런트 전담 + 멀티 역할 본인) 이 병렬로 작업하면서 "이 파일을 어디에 둘까?" 라는 질문에 매번 시간을 쓰지 않을 구조가 필요했습니다.',
