@@ -13,7 +13,7 @@ export const athena: Project = {
   status: 'completed',
   roles: ['기획', '단독 개발'],
   team: { size: 1, lead: true },
-  stack: ['Django', 'DRF', 'Python', 'Rust', 'gRPC', 'Docker', 'docker-compose', 'Celery', 'Redis', 'PostgreSQL', 'LLM', 'Flower'],
+  stack: ['Django', 'Rust', 'gRPC', 'Docker', 'Celery', 'PostgreSQL'],
   oneLiner: 'LLM 코드 피드백과 격리 실행 환경을 갖춘 인터랙티브 알고리즘 학습 플랫폼: 단독 기획·개발.',
   description:
     '<p>문제 해결과 학습을 위한 인터랙티브 웹 플랫폼입니다. 기획 / 설계 / 구현 / 운영을 단독으로 진행했습니다.</p>' +

@@ -13,12 +13,9 @@ export const daedongMokjido: Project = {
   team: { size: 4, lead: false },
   stack: [
     'Django',
-    'DRF',
     'PostgreSQL',
-    'Docker',
     'React',
     'Redux',
-    'redux-saga',
     'KakaoMap API',
     'Heroku',
     'Netlify',

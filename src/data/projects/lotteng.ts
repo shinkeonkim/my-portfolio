@@ -11,7 +11,7 @@ export const lotteng: Project = {
   status: 'completed',
   roles: ['백엔드', '인프라'],
   team: { size: 8, lead: false },
-  stack: ['Django', 'JavaScript', 'AJAX', 'AWS EC2', 'Ubuntu 18.04 LTS', 'Nginx', 'Gunicorn'],
+  stack: ['Django', 'JavaScript', 'AWS', 'Nginx'],
   oneLiner:
     'LOTTENG = LOTTE + N(&) + G(Great deal): 롯데 계열사의 마감 세일 정보를 통합하고, 오프라인 픽업과 환경 보호를 연계하는 O2O 플랫폼.',
   description:
