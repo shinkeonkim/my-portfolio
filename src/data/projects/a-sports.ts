@@ -75,40 +75,39 @@ export const aSports: Project = {
       title: 'API fetch token 오류 → Promise 객체가 그대로 렌더링되는 이슈',
       tags: ['React', 'Token refresh', 'Loading state'],
       problem:
-        '<p>fetch 결과로 받은 Promise 가 토큰 만료 / 오류 상태에서 그대로 화면에 렌더링됐습니다.</p>' +
-        '<p>사용자에게 의미 없는 출력이 노출되는 버그가 있었습니다.</p>',
+        '<p>토큰이 만료되거나 요청이 실패하면, 처리되지 않은 Promise가 화면에 그대로 노출됐습니다.</p>',
       approach:
         '<ul>' +
-        '<li>token refresh 로직을 별도로 분리</li>' +
-        '<li>fetch timing 을 loading state 로 명시적으로 표현</li>' +
-        '<li>댓글 응답 조건도 함께 정리</li>' +
+        '<li>토큰 갱신 로직을 요청 흐름에서 분리했습니다.</li>' +
+        '<li>요청 상태를 loading state로 명시했습니다.</li>' +
+        '<li>댓글 응답의 렌더링 조건을 함께 정리했습니다.</li>' +
         '</ul>',
       result:
-        '<p>에러 시점에 사용자에게 명확한 피드백이 가고, 새로고침 없이도 자연스럽게 복구됩니다.</p>',
+        '<p>오류 상태를 명확히 안내하고, 토큰 갱신 뒤에는 새로고침 없이 화면을 복구했습니다.</p>',
     },
     {
       title: 'Netlify SPA 배포 reload 404',
       tags: ['Netlify', 'SPA fallback'],
       problem:
-        '<p>Netlify 에 SPA 를 그대로 올리면 새로고침마다 404 가 발생합니다.</p>',
+        '<p>SPA의 하위 경로를 직접 열거나 새로고침하면 Netlify가 해당 파일을 찾지 못해 404를 반환했습니다.</p>',
       approach:
         '<p><code>_redirects</code> 파일로 모든 경로를 <code>index.html</code> 로 fallback 처리했습니다.</p>',
       result:
-        '<p>딥링크 / 새로고침 시에도 정상 동작합니다.</p>',
+        '<p>딥링크로 접근하거나 새로고침해도 SPA 라우트가 정상적으로 열렸습니다.</p>',
     },
     {
       title: 'Canvas 게임 화면: 데이터 포맷과 렌더링 분리',
       tags: ['Canvas API', 'React state'],
       problem:
-        '<p>게임 dummy 데이터 포맷과 실제 Canvas 렌더링이 섞이면서 변경 비용이 컸습니다.</p>',
+        '<p>게임의 임시 데이터 형식과 Canvas 렌더링 로직이 섞여 있어 한쪽 변경이 다른 쪽까지 번졌습니다.</p>',
       approach:
         '<ol>' +
-        '<li>게임 dummy 데이터 포맷을 먼저 안정화</li>' +
-        '<li>Canvas 렌더링을 그 위에 얹음</li>' +
-        '<li>dummy 단계에서 UI 를 먼저 다듬고 API 를 나중에 붙임</li>' +
+        '<li>게임 데이터 형식을 먼저 확정했습니다.</li>' +
+        '<li>확정된 형식 위에 Canvas 렌더링을 구현했습니다.</li>' +
+        '<li>임시 데이터로 UI를 완성한 뒤 API를 연결했습니다.</li>' +
         '</ol>',
       result:
-        '<p>API 가 늦게 붙어도 화면 작업이 멈추지 않습니다. 데이터 포맷 변경이 한 곳에서만 일어납니다.</p>',
+        '<p>API 일정과 관계없이 화면 개발을 이어갔고, 데이터 형식의 변경 지점도 한 곳으로 모았습니다.</p>',
     },
   ],
   contributions: [
