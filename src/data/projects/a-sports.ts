@@ -111,9 +111,19 @@ export const aSports: Project = {
     },
   ],
   contributions: [
-    '<strong>React 프론트엔드</strong>(<code>algo-sports-front</code>). 게임 매치 / 코드 제출 / 댓글 / 답글 / 토큰 갱신 흐름 구현.',
-    '<strong>Canvas API</strong>. 게임 화면 렌더링.',
-    '<strong>배포</strong>. Netlify + <code>_redirects</code> SPA fallback.',
+    {
+      title: 'React 프론트엔드',
+      summary:
+        '(<code>algo-sports-front</code>). 게임 매치 / 코드 제출 / 댓글 / 답글 / 토큰 갱신 흐름 구현.',
+    },
+    {
+      title: 'Canvas API',
+      summary: '게임 화면 렌더링.',
+    },
+    {
+      title: '배포',
+      summary: 'Netlify + <code>_redirects</code> SPA fallback.',
+    },
   ],
   links: [
     {

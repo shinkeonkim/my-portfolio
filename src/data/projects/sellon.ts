@@ -137,14 +137,23 @@ export const sellon: Project = {
     },
   ],
   contributions: [
-    '<strong>API</strong>. Django + DRF.' +
-      '<ul>' +
-      '<li>도메인: user / product / file_manager / auction / dealing</li>' +
-      '<li>모델링 / 시리얼라이저 / 뷰 작성</li>' +
-      '</ul>',
-    '<strong>핵심 API 설계</strong>. Signal 기반 counter cache + 1:N 멀티 이미지 업로드 API.',
-    '<strong>인프라</strong>. docker-compose + nginx + AWS EC2 + 로그 / 마이그레이션 / 슈퍼유저 운영 스크립트.',
-    '<strong>협업 표준</strong>. pipenv + pre-commit + graph_models 기반 ERD 자동 생성.',
+    {
+      title: 'API',
+      summary: 'Django + DRF.',
+      items: ['도메인: user / product / file_manager / auction / dealing', '모델링 / 시리얼라이저 / 뷰 작성'],
+    },
+    {
+      title: '핵심 API 설계',
+      summary: 'Signal 기반 counter cache + 1:N 멀티 이미지 업로드 API.',
+    },
+    {
+      title: '인프라',
+      summary: 'docker-compose + nginx + AWS EC2 + 로그 / 마이그레이션 / 슈퍼유저 운영 스크립트.',
+    },
+    {
+      title: '협업 표준',
+      summary: 'pipenv + pre-commit + graph_models 기반 ERD 자동 생성.',
+    },
   ],
   links: [
     {

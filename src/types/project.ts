@@ -37,6 +37,12 @@ export interface ProjectFeature {
   content: readonly string[]
 }
 
+export interface ProjectContribution {
+  title: string
+  summary: string
+  items?: readonly string[]
+}
+
 export type ProjectMediaType = 'image' | 'youtube' | 'video'
 
 export interface ProjectMedia {
@@ -108,7 +114,7 @@ export interface Project {
   description: string
   features: readonly ProjectFeature[]
   challenges: readonly ProjectChallenge[]
-  contributions: readonly string[]
+  contributions: readonly ProjectContribution[]
   links: readonly ProjectLink[]
   award?: string
   hero?: string

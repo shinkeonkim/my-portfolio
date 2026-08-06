@@ -137,11 +137,27 @@ export const ttl: Project = {
     },
   ],
   contributions: [
-    '<strong>팀리드</strong>. 도메인 설계 및 협업 구조 수립 (백엔드 김신건 / 진승희 / 최지현).',
-    '<strong>외부 플랫폼 동기화</strong>. Celery + django-celery-beat 기반 + 어댑터 추상화.',
-    '<strong>API / 문서화</strong>. drf-yasg Swagger · Redoc 자동 문서화 + article sub API 설계.',
-    '<strong>인프라 / 협업</strong>. docker-compose + <code>restart: always</code> 운영 + 테스트 환경 세팅 + pre-commit 표준화.',
-    '<strong>운영</strong>. <code>todaytheylearn.com</code> 도메인에서 실제 운영.',
+    {
+      title: '팀리드',
+      summary: '도메인 설계 및 협업 구조 수립 (백엔드 김신건 / 진승희 / 최지현).',
+    },
+    {
+      title: '외부 플랫폼 동기화',
+      summary: 'Celery + django-celery-beat 기반 + 어댑터 추상화.',
+    },
+    {
+      title: 'API / 문서화',
+      summary: 'drf-yasg Swagger · Redoc 자동 문서화 + article sub API 설계.',
+    },
+    {
+      title: '인프라 / 협업',
+      summary:
+        'docker-compose + <code>restart: always</code> 운영 + 테스트 환경 세팅 + pre-commit 표준화.',
+    },
+    {
+      title: '운영',
+      summary: '<code>todaytheylearn.com</code> 도메인에서 실제 운영.',
+    },
   ],
   links: [
     { label: '운영 사이트', url: 'https://todaytheylearn.com/', type: 'demo' },

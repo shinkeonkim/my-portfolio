@@ -156,15 +156,23 @@ export const daedongMokjido: Project = {
     },
   ],
   contributions: [
-    '<strong>API</strong>. Django + DRF.' +
-      '<ul>' +
-      '<li>제보 / 리뷰 / 북마크 / 신고</li>' +
-      '<li>평점 자동 갱신</li>' +
-      '<li>좌표 자동 변환</li>' +
-      '</ul>',
-    '<strong>지도 연동</strong>. KakaoMap Web API 로 지도 / 마커 / 주변 매장 표시.',
-    '<strong>비동기 흐름</strong>. React + Redux + redux-saga watcher / worker 분리.',
-    '<strong>자동 배포</strong>. 백엔드 Heroku(git subtree) + 프론트엔드 Netlify 파이프라인.',
+    {
+      title: 'API',
+      summary: 'Django + DRF.',
+      items: ['제보 / 리뷰 / 북마크 / 신고', '평점 자동 갱신', '좌표 자동 변환'],
+    },
+    {
+      title: '지도 연동',
+      summary: 'KakaoMap Web API 로 지도 / 마커 / 주변 매장 표시.',
+    },
+    {
+      title: '비동기 흐름',
+      summary: 'React + Redux + redux-saga watcher / worker 분리.',
+    },
+    {
+      title: '자동 배포',
+      summary: '백엔드 Heroku(git subtree) + 프론트엔드 Netlify 파이프라인.',
+    },
   ],
   links: [
     {

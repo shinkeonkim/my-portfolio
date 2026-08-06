@@ -146,17 +146,33 @@ export const peacepiece: Project = {
     },
   ],
   contributions: [
-    '<strong>프로젝트 전반</strong>. 기획 / 디자인 / 백엔드 / 프론트엔드 전반의 개발 관리 · 진행.',
-    '<strong>API 설계</strong>. Django + DRF 위에서 도메인을 설계.' +
-      '<ul>' +
-      '<li>포인트 / 아이템 / 알림</li>' +
-      '<li>챌린지 / 인증</li>' +
-      '<li>입양 / 섬</li>' +
-      '</ul>',
-    '<strong>인증 / 문서화</strong>. dj-rest-auth + django-allauth + simplejwt 기반 인증 / 인가 + drf-yasg 자동 문서화.',
-    '<strong>인프라</strong>. docker-compose 빌드 구조 + nginx 튜닝 + health-check 트래픽 분리 + AWS EC2 / ELB.',
-    '<strong>성능 개선</strong>. article feedback <code>prefetch_related</code> + <code>annotate</code> 리팩토링으로 글 목록 API N+1 제거.',
-    '<strong>협업 자동화</strong>. pre-commit / GitHub Flow / PR template.',
+    {
+      title: '프로젝트 전반',
+      summary: '기획 / 디자인 / 백엔드 / 프론트엔드 전반의 개발 관리 · 진행.',
+    },
+    {
+      title: 'API 설계',
+      summary: 'Django + DRF 위에서 도메인을 설계.',
+      items: ['포인트 / 아이템 / 알림', '챌린지 / 인증', '입양 / 섬'],
+    },
+    {
+      title: '인증 / 문서화',
+      summary:
+        'dj-rest-auth + django-allauth + simplejwt 기반 인증 / 인가 + drf-yasg 자동 문서화.',
+    },
+    {
+      title: '인프라',
+      summary: 'docker-compose 빌드 구조 + nginx 튜닝 + health-check 트래픽 분리 + AWS EC2 / ELB.',
+    },
+    {
+      title: '성능 개선',
+      summary:
+        'article feedback <code>prefetch_related</code> + <code>annotate</code> 리팩토링으로 글 목록 API N+1 제거.',
+    },
+    {
+      title: '협업 자동화',
+      summary: 'pre-commit / GitHub Flow / PR template.',
+    },
   ],
   links: [
     {

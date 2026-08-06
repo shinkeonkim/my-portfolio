@@ -116,49 +116,67 @@ export const mefit: Project = {
   ],
   challenges: mefitChallenges,
   contributions: [
-    '<strong>PM</strong>. 서브 프로젝트로 모노레포를 나누고 기술 의사결정을 문서화. 결과보고서 원안도 작성.' +
-      '<ul>' +
-      '<li>서브 프로젝트: backend / voice-api / analysis-resume / analysis-stt / analysis-video / face-analyzer / interview-analysis-report / scraping / infra / mefit-tools / mefit-diagrams / frontend</li>' +
-      '<li>의사결정: Django · K3s · edge-tts · LiteLLM · FSD · pgvector · Zustand · faster-whisper · Docker</li>' +
-      '</ul>',
-    '<strong>Backend</strong>. Django 6 + DRF + Channels 위에 도메인 앱과 공통 인프라를 구축.' +
-      '<ul>' +
-      '<li>도메인 앱: users / profiles / interviews / resumes / job_descriptions / achievements / streaks / dashboard / subscriptions / tickets / notifications / terms_documents / llm_trackers / realtime_docs</li>' +
-      '<li>BaseService 패턴 + Factory Boy + @patch 기반 테스트</li>' +
-      '<li>JWT 인증 (Access 5분 / Refresh 7일 + Connection Fencing code 4409)</li>' +
-      '<li>커스텀 예외 (Validation · Unauthorized · PermissionDenied · NotFound · Conflict)</li>' +
-      '<li>Slack Bot 알림 채널 분리 (ERROR · EVENT · NPLUSONE)</li>' +
-      '</ul>',
-    '<strong>Infra</strong>. K3s 클러스터를 EC2 위에 직접 운영.' +
-      '<ul>' +
-      '<li>server / agent 노드 분리 (nodepool · PodDisruptionBudget · priorityClass)</li>' +
-      '<li>LiteLLM Gateway 도입 (LiteLLM · OneAPI · Portkey · Helicone · Kong 비교 후 선정)</li>' +
-      '<li>멀티 프로바이더 폴백 + 가상키 Spend 추적</li>' +
-      '<li>Grafana Cloud (alloy-metrics · alloy-singleton · kube-state-metrics)</li>' +
-      "<li>cert-manager + Let's Encrypt 자동 인증서</li>" +
-      '<li>iptables NAT 로 Pod 가 EC2 IAM Role 자격 증명을 그대로 사용</li>' +
-      '</ul>',
-    '<strong>AI / RAG</strong>. pgvector 와 LangChain 기반 면접 질문 생성, 그리고 별도 코드 RAG 챗봇.' +
-      '<ul>' +
-      '<li>이중 임베딩 (원문 청크 + 구조화 JSON)</li>' +
-      '<li>TokenUsageCallback 으로 토큰 / 비용 추적</li>' +
-      '<li>Pydantic structured output + Hypothesis 속성 기반 테스트</li>' +
-      '<li>코드 RAG: ChromaDB 벡터 + BM25Okapi + NetworkX Personalised PageRank 하이브리드 검색</li>' +
-      '<li>5중 검색 강화 (Query Rewrite / Multi-Query / HyDE / MMR / BM25)</li>' +
-      '</ul>',
-    '<strong>비용 최적화</strong>.' +
-      '<ul>' +
-      '<li>EKS 대신 K3s 로 컨트롤 플레인 비용 제거</li>' +
-      '<li>야간 EC2 정지로 상시 비용 절감</li>' +
-      '<li>faster-whisper · edge-tts 셀프호스팅</li>' +
-      '<li>Lambda 호출당 과금 + Grafana Cloud Free Tier 안에서 운영</li>' +
-      '</ul>',
-    '<strong>운영</strong>. 두 건의 프로덕션 인시던트를 포스트모템으로 정리하고 재발 방지 체계 수립.' +
-      '<ul>' +
-      '<li>RDS 커넥션 풀 고갈 / STT silent failure 근본 원인 분석</li>' +
-      '<li>알림 채널 분리 (애플리케이션 / 인프라)</li>' +
-      '<li>알람 grouping + false positive Pause 정책</li>' +
-      '</ul>',
+    {
+      title: 'PM',
+      summary: '서브 프로젝트로 모노레포를 나누고 기술 의사결정을 문서화. 결과보고서 원안도 작성.',
+      items: [
+        '서브 프로젝트: backend / voice-api / analysis-resume / analysis-stt / analysis-video / face-analyzer / interview-analysis-report / scraping / infra / mefit-tools / mefit-diagrams / frontend',
+        '의사결정: Django · K3s · edge-tts · LiteLLM · FSD · pgvector · Zustand · faster-whisper · Docker',
+      ],
+    },
+    {
+      title: 'Backend',
+      summary: 'Django 6 + DRF + Channels 위에 도메인 앱과 공통 인프라를 구축.',
+      items: [
+        '도메인 앱: users / profiles / interviews / resumes / job_descriptions / achievements / streaks / dashboard / subscriptions / tickets / notifications / terms_documents / llm_trackers / realtime_docs',
+        'BaseService 패턴 + Factory Boy + @patch 기반 테스트',
+        'JWT 인증 (Access 5분 / Refresh 7일 + Connection Fencing code 4409)',
+        '커스텀 예외 (Validation · Unauthorized · PermissionDenied · NotFound · Conflict)',
+        'Slack Bot 알림 채널 분리 (ERROR · EVENT · NPLUSONE)',
+      ],
+    },
+    {
+      title: 'Infra',
+      summary: 'K3s 클러스터를 EC2 위에 직접 운영.',
+      items: [
+        'server / agent 노드 분리 (nodepool · PodDisruptionBudget · priorityClass)',
+        'LiteLLM Gateway 도입 (LiteLLM · OneAPI · Portkey · Helicone · Kong 비교 후 선정)',
+        '멀티 프로바이더 폴백 + 가상키 Spend 추적',
+        'Grafana Cloud (alloy-metrics · alloy-singleton · kube-state-metrics)',
+        "cert-manager + Let's Encrypt 자동 인증서",
+        'iptables NAT 로 Pod 가 EC2 IAM Role 자격 증명을 그대로 사용',
+      ],
+    },
+    {
+      title: 'AI / RAG',
+      summary: 'pgvector 와 LangChain 기반 면접 질문 생성, 그리고 별도 코드 RAG 챗봇.',
+      items: [
+        '이중 임베딩 (원문 청크 + 구조화 JSON)',
+        'TokenUsageCallback 으로 토큰 / 비용 추적',
+        'Pydantic structured output + Hypothesis 속성 기반 테스트',
+        '코드 RAG: ChromaDB 벡터 + BM25Okapi + NetworkX Personalised PageRank 하이브리드 검색',
+        '5중 검색 강화 (Query Rewrite / Multi-Query / HyDE / MMR / BM25)',
+      ],
+    },
+    {
+      title: '비용 최적화',
+      summary: '.',
+      items: [
+        'EKS 대신 K3s 로 컨트롤 플레인 비용 제거',
+        '야간 EC2 정지로 상시 비용 절감',
+        'faster-whisper · edge-tts 셀프호스팅',
+        'Lambda 호출당 과금 + Grafana Cloud Free Tier 안에서 운영',
+      ],
+    },
+    {
+      title: '운영',
+      summary: '두 건의 프로덕션 인시던트를 포스트모템으로 정리하고 재발 방지 체계 수립.',
+      items: [
+        'RDS 커넥션 풀 고갈 / STT silent failure 근본 원인 분석',
+        '알림 채널 분리 (애플리케이션 / 인프라)',
+        '알람 grouping + false positive Pause 정책',
+      ],
+    },
   ],
   links: [
     { label: '서비스 (mefit.kr)', url: 'https://mefit.kr', type: 'demo' },

@@ -231,21 +231,29 @@ export const kkambbaki: Project = {
     },
   ],
   contributions: [
-    '<strong>Backend</strong>. Django 모델 / 서비스 / 태스크 구현.' +
-      '<ul>' +
-      '<li><strong>common</strong>: BaseModel / BaseAPIView / BaseAPIException 인프라</li>' +
-      '<li><strong>users</strong>: User / Child / BotToken</li>' +
-      '<li><strong>games</strong>: Game / GameSession / GameResult / RankingEntry</li>' +
-      '<li><strong>reports</strong>: Report / GameReport / GameReportAdvice / ReportPin</li>' +
-      '</ul>',
-    '<strong>Infra</strong>. 환경 분리 + ArgoCD GitOps.' +
-      '<ul>' +
-      '<li>alpha: 홈랩 Kubernetes</li>' +
-      '<li>production: AWS EC2 + RDS</li>' +
-      '<li>ArgoCD GitOps 매니페스트 작성</li>' +
-      '</ul>',
-    '<strong>CI / CD</strong>. AWS production 환경 + GitHub Actions 로 CI / 커버리지 / Swagger 자동화.',
-    '<strong>비동기 파이프라인</strong>. reports 도메인의 LLM 호출 + PDF + 이메일 발송 흐름 설계.',
+    {
+      title: 'Backend',
+      summary: 'Django 모델 / 서비스 / 태스크 구현.',
+      items: [
+        '<strong>common</strong>: BaseModel / BaseAPIView / BaseAPIException 인프라',
+        '<strong>users</strong>: User / Child / BotToken',
+        '<strong>games</strong>: Game / GameSession / GameResult / RankingEntry',
+        '<strong>reports</strong>: Report / GameReport / GameReportAdvice / ReportPin',
+      ],
+    },
+    {
+      title: 'Infra',
+      summary: '환경 분리 + ArgoCD GitOps.',
+      items: ['alpha: 홈랩 Kubernetes', 'production: AWS EC2 + RDS', 'ArgoCD GitOps 매니페스트 작성'],
+    },
+    {
+      title: 'CI / CD',
+      summary: 'AWS production 환경 + GitHub Actions 로 CI / 커버리지 / Swagger 자동화.',
+    },
+    {
+      title: '비동기 파이프라인',
+      summary: 'reports 도메인의 LLM 호출 + PDF + 이메일 발송 흐름 설계.',
+    },
   ],
   links: [
     { label: 'Backend repo', url: 'https://github.com/kkambbaki/backend', type: 'github' },

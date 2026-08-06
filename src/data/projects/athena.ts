@@ -208,25 +208,28 @@ export const athena: Project = {
     },
   ],
   contributions: [
-    '<strong>4개 repo 단독 운영</strong>. 기획 / 설계 / 구현 / 운영을 모두 직접.' +
-      '<ul>' +
-      '<li>Athena</li>' +
-      '<li>code-executor</li>' +
-      '<li>code-judger</li>' +
-      '<li>code-testcase-generator</li>' +
-      '</ul>',
-    '<strong>아키텍처 설계</strong>.' +
-      '<ul>' +
-      '<li>Django 도메인 분리: main / user / article / problem / agent / api</li>' +
-      '<li>gRPC 마이크로서비스: Rust 2종 + Python 1종</li>' +
-      '</ul>',
-    '<strong>운영 디테일</strong>. 다음 정책을 직접 결정.' +
-      '<ul>' +
-      '<li>GIN Index 한국어 trigram</li>' +
-      '<li>ticket 원복 보상 트랜잭션</li>' +
-      '<li>요금제 기반 LLM 할당량</li>' +
-      '</ul>',
-    '<strong>문서 / 발표</strong>. 캡스톤 보고서 단독 작성 + 발표 영상 직접 제작.',
+    {
+      title: '4개 repo 단독 운영',
+      summary: '기획 / 설계 / 구현 / 운영을 모두 직접.',
+      items: ['Athena', 'code-executor', 'code-judger', 'code-testcase-generator'],
+    },
+    {
+      title: '아키텍처 설계',
+      summary: '.',
+      items: [
+        'Django 도메인 분리: main / user / article / problem / agent / api',
+        'gRPC 마이크로서비스: Rust 2종 + Python 1종',
+      ],
+    },
+    {
+      title: '운영 디테일',
+      summary: '다음 정책을 직접 결정.',
+      items: ['GIN Index 한국어 trigram', 'ticket 원복 보상 트랜잭션', '요금제 기반 LLM 할당량'],
+    },
+    {
+      title: '문서 / 발표',
+      summary: '캡스톤 보고서 단독 작성 + 발표 영상 직접 제작.',
+    },
   ],
   links: [
     {

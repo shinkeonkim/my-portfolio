@@ -274,7 +274,16 @@ function openLightboxAt(url: string) {
           <span
             class="mt-3 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]"
           />
-          <div class="prose-body flex-1" v-html="c" />
+          <div class="prose-body flex-1">
+            <h3 class="font-semibold text-[var(--color-text-primary)]">{{ c.title }}</h3>
+            <p v-html="c.summary" />
+            <ul
+              v-if="c.items?.length"
+              class="mt-1 list-disc space-y-1 pl-5 text-sm leading-7 text-[var(--color-text-secondary)]"
+            >
+              <li v-for="(item, itemIndex) in c.items" :key="itemIndex" v-html="item" />
+            </ul>
+          </div>
         </li>
       </ul>
     </section>

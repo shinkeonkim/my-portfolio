@@ -134,9 +134,18 @@ export const lotteng: Project = {
     },
   ],
   contributions: [
-    '<strong>백엔드</strong>. Django + AJAX 인터랙션 + 인증번호 발급 로직.',
-    '<strong>인프라</strong>. AWS EC2(Ubuntu 18.04 LTS) + Nginx + Gunicorn.',
-    '<strong>도메인 로직</strong>. 롯데 계열사 통합 모델링 + 환경 세일 배지 + 거리순 정렬 (8인 팀 협업).',
+    {
+      title: '백엔드',
+      summary: 'Django + AJAX 인터랙션 + 인증번호 발급 로직.',
+    },
+    {
+      title: '인프라',
+      summary: 'AWS EC2(Ubuntu 18.04 LTS) + Nginx + Gunicorn.',
+    },
+    {
+      title: '도메인 로직',
+      summary: '롯데 계열사 통합 모델링 + 환경 세일 배지 + 거리순 정렬 (8인 팀 협업).',
+    },
   ],
   links: [
     { label: 'GitHub', url: 'https://github.com/hyeoneedyou/lotteng', type: 'github' },
