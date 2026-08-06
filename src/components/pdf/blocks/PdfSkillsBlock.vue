@@ -19,12 +19,31 @@ defineProps<{ groups: readonly SkillCategoryGroup[] }>()
 </template>
 
 <style scoped>
+/* 카테고리 라벨과 태그를 한 줄에 배치해 A4 에서 세로 공간을 최소화한다. */
+.pdf-skill-group {
+  display: flex;
+  align-items: baseline;
+  gap: 6pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
 .pdf-skill-group + .pdf-skill-group {
-  margin-top: 6pt;
+  margin-top: 1pt;
+}
+.pdf-skill-group h3 {
+  flex: 0 0 70pt;
+  margin: 0;
+  font-size: 9.5pt;
 }
 .pdf-skill-list {
+  flex: 1 1 auto;
+  min-width: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 3pt 8pt;
+  gap: 1pt 5pt;
+}
+.pdf-skill-list .pdf-tag {
+  margin: 0;
+  padding: 0 5pt;
 }
 </style>

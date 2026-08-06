@@ -102,14 +102,14 @@ defineProps<{
 .pdf-challenge {
   border: 0.5pt solid #cbd5e1;
   border-radius: 3pt;
-  padding: 5pt 7pt;
-  margin-bottom: 5pt;
+  padding: 4pt 6pt;
+  margin-bottom: 4pt;
   font-size: 9.5pt;
   break-inside: auto;
   page-break-inside: auto;
 }
 .pdf-challenge-header {
-  margin-bottom: 3pt;
+  margin-bottom: 2pt;
   break-inside: avoid;
   page-break-inside: avoid;
   break-after: avoid;
@@ -131,8 +131,9 @@ defineProps<{
   border-left: 2pt solid #cbd5e1;
   border-radius: 2pt;
   background: #f8fafc;
-  break-inside: avoid;
-  page-break-inside: avoid;
+  /* 행을 통째로 다음 장으로 미루면 지면 손실이 커서, 문서 전역 orphans/widows 로만 보호한다. */
+  break-inside: auto;
+  page-break-inside: auto;
 }
 .pdf-challenge-row-problem {
   border-left-color: #94a3b8;

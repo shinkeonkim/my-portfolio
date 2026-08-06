@@ -208,7 +208,7 @@ function openLightboxAt(url: string) {
       />
     </section>
 
-    <section class="mt-14 space-y-4">
+    <section v-if="project.features.length" class="mt-14 space-y-4">
       <h2
         class="text-2xl font-semibold tracking-tight text-[var(--color-text-primary)] md:text-3xl"
       >

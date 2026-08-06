@@ -42,7 +42,8 @@ defineProps<{ experiences: readonly Experience[] }>()
               </header>
               <p v-if="d.impact" class="pdf-exp-impact">{{ d.impact }}</p>
               <ul v-if="d.bullets.length" class="pdf-exp-bullets">
-                <li v-for="(b, bi) in d.bullets" :key="bi">{{ b }}</li>
+                <!-- 불릿 앞머리 라벨(<strong>)을 살려 긴 항목도 훑어볼 수 있게 한다. -->
+                <li v-for="(b, bi) in d.bullets" :key="bi" v-html="b" />
               </ul>
             </li>
           </ol>
@@ -54,8 +55,8 @@ defineProps<{ experiences: readonly Experience[] }>()
 
 <style scoped>
 .pdf-exp h2 {
-  margin: 0 0 10pt 0;
-  font-size: 16pt;
+  margin: 0 0 6pt 0;
+  font-size: 13pt;
   font-weight: 700;
 }
 
@@ -106,11 +107,11 @@ defineProps<{ experiences: readonly Experience[] }>()
 .pdf-exp-roles {
   list-style: none;
   padding: 0;
-  margin: 6pt 0 0 0;
+  margin: 5pt 0 0 0;
 }
 .pdf-exp-role + .pdf-exp-role {
-  margin-top: 10pt;
-  padding-top: 8pt;
+  margin-top: 6pt;
+  padding-top: 5pt;
   border-top: 0.5pt dashed #cbd5e1;
 }
 
@@ -155,7 +156,7 @@ defineProps<{ experiences: readonly Experience[] }>()
   margin: 2pt 0 4pt 0;
 }
 .pdf-exp-stack .pdf-tag {
-  font-size: 8pt;
+  font-size: 7.5pt;
   padding: 0.5pt 4pt;
   border: 0.5pt solid #cbd5e1;
   border-radius: 2pt;
@@ -183,7 +184,7 @@ defineProps<{ experiences: readonly Experience[] }>()
   border-radius: 1pt;
 }
 .pdf-exp-detail + .pdf-exp-detail {
-  margin-top: 5pt;
+  margin-top: 4pt;
 }
 
 .pdf-exp-detail-header {
@@ -229,7 +230,7 @@ defineProps<{ experiences: readonly Experience[] }>()
   position: relative;
   padding-left: 8pt;
   font-size: 9pt;
-  line-height: 1.5;
+  line-height: 1.4;
   color: #334155;
   /* Prevent orphaned/widowed single lines within a bullet */
   orphans: 2;

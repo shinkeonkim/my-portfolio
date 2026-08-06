@@ -88,8 +88,10 @@ const store = usePdfSelectionStore()
     Roboto,
     sans-serif;
   font-size: 11pt;
-  line-height: 1.55;
-  padding: 20mm 16mm;
+  /* A4 분량을 줄이기 위한 인쇄용 행간. 화면 본문(1.6~1.7)보다 촘촘하게 잡는다. */
+  line-height: 1.4;
+  /* @page 여백과 같은 값이라 미리보기 폭이 실제 인쇄 폭과 일치한다. */
+  padding: 15mm 12mm;
   width: 210mm;
   margin: 0 auto;
   box-sizing: border-box;
@@ -102,17 +104,17 @@ const store = usePdfSelectionStore()
   print-color-adjust: exact;
 }
 .pdf-block {
-  margin-bottom: 14pt;
+  margin-bottom: 12pt;
 }
 .pdf-block + .pdf-block {
   margin-top: 4pt;
 }
 .pdf-block h2 {
-  font-size: 14pt;
+  font-size: 13pt;
   font-weight: 700;
   color: #0f172a;
-  margin: 0 0 8pt 0;
-  padding-bottom: 4pt;
+  margin: 0 0 6pt 0;
+  padding-bottom: 3pt;
   border-bottom: 1.5pt solid #0f172a;
   letter-spacing: -0.01em;
   break-after: avoid;
@@ -172,7 +174,8 @@ const store = usePdfSelectionStore()
   border: 1px solid #cbd5e1;
   border-radius: 9999px;
   padding: 1pt 6pt;
-  font-size: 8.5pt;
+  /* 태그류는 본문보다 한 단계 작게 두어 보조 정보임이 드러나게 한다. */
+  font-size: 8pt;
   color: #475569;
   margin: 1pt 2pt 1pt 0;
 }
@@ -186,7 +189,7 @@ const store = usePdfSelectionStore()
   border: 1px solid #e2e8f0;
   border-radius: 4pt;
   padding: 6pt 8pt;
-  margin-bottom: 6pt;
+  margin-bottom: 5pt;
   break-inside: avoid;
   page-break-inside: avoid;
 }
@@ -201,7 +204,7 @@ const store = usePdfSelectionStore()
 }
 @page {
   size: A4;
-  margin: 18mm 14mm 18mm 14mm;
+  margin: 15mm 12mm 15mm 12mm;
 }
 @media print {
   html,

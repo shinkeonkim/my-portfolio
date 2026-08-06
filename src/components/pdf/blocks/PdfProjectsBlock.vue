@@ -98,8 +98,8 @@ function scaleLabel(s: Project['scale']): string {
 
 <style scoped>
 .pdf-project {
-  margin-bottom: 12pt;
-  padding-bottom: 8pt;
+  margin-bottom: 10pt;
+  padding-bottom: 6pt;
   border-bottom: 0.5pt solid #e2e8f0;
   break-inside: auto;
   page-break-inside: auto;
@@ -126,7 +126,7 @@ function scaleLabel(s: Project['scale']): string {
 }
 .pdf-project-scale {
   display: inline-block;
-  font-size: 8pt;
+  font-size: 7.5pt;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   color: #64748b;
   letter-spacing: 0.1em;
@@ -164,13 +164,26 @@ function scaleLabel(s: Project['scale']): string {
   color: #1f2937;
   margin: 3pt 0;
 }
+/* 설명 문단마다 불릿을 붙여 문장 단위 구분이 드러나게 한다. */
+.pdf-project-description :deep(> p) {
+  position: relative;
+  padding-left: 9pt;
+  margin: 0 0 2pt 0;
+}
+.pdf-project-description :deep(> p)::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #94a3b8;
+}
 .pdf-project-description :deep(> ul) {
   display: flex;
   flex-wrap: wrap;
   gap: 0;
   list-style: none;
   margin: 3pt 0 4pt;
-  padding-left: 0;
+  padding-left: 9pt;
 }
 .pdf-project-description :deep(> ul > li) {
   display: inline;
@@ -208,13 +221,13 @@ function scaleLabel(s: Project['scale']): string {
 .pdf-project-features {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4pt 6pt;
+  gap: 2pt 5pt;
   margin: 0;
 }
 .pdf-feature-card {
   border: 0.5pt solid #e2e8f0;
   border-radius: 3pt;
-  padding: 4pt 6pt;
+  padding: 2pt 4pt;
   break-inside: avoid;
   page-break-inside: avoid;
   background: #f8fafc;
@@ -241,7 +254,7 @@ function scaleLabel(s: Project['scale']): string {
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4pt;
+  gap: 2pt 6pt;
 }
 .pdf-contribution-group {
   break-inside: avoid;

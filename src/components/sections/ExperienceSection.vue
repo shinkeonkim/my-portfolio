@@ -120,7 +120,7 @@ function openLightbox(images: readonly string[], index: number, alt: string) {
                         <span
                           class="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)] opacity-80"
                         />
-                        <span>{{ b }}</span>
+                        <span v-html="b" />
                       </li>
                     </ul>
                     <div
