@@ -77,3 +77,5 @@ TODO-propmt.md
 
 # fetch-project-stats.py ETag cache (re-derived from GitHub responses)
 src/data/.project-stats-etags.json
+
+.omo/
