@@ -59,7 +59,7 @@ describe('PDF Skills selection', () => {
 
     // Then: the source-rendered skills return and the persisted flag is true.
     expect(pdfDocument.findAll('.pdf-skill-group').length).toBeGreaterThan(0)
-    expect(pdfDocument.findAll('.pdf-skill-list .pdf-tag')).toHaveLength(21)
+    expect(pdfDocument.findAll('.pdf-skill-list .pdf-tag')).toHaveLength(19)
     expect(JSON.parse(localStorage.getItem('pdf-selection:v2') ?? '{}').sections.skills).toBe(true)
   })
 })

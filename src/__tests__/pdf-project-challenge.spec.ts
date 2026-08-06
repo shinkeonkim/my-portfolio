@@ -80,27 +80,30 @@ describe('PdfProjectChallenge', () => {
     expect(wrapper.findAll('.pdf-challenge-detail-list')).toHaveLength(2)
   })
 
-  it('renders grouped Korean feature descriptions instead of raw module inventories', () => {
-    const challenge = mefitChallenges.find(
-      (item) => item.title === 'React 19 + Feature-Sliced Design 으로 병렬 개발',
-    )
-    if (!challenge) throw new Error('FSD challenge fixture is missing')
+  it('keeps retired low-signal challenges out and renders no raw module inventories', () => {
+    const retired = [
+      'React 19 + Feature-Sliced Design 으로 병렬 개발',
+      'Django 도메인 모듈 분리 설계',
+    ]
+    for (const title of retired) {
+      expect(mefitChallenges.map((item) => item.title)).not.toContain(title)
+    }
 
-    const wrapper = mount(PdfProjectChallenge, {
-      props: { challenge, includeDetail: true },
-    })
-    const text = wrapper.text()
+    const text = mefitChallenges
+      .map((challenge) =>
+        mount(PdfProjectChallenge, { props: { challenge, includeDetail: true } }).text(),
+      )
+      .join('\n')
 
-    expect(text).not.toContain('auth / resume / jd / user-job-description')
-    expect(text).not.toContain(
-      'interview-setup / interview-precheck / interview-session / interview-analysis-report',
-    )
-    expect(text).not.toContain('achievements / streak / milestones / notifications')
-    expect(text).not.toContain('home / onboarding / settings / subscription')
-    expect(text).toContain('인증·이력서·채용공고·사용자 작성 채용공고 기능')
-    expect(text).toContain('면접 설정·사전 점검부터 면접 진행·분석 리포트까지의 전체 흐름')
-    expect(text).toContain('업적·연속 학습·마일스톤·알림으로 이어지는 학습 보상 흐름')
-    expect(text).toContain('홈·온보딩·설정·구독을 아우르는 서비스 공통 화면')
+    for (const inventory of [
+      'auth / resume / jd / user-job-description',
+      'interview-setup / interview-precheck / interview-session',
+      'achievements / streak / milestones / notifications',
+      'home / onboarding / settings / subscription',
+      'users / profiles / interviews / resumes',
+    ]) {
+      expect(text, `"${inventory}" 나열이 되살아났습니다`).not.toContain(inventory)
+    }
   })
 
   it('keeps challenge summaries flowable while preserving internal subgroup integrity', () => {
@@ -111,7 +114,8 @@ describe('PdfProjectChallenge', () => {
 
     expect(source).toMatch(/\.pdf-challenge\s*\{[^}]*break-inside:\s*auto/s)
     expect(source).toMatch(/\.pdf-challenge-header\s*\{[^}]*break-inside:\s*avoid/s)
-    expect(source).toMatch(/\.pdf-challenge-row\s*\{[^}]*break-inside:\s*avoid/s)
+    // 행은 페이지 경계에서 이어지도록 두고(지면 손실 방지), 제목·하위 그룹만 묶어 둔다.
+    expect(source).toMatch(/\.pdf-challenge-row\s*\{[^}]*break-inside:\s*auto/s)
     expect(source).toMatch(/\.pdf-challenge-sub\s*\{[^}]*break-inside:\s*avoid/s)
     expect(source).toMatch(/\.pdf-option\s*\{[^}]*break-inside:\s*avoid/s)
     expect(source).toMatch(

@@ -20,14 +20,14 @@ const contributionBaseline: Record<
   string,
   { groupCount: number; itemCounts: readonly number[] }
 > = {
-  mefit: { groupCount: 6, itemCounts: [2, 5, 6, 5, 4, 3] },
-  kkambbaki: { groupCount: 4, itemCounts: [4, 3, 0, 0] },
-  athena: { groupCount: 4, itemCounts: [4, 2, 3, 0] },
-  sellon: { groupCount: 4, itemCounts: [2, 0, 0, 0] },
-  peacepiece: { groupCount: 6, itemCounts: [0, 3, 0, 0, 0, 0] },
+  mefit: { groupCount: 4, itemCounts: [2, 3, 2, 2] },
+  kkambbaki: { groupCount: 4, itemCounts: [3, 0, 0, 0] },
+  athena: { groupCount: 4, itemCounts: [0, 0, 0, 0] },
+  sellon: { groupCount: 4, itemCounts: [0, 0, 0, 0] },
+  peacepiece: { groupCount: 6, itemCounts: [0, 0, 0, 0, 0, 0] },
   ttl: { groupCount: 5, itemCounts: [0, 0, 0, 0, 0] },
   lotteng: { groupCount: 3, itemCounts: [0, 0, 0] },
-  'daedong-mokjido': { groupCount: 4, itemCounts: [3, 0, 0, 0] },
+  'daedong-mokjido': { groupCount: 4, itemCounts: [0, 0, 0, 0] },
   'a-sports': { groupCount: 3, itemCounts: [0, 0, 0] },
 }
 

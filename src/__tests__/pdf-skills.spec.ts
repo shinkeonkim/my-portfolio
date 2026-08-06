@@ -24,7 +24,7 @@ describe('PdfSkillsBlock', () => {
     const categoryLabels = wrapper.findAll('.pdf-skill-group h3').map((node) => node.text())
     const tagTexts = wrapper.findAll('.pdf-tag').map((node) => node.text())
 
-    expect(expectedNames).toHaveLength(21)
+    expect(expectedNames).toHaveLength(19)
     expect(categoryLabels).toEqual(expectedLabels)
     expect(tagTexts).toEqual(expectedNames)
     expect(new Set(tagTexts)).toHaveLength(expectedNames.length)

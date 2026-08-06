@@ -40,7 +40,7 @@ describe('PdfActivitiesBlock', () => {
   it('renders LikeliLion as exactly two compact detail rows', () => {
     const wrapper = mount(PdfActivitiesBlock, { props: { items: [likelion] } })
     const activity = wrapper.find('[data-activity-slug="likelion-kookmin"]')
-    const projection = activity.find('[data-activity-projection="likelion-compact"]')
+    const projection = activity.find('[data-activity-projection="compact"]')
 
     expect(activity.find('h3').text()).toBe('국민대 멋쟁이사자처럼 8 ~ 13기')
     expect(activity.text()).toContain('2020-03 ~ 2025-12')
@@ -58,33 +58,49 @@ describe('PdfActivitiesBlock', () => {
     expect(activity.text()).not.toContain('동아리 노션 페이지 자동화 도구')
   })
 
-  it('keeps generic activity highlights and expanded timeline rendering unchanged', () => {
+  it('renders the helper activity with the same compact projection as LikeliLion', () => {
     const wrapper = mount(PdfActivitiesBlock, { props: { items: [helper] } })
     const activity = wrapper.find('[data-activity-slug="kmu-helper"]')
+    const projection = activity.find('[data-activity-projection="compact"]')
 
-    expect(activity.find('.pdf-activity-list').exists()).toBe(true)
-    expect(activity.findAll('.pdf-activity-list > li')).toHaveLength(3)
-    expect(activity.find('.pdf-activity-timeline').exists()).toBe(true)
-    expect(activity.findAll('.pdf-activity-timeline-row')).toHaveLength(4)
-    expect(activity.findAll('.pdf-activity-timeline-row ul')).toHaveLength(4)
+    expect(projection.findAll('[data-activity-row]')).toHaveLength(2)
+    expect(projection.find('[data-activity-row="semesters"]').text()).toContain('지원 학기')
+    expect(projection.find('[data-activity-row="scope"]').text()).toContain('지원 범위')
+    // 함축 표현을 쓰는 활동은 원본 highlights / timeline 을 인쇄하지 않는다.
+    expect(activity.find('.pdf-activity-list').exists()).toBe(false)
+    expect(activity.find('.pdf-activity-timeline').exists()).toBe(false)
+    expect(activity.findAll('ul')).toHaveLength(0)
+  })
+
+  it('keeps the source highlights and timeline for the web surface', () => {
+    expect(helper.highlights.length).toBeGreaterThan(0)
+    expect(helper.timeline).toHaveLength(4)
   })
 
   it('marks year-only cohorts compactly while preserving long timeline periods', () => {
-    const wrapper = mount(PdfActivitiesBlock, { props: { items: [yearTimelineActivity, helper] } })
+    const rangeTimelineActivity: Activity = {
+      ...emptyActivity,
+      slug: 'range-timeline-activity',
+      title: 'Range timeline activity',
+      timeline: [{ period: '2025-09 ~ 2025-12', title: 'Autumn term', bullets: ['Support'] }],
+    }
+    const wrapper = mount(PdfActivitiesBlock, {
+      props: { items: [yearTimelineActivity, rangeTimelineActivity] },
+    })
     const compactPeriods = wrapper
       .find('[data-activity-slug="year-timeline-activity"]')
       .findAll('.pdf-activity-timeline-period')
-    const helperPeriods = wrapper
-      .find('[data-activity-slug="kmu-helper"]')
+    const rangePeriods = wrapper
+      .find('[data-activity-slug="range-timeline-activity"]')
       .findAll('.pdf-activity-timeline-period')
 
     expect(compactPeriods.map((period) => period.text())).toEqual(['2025'])
     expect(compactPeriods.every((period) => period.classes('pdf-activity-timeline-period--year'))).toBe(
       true,
     )
-    expect(helperPeriods[0]?.text()).toBe('2025-09 ~ 2025-12')
-    expect(helperPeriods[0]?.classes('pdf-activity-timeline-period--year')).toBe(false)
-    expect(wrapper.findAll('.pdf-activity-timeline-content')).toHaveLength(5)
+    expect(rangePeriods[0]?.text()).toBe('2025-09 ~ 2025-12')
+    expect(rangePeriods[0]?.classes('pdf-activity-timeline-period--year')).toBe(false)
+    expect(wrapper.findAll('.pdf-activity-timeline-content')).toHaveLength(2)
   })
 
   it('does not render empty lists for empty highlights and timeline collections', () => {

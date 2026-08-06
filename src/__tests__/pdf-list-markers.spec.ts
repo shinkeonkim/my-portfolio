@@ -176,8 +176,14 @@ const markerMatrix = [
   {
     file: 'PdfActivitiesBlock.vue',
     selector: '.pdf-activity-timeline ul',
-    classification: 'native',
-    rules: ['list-style: disc'],
+    classification: 'inline separator',
+    rules: ['display: flex', 'list-style: none'],
+  },
+  {
+    file: 'PdfActivitiesBlock.vue',
+    selector: '.pdf-activity-timeline ul > li + li::before',
+    classification: 'inline separator',
+    rules: ["content: '·'"],
   },
 ] as const satisfies readonly MarkerCase[]
 
