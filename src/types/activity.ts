@@ -10,6 +10,12 @@ export interface ActivityTimelineEntry {
   bullets: readonly string[]
 }
 
+/** A4 인쇄용 함축 표현. 있으면 highlights / timeline 대신 이 줄들만 렌더링한다. */
+export interface ActivityCompactRow {
+  key: string
+  html: string
+}
+
 export interface Activity {
   slug: string
   title: string
@@ -20,6 +26,7 @@ export interface Activity {
   highlights: readonly string[]
   details?: readonly string[]
   timeline?: readonly ActivityTimelineEntry[]
+  pdfCompact?: readonly ActivityCompactRow[]
   materials?: readonly LessonMaterial[]
   presentation?: ProjectPresentation
 }

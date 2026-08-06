@@ -51,6 +51,20 @@ export const activities: readonly Activity[] = [
         ],
       },
     ],
+    pdfCompact: [
+      {
+        key: 'staff-history',
+        html:
+          '<strong>운영진 이력</strong>: 2025 (13기) · 2024 (12기) · 2022 (10기) · ' +
+          '<strong>2021 (9기 대표)</strong> · 2020 (8기 아기사자)',
+      },
+      {
+        key: 'ninth-generation-highlights',
+        html:
+          '<strong>9기 운영진 대표</strong> 주요 활동: Git/GitHub 심화 강의 · Algorithm 스터디 운영 · ' +
+          '12개 대학 연합 해커톤 배포 담당 (배포 119 부서)',
+      },
+    ],
     materials: [
       {
         title: 'DRF Session',
@@ -128,43 +142,43 @@ export const activities: readonly Activity[] = [
     category: 'helper',
     role: '학부 조교 / Supporter',
     highlights: [
-      '소프트웨어프로젝트1·2 헬퍼: Git · 라즈베리파이 · Ubuntu · Arduino (회로 / 기초 프로그래밍 / PID 제어) 지원',
-      'LabAnywhere Supporter: 실습 환경 설정 지원 + Ubuntu 강의 진행',
-      '수강생 질문 답변·이슈 해결을 위한 학부 조교 활동',
+      '네 학기 동안 학부 조교로 수강생 질문 답변과 실습 이슈 해결을 담당했습니다.',
+      '실습 주제는 Git, 라즈베리파이, Ubuntu, Arduino 회로·기초 프로그래밍·PID 제어였습니다.',
     ],
     timeline: [
       {
         period: '2025-09 ~ 2025-12',
         title: '소프트웨어프로젝트2 헬퍼',
-        bullets: [
-          '수강생 질문 답변 및 이슈 해결을 위한 학부 조교',
-          'Arduino를 활용한 회로 및 기초 프로그래밍 지원',
-          'Arduino를 활용한 PID 제어 프로젝트 지원',
-        ],
+        bullets: ['Arduino 회로, 기초 프로그래밍, PID 제어 프로젝트 지원'],
       },
       {
         period: '2025-04 ~ 2025-06',
-        title: '소프트웨어프로젝트1 헬퍼 (2025-1학기)',
-        bullets: [
-          '수강생 질문 답변 및 이슈 해결을 위한 학부 조교',
-          'Git · 라즈베리파이 · Ubuntu 지원',
-        ],
+        title: '소프트웨어프로젝트1 헬퍼',
+        bullets: ['Git, 라즈베리파이, Ubuntu 실습 지원'],
       },
       {
         period: '2020-09 ~ 2020-12',
         title: 'LabAnywhere Supporter',
-        bullets: [
-          '학부 실습 환경 설정 지원',
-          'Ubuntu에 대한 강의 진행',
-        ],
+        bullets: ['학부 실습 환경 설정 지원, Ubuntu 강의 진행'],
       },
       {
         period: '2020-04 ~ 2020-06',
-        title: '소프트웨어프로젝트1 헬퍼 (2020-1학기)',
-        bullets: [
-          '수강생 질문 답변 및 이슈 해결을 위한 학부 조교',
-          'Git · 라즈베리파이 · Ubuntu 지원',
-        ],
+        title: '소프트웨어프로젝트1 헬퍼',
+        bullets: ['Git, 라즈베리파이, Ubuntu 실습 지원'],
+      },
+    ],
+    pdfCompact: [
+      {
+        key: 'semesters',
+        html:
+          '<strong>지원 학기</strong>: 2025-2 소프트웨어프로젝트2 · 2025-1 소프트웨어프로젝트1 · ' +
+          '2020-2 LabAnywhere Supporter · 2020-1 소프트웨어프로젝트1',
+      },
+      {
+        key: 'scope',
+        html:
+          '<strong>지원 범위</strong>: 학부 조교로 수강생 질문 답변과 실습 이슈 해결 · ' +
+          'Git / 라즈베리파이 / Ubuntu / Arduino (회로 · 기초 프로그래밍 · PID 제어) · 실습 환경 설정 및 Ubuntu 강의',
       },
     ],
   },

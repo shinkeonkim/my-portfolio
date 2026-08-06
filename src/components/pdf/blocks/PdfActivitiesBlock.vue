@@ -17,18 +17,17 @@ defineProps<{ items: readonly Activity[] }>()
         <span v-if="a.role"> · {{ a.role }}</span>
       </p>
       <div
-        v-if="a.slug === 'likelion-kookmin'"
-        data-activity-projection="likelion-compact"
+        v-if="a.pdfCompact?.length"
+        data-activity-projection="compact"
         class="pdf-activity-compact"
       >
-        <div data-activity-row="staff-history" class="pdf-activity-compact-row">
-          <strong>운영진 이력</strong>: 2025 (13기) · 2024 (12기) · 2022 (10기) ·
-          <strong>2021 (9기 대표)</strong> · 2020 (8기 아기사자)
-        </div>
-        <div data-activity-row="ninth-generation-highlights" class="pdf-activity-compact-row">
-          <strong>9기 운영진 대표</strong> 주요 활동: Git/GitHub 심화 강의 · Algorithm 스터디 운영 ·
-          12개 대학 연합 해커톤 배포 담당 (배포 119 부서)
-        </div>
+        <div
+          v-for="row in a.pdfCompact"
+          :key="row.key"
+          :data-activity-row="row.key"
+          class="pdf-activity-compact-row"
+          v-html="row.html"
+        />
       </div>
       <template v-else>
         <ul v-if="a.highlights.length" class="pdf-activity-list">
@@ -89,18 +88,25 @@ defineProps<{ items: readonly Activity[] }>()
 .pdf-activity-compact-row:last-child {
   margin-bottom: 0;
 }
+/* 기수/학기 이력이 세로로 길어지지 않도록 2열로 흘리고 항목은 한 줄로 유지한다. */
 .pdf-activity-timeline {
   margin-top: 3pt;
-  padding-left: 4pt;
-  border-left: 1pt solid #cbd5e1;
   min-width: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2pt 12pt;
+  align-items: start;
 }
 .pdf-activity-timeline-row {
   display: flex;
   gap: 4pt;
-  margin: 2pt 0;
+  margin: 0;
+  padding-left: 4pt;
+  border-left: 1pt solid #cbd5e1;
   font-size: 9pt;
   min-width: 0;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 .pdf-activity-timeline-period {
   flex: 0 0 auto;
@@ -119,9 +125,26 @@ defineProps<{ items: readonly Activity[] }>()
   min-width: 0;
 }
 .pdf-activity-timeline ul {
-  list-style: disc;
-  padding-left: 16pt;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
   font-size: 9pt;
-  margin: 1pt 0;
+  margin: 0;
+}
+.pdf-activity-timeline ul > li {
+  display: inline;
+  margin: 0;
+}
+.pdf-activity-timeline ul > li + li::before {
+  content: '·';
+  color: #94a3b8;
+  margin: 0 4pt;
+}
+
+@media screen and (max-width: 793px) {
+  .pdf-activity-timeline {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
