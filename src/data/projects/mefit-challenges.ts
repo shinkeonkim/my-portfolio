@@ -310,10 +310,12 @@ export const mefitChallenges: readonly ProjectChallenge[] = [
     result:
       '<p>각 feature 모듈은 단방향 의존을 유지하며 독립적으로 개발됐습니다.</p>' +
       '<ul>' +
-      '<li>auth / resume / jd / user-job-description</li>' +
-      '<li>interview-setup / interview-precheck / interview-session / interview-analysis-report</li>' +
-      '<li>achievements / streak / milestones / notifications</li>' +
-      '<li>home / onboarding / settings / subscription</li>' +
+      '<li>인증·이력서·채용공고·사용자 작성 채용공고 기능</li>' +
+      '<li>면접 설정·사전 점검부터 면접 진행·분석 리포트까지의 ' +
+      '전체 흐름</li>' +
+      '<li>업적·연속 학습·마일스톤·알림으로 이어지는 학습 보상 ' +
+      '흐름</li>' +
+      '<li>홈·온보딩·설정·구독을 아우르는 서비스 공통 화면</li>' +
       '</ul>' +
       '<p>실시간 자가 점검은 클라이언트가, 정밀 분석은 Lambda가 맡도록 같은 도구의 실행 위치도 목적에 맞게 분리했습니다.</p>',
     detail: {
@@ -344,7 +346,10 @@ export const mefitChallenges: readonly ProjectChallenge[] = [
         'FSD 의 단방향 의존이 "어디에 둘까?" 질문을 자동으로 해결. feature 단위 독립성 덕에 병렬 작업이 자연스러움.',
       implementation: [
         '6 레이어: app → pages → features → entities → widgets → shared',
-        'feature 모듈: auth · resume · jd · interview-setup / precheck / session · interview-analysis-report · achievements · streak · home · milestones · notifications · onboarding · settings · subscription · user-job-description',
+        'feature 모듈: 인증·이력서·채용공고·사용자 작성 채용공고',
+        'feature 모듈: 면접 설정·사전 점검·면접 진행·분석 리포트',
+        'feature 모듈: 업적·연속 학습·마일스톤·알림',
+        'feature 모듈: 홈·온보딩·설정·구독',
         'Zustand store 도메인 분리: 인증 / 이력서 / 면접 세션 / 알림 / 구독 등',
         'React Compiler 활성화: useMemo / useCallback 수동 작성 제거',
         'MediaPipe FaceLandmarker: WebGL GPU 가속, 클라이언트 실시간 자가 점검',

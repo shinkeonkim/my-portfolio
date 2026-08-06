@@ -15,25 +15,32 @@ defineProps<{
         <span v-for="t in challenge.tags" :key="t" class="pdf-tag">{{ t }}</span>
       </span>
     </div>
-    <div class="pdf-challenge-row">
-      <span class="pdf-challenge-label">문제</span>
-      <div class="pdf-challenge-body" v-html="challenge.problem" />
+    <div class="pdf-challenge-row pdf-challenge-row-problem" data-challenge-variant="problem">
+      <span class="pdf-challenge-label" data-challenge-label="problem">문제</span>
+      <div
+        class="pdf-challenge-body pdf-challenge-body-problem"
+        data-challenge-body="problem"
+        v-html="challenge.problem"
+      />
     </div>
-    <div class="pdf-challenge-row">
-      <span class="pdf-challenge-label pdf-label-accent">접근</span>
-      <div class="pdf-challenge-body" v-html="challenge.approach" />
+    <div class="pdf-challenge-row pdf-challenge-row-approach" data-challenge-variant="approach">
+      <span class="pdf-challenge-label pdf-label-accent" data-challenge-label="approach">접근</span>
+      <div
+        class="pdf-challenge-body pdf-challenge-body-approach"
+        data-challenge-body="approach"
+        v-html="challenge.approach"
+      />
     </div>
-    <div class="pdf-challenge-row">
-      <span class="pdf-challenge-label pdf-label-result">결과</span>
-      <div class="pdf-challenge-body" v-html="challenge.result" />
+    <div class="pdf-challenge-row pdf-challenge-row-result" data-challenge-variant="result">
+      <span class="pdf-challenge-label pdf-label-result" data-challenge-label="result">결과</span>
+      <div
+        class="pdf-challenge-body pdf-challenge-body-result"
+        data-challenge-body="result"
+        v-html="challenge.result"
+      />
     </div>
 
     <div v-if="includeDetail && challenge.detail" class="pdf-challenge-detail">
-      <div v-if="challenge.detail.background" class="pdf-challenge-sub">
-        <span class="pdf-challenge-sublabel">배경</span>
-        <div v-html="challenge.detail.background" />
-      </div>
-
       <div v-if="challenge.detail.options?.length" class="pdf-challenge-sub">
         <span class="pdf-challenge-sublabel">대안 비교</span>
         <div class="pdf-options">
@@ -59,26 +66,31 @@ defineProps<{
 
       <div v-if="challenge.detail.decision" class="pdf-challenge-sub">
         <span class="pdf-challenge-sublabel">결정</span>
-        <div v-html="challenge.detail.decision" />
+        <div class="pdf-challenge-decision" v-html="challenge.detail.decision" />
       </div>
 
-      <div v-if="challenge.detail.implementation?.length" class="pdf-challenge-sub">
-        <span class="pdf-challenge-sublabel">구현</span>
-        <ul>
-          <li v-for="(line, li) in challenge.detail.implementation" :key="li" v-html="line" />
-        </ul>
-      </div>
+      <div
+        v-if="challenge.detail.implementation?.length || challenge.detail.learnings?.length"
+        class="pdf-challenge-list-groups"
+      >
+        <div v-if="challenge.detail.implementation?.length" class="pdf-challenge-sub">
+          <span class="pdf-challenge-sublabel">구현</span>
+          <ul class="pdf-challenge-detail-list pdf-challenge-implementation-list">
+            <li v-for="(line, li) in challenge.detail.implementation" :key="li" v-html="line" />
+          </ul>
+        </div>
 
-      <div v-if="challenge.detail.learnings?.length" class="pdf-challenge-sub">
-        <span class="pdf-challenge-sublabel">배운 점</span>
-        <ul>
-          <li v-for="(line, li) in challenge.detail.learnings" :key="li" v-html="line" />
-        </ul>
+        <div v-if="challenge.detail.learnings?.length" class="pdf-challenge-sub">
+          <span class="pdf-challenge-sublabel">배운 점</span>
+          <ul class="pdf-challenge-detail-list pdf-challenge-learning-list">
+            <li v-for="(line, li) in challenge.detail.learnings" :key="li" v-html="line" />
+          </ul>
+        </div>
       </div>
 
       <div v-if="challenge.detail.metrics?.length" class="pdf-challenge-sub">
         <span class="pdf-challenge-sublabel">정량 지표</span>
-        <div class="pdf-metrics">
+        <div class="pdf-metrics pdf-challenge-metrics">
           <span v-for="m in challenge.detail.metrics" :key="m" class="pdf-tag">{{ m }}</span>
         </div>
       </div>
@@ -93,9 +105,13 @@ defineProps<{
   padding: 5pt 7pt;
   margin-bottom: 5pt;
   font-size: 9.5pt;
+  break-inside: auto;
+  page-break-inside: auto;
 }
 .pdf-challenge-header {
   margin-bottom: 3pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
   break-after: avoid;
   page-break-after: avoid;
 }
@@ -110,11 +126,30 @@ defineProps<{
   display: flex;
   gap: 5pt;
   align-items: flex-start;
-  margin: 1.5pt 0;
+  margin: 2pt 0;
+  padding: 2pt 4pt;
+  border-left: 2pt solid #cbd5e1;
+  border-radius: 2pt;
+  background: #f8fafc;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.pdf-challenge-row-problem {
+  border-left-color: #94a3b8;
+}
+.pdf-challenge-row-approach {
+  border-left-color: #f59e0b;
+  background: #fffbeb;
+}
+.pdf-challenge-row-result {
+  border-left-color: #22c55e;
+  background: #f0fdf4;
 }
 .pdf-challenge-label {
   display: inline-block;
   flex-shrink: 0;
+  min-width: 20pt;
+  text-align: center;
   font-size: 8pt;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   background: #f1f5f9;
@@ -122,6 +157,7 @@ defineProps<{
   padding: 1pt 4pt;
   border-radius: 2pt;
   margin-top: 1pt;
+  white-space: nowrap;
 }
 .pdf-label-accent {
   background: #fef3c7;
@@ -133,15 +169,43 @@ defineProps<{
 }
 .pdf-challenge-body {
   flex: 1;
+  min-width: 0;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.pdf-challenge-body-problem {
+  color: #334155;
+}
+.pdf-challenge-body-approach {
+  color: #78350f;
+}
+.pdf-challenge-body-result {
+  color: #14532d;
+}
+.pdf-challenge-body :deep(ul),
+.pdf-challenge-decision :deep(ul) {
+  list-style: disc;
+  margin: 2pt 0 4pt;
+  padding-left: 12pt;
+}
+.pdf-challenge-body :deep(ol),
+.pdf-challenge-decision :deep(ol) {
+  list-style: decimal;
+  margin: 2pt 0 4pt;
+  padding-left: 12pt;
 }
 .pdf-challenge-detail {
   margin-top: 4pt;
   padding-top: 4pt;
   border-top: 0.5pt dashed #e2e8f0;
   font-size: 9pt;
+  break-inside: auto;
+  page-break-inside: auto;
 }
 .pdf-challenge-sub {
   margin-top: 3pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 .pdf-challenge-sublabel {
   display: block;
@@ -150,6 +214,22 @@ defineProps<{
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 1pt;
+}
+.pdf-challenge-list-groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4pt 6pt;
+  align-items: start;
+}
+.pdf-challenge-detail-list {
+  list-style: disc;
+  margin: 0;
+  padding-left: 12pt;
+}
+.pdf-challenge-detail-list li {
+  margin: 0.5pt 0;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 .pdf-options {
   display: grid;
@@ -171,6 +251,8 @@ defineProps<{
   font-weight: 600;
   font-size: 9pt;
   margin: 0 0 1pt 0;
+  break-after: avoid;
+  page-break-after: avoid;
 }
 .pdf-option-chosen {
   font-size: 7.5pt;
@@ -195,5 +277,12 @@ defineProps<{
 }
 .pdf-metrics {
   margin-top: 1pt;
+}
+
+@media screen and (max-width: 793px) {
+  .pdf-challenge-list-groups,
+  .pdf-options {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
