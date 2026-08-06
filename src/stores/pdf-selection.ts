@@ -17,59 +17,18 @@ import {
   projects,
   toyProjects,
 } from '@/data'
-
-const STORAGE_KEY = 'pdf-selection:v1'
-
-const DEFAULT_SECTION_ORDER: PdfSectionId[] = [
-  'profile',
-  'contact',
-  'identity',
-  'skills',
-  'experience',
-  'education',
-  'certifications',
-  'awards',
-  'projects',
-  'activities',
-  'aiExperiments',
-  'toyProjects',
-]
-
-const DEFAULT_SECTIONS: Record<PdfSectionId, boolean> = {
-  profile: true,
-  identity: true,
-  skills: true,
-  experience: true,
-  projects: true,
-  aiExperiments: false,
-  toyProjects: false,
-  activities: true,
-  awards: true,
-  certifications: true,
-  education: true,
-  contact: true,
-}
-
-const DEFAULT_PROFILE_FIELDS: Record<PdfProfileField, boolean> = {
-  name: true,
-  alias: true,
-  nameRoman: true,
-  title: true,
-  tagline: true,
-  summary: true,
-  location: true,
-  yearsOfExperience: true,
-}
-
-const DEFAULT_PROJECT_FIELDS: Record<PdfProjectField, boolean> = {
-  description: true,
-  features: true,
-  challenges: true,
-  challengeDetail: true,
-  contributions: true,
-  links: true,
-  media: false,
-}
+import {
+  DEFAULT_PROFILE_FIELDS,
+  DEFAULT_PROJECT_FIELDS,
+  PDF_SELECTION_STORAGE_KEY_V2,
+  createInitialState,
+  loadFromStorage,
+} from './pdf-selection-persistence'
+export {
+  PDF_SELECTION_STORAGE_KEY_V1,
+  PDF_SELECTION_STORAGE_KEY_V2,
+  migratePdfSelectionState,
+} from './pdf-selection-persistence'
 
 export function awardKey(a: { title: string; date: string }): string {
   return `${a.date}::${a.title}`
@@ -87,70 +46,6 @@ export function contactKey(c: { href: string }): string {
   return c.href
 }
 
-function createInitialState(): PdfSelectionState {
-  const projectFields: Record<string, Record<PdfProjectField, boolean>> = {}
-  for (const p of projects) {
-    projectFields[p.slug] = { ...DEFAULT_PROJECT_FIELDS }
-  }
-  return {
-    sections: { ...DEFAULT_SECTIONS },
-    sectionOrder: [...DEFAULT_SECTION_ORDER],
-    profileFields: { ...DEFAULT_PROFILE_FIELDS },
-    excludedContacts: {},
-    excludedProjectSlugs: {},
-    excludedAiSlugs: {},
-    excludedToyCategories: {},
-    excludedActivitySlugs: {},
-    excludedAwardKeys: {},
-    excludedCertificationKeys: {},
-    excludedEducationKeys: {},
-    excludedExperienceKeys: {},
-    projectFields,
-  }
-}
-
-function ensureValidSectionOrder(order: PdfSectionId[] | undefined): PdfSectionId[] {
-  const seen = new Set<PdfSectionId>()
-  const result: PdfSectionId[] = []
-  for (const id of order ?? []) {
-    if (DEFAULT_SECTION_ORDER.includes(id) && !seen.has(id)) {
-      result.push(id)
-      seen.add(id)
-    }
-  }
-  for (const id of DEFAULT_SECTION_ORDER) {
-    if (!seen.has(id)) result.push(id)
-  }
-  return result
-}
-
-function loadFromStorage(): PdfSelectionState {
-  if (typeof window === 'undefined') return createInitialState()
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY)
-    if (!raw) return createInitialState()
-    const parsed = JSON.parse(raw) as Partial<PdfSelectionState>
-    const initial = createInitialState()
-    return {
-      sections: { ...initial.sections, ...(parsed.sections ?? {}) },
-      sectionOrder: ensureValidSectionOrder(parsed.sectionOrder),
-      profileFields: { ...initial.profileFields, ...(parsed.profileFields ?? {}) },
-      excludedContacts: { ...(parsed.excludedContacts ?? {}) },
-      excludedProjectSlugs: { ...(parsed.excludedProjectSlugs ?? {}) },
-      excludedAiSlugs: { ...(parsed.excludedAiSlugs ?? {}) },
-      excludedToyCategories: { ...(parsed.excludedToyCategories ?? {}) },
-      excludedActivitySlugs: { ...(parsed.excludedActivitySlugs ?? {}) },
-      excludedAwardKeys: { ...(parsed.excludedAwardKeys ?? {}) },
-      excludedCertificationKeys: { ...(parsed.excludedCertificationKeys ?? {}) },
-      excludedEducationKeys: { ...(parsed.excludedEducationKeys ?? {}) },
-      excludedExperienceKeys: { ...(parsed.excludedExperienceKeys ?? {}) },
-      projectFields: { ...initial.projectFields, ...(parsed.projectFields ?? {}) },
-    }
-  } catch {
-    return createInitialState()
-  }
-}
-
 export const usePdfSelectionStore = defineStore('pdf-selection', () => {
   const state = ref<PdfSelectionState>(loadFromStorage())
 
@@ -158,10 +53,10 @@ export const usePdfSelectionStore = defineStore('pdf-selection', () => {
     state,
     (val) => {
       if (typeof window !== 'undefined') {
-        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(val))
+        window.localStorage.setItem(PDF_SELECTION_STORAGE_KEY_V2, JSON.stringify(val))
       }
     },
-    { deep: true },
+    { deep: true, immediate: true },
   )
 
   function isItemIncluded(map: Record<string, boolean>, key: string): boolean {

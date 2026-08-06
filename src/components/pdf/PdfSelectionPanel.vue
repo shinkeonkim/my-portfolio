@@ -54,7 +54,7 @@ const PROJECT_FIELD_LABELS: Record<PdfProjectField, string> = {
   description: '개요',
   features: '주요 기능',
   challenges: '고민과 해결',
-  challengeDetail: '상세 (대안 / 결정 / 구현 / 배운 점)',
+  challengeDetail: '상세 (선택 사항 · 대안 / 결정 / 구현 / 배운 점)',
   contributions: '기여한 것',
   links: '링크',
   media: '미디어',
