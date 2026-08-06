@@ -50,6 +50,8 @@ defineProps<{ educations: readonly Education[] }>()
   margin: 1pt 0;
 }
 .pdf-edu-notes {
+  list-style: disc;
+  padding-left: 14pt;
   font-size: 9pt;
   margin: 2pt 0;
 }
