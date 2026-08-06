@@ -24,12 +24,7 @@ export const daedongMokjido: Project = {
     '"델리만쥬 · 호떡 · 순대트럭" 같은 사소한 길거리 먹거리 정보를 함께 만드는 지도 서비스.',
   description:
     '<p>흔한 음식점 리뷰 사이트가 잘 다루지 않는 길거리 먹거리 정보를 모으는 서비스입니다.</p>' +
-    '<p>다음 같은 정보를 사용자 제보로 수집합니다.</p>' +
-    '<ul>' +
-    '<li>어디 있는지</li>' +
-    '<li>언제 여는지</li>' +
-    '<li>맛은 있는지</li>' +
-    '</ul>' +
+    '<p>어디 있는지, 언제 여는지, 맛은 있는지를 사용자 제보로 수집합니다.</p>' +
     '<p>검수 후 지도에 노출됩니다. 제보 / 리뷰 / 신고에 리워드를 부여해 선순환을 만들었습니다.</p>' +
     '<p>기술 스택은 다음과 같습니다.</p>' +
     '<ul>' +
@@ -41,11 +36,7 @@ export const daedongMokjido: Project = {
   features: [
     {
       title: '핵심 흐름',
-      content: [
-        '제보 / 지도',
-        '검색',
-        '리뷰 / 신고',
-      ],
+      content: ['제보와 지도 노출, 검색, 리뷰·신고'],
     },
     {
       title: '검수 후 지도 노출',
@@ -114,11 +105,7 @@ export const daedongMokjido: Project = {
       title: 'KakaoMap 통합 + 좌표 자동화',
       tags: ['KakaoMap', 'Geocoding'],
       problem:
-        '<p>제보 좌표가 누락되거나, 좁은 검색 반경 때문에 주변 결과가 비는 일이 잦았습니다.</p>' +
-        '<ul>' +
-        '<li>제보된 장소의 좌표 누락</li>' +
-        '<li>현재 위치 주변 검색 결과가 비어버림</li>' +
-        '</ul>',
+        '<p>제보된 장소의 좌표가 누락되거나, 좁은 검색 반경 때문에 현재 위치 주변 결과가 비는 일이 잦았습니다.</p>',
       approach:
         '<ul>' +
         '<li>제보한 주소를 좌표로 자동 변환했습니다.</li>' +
@@ -144,11 +131,7 @@ export const daedongMokjido: Project = {
       title: 'redux-saga 기반 비동기 흐름',
       tags: ['Redux', 'redux-saga'],
       problem:
-        '<p>좌표 변환과 검색처럼 여러 단계가 이어지는 비동기 흐름을 컴포넌트가 직접 관리해 복잡도가 커졌습니다.</p>' +
-        '<ul>' +
-        '<li>제보 등록 → 좌표 변환 → 지도 마커 갱신</li>' +
-        '<li>검색 → 결과 표시</li>' +
-        '</ul>',
+        '<p>제보 등록 → 좌표 변환 → 지도 마커 갱신, 검색 → 결과 표시처럼 여러 단계가 이어지는 비동기 흐름을 컴포넌트가 직접 관리해 복잡도가 커졌습니다.</p>',
       approach:
         '<p>redux-saga에서 각 흐름을 watcher와 worker로 분리하고, 컴포넌트는 dispatch만 담당하게 했습니다.</p>',
       result:
@@ -158,8 +141,8 @@ export const daedongMokjido: Project = {
   contributions: [
     {
       title: 'API',
-      summary: 'Django + DRF.',
-      items: ['제보 / 리뷰 / 북마크 / 신고', '평점 자동 갱신', '좌표 자동 변환'],
+      summary:
+        'Django + DRF 로 제보 · 리뷰 · 북마크 · 신고 API 와 평점 자동 갱신, 주소 → 좌표 자동 변환을 구현.',
     },
     {
       title: '지도 연동',

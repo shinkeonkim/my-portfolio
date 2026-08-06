@@ -28,153 +28,49 @@ export const mefit: Project = {
     '"아직 핏이 맞지 않아도 괜찮아." 이력서·채용공고 기반 AI 면접관 / Audio·Video·Transcript 분석 리포트.',
   description:
     '<p>면접 연습의 기회 비대칭을 해소하기 위해 만든 자기주도형 면접 트레이닝 플랫폼입니다. 4인 팀의 PM 을 맡으면서 백엔드 · 인프라 · AI 까지 여러 영역을 책임졌습니다.</p>' +
-    '<p>주요 페르소나는 취업 · 이직을 준비하는 사용자입니다. 다음 기능을 함께 제공합니다.</p>' +
-    '<ul>' +
-    '<li><strong>꼬리질문 모드 / 전체 프로세스 모드</strong> 면접</li>' +
-    '<li><strong>친근 / 일반 / 압박</strong> 3단계 면접관 톤</li>' +
-    '<li><strong>연습 / 실전</strong> 두 가지 모드</li>' +
-    '</ul>' +
-    '<p>K3s 자체 호스팅과 faster-whisper · edge-tts 셀프호스팅으로 월 인프라 비용을 합리적인 수준에 두었습니다.</p>',
-  features: [
-    {
-      title: '이력서 분석 파이프라인',
-      content: [
-        'pypdf 텍스트 추출 → pgvector 임베딩(1536d, 500자 청크) → 병렬 LLM 파싱',
-        '30 ~ 60초 안에 완료',
-        '이력서당 비용은 최대 $0.006 수준',
-      ],
-    },
-    {
-      title: 'AI 면접',
-      content: [
-        '이력서와 채용공고 정보를 RAG 컨텍스트로 주입',
-        '질문 종류: 꼬리질문 / 전체 프로세스',
-        '면접관 톤(난이도): 친근 / 일반 / 압박',
-        '모드: 연슴 / 실전'
-      ],
-    },
-    {
-      title: '면접 영상 처리',
-      content: [
-        '업로드 흐름: MediaRecorder webm → S3 멀티파트(5MB 청크, Presigned URL) → SNS → SQS Fan-out → Lambda',
-        '<strong>video-converter</strong>: mp4 변환',
-        '<strong>frame-extractor</strong>: 표정 분석용 프레임 추출',
-        '<strong>audio-extractor</strong>: 오디오 분리',
-        '<strong>voice-analyzer</strong>: 음성 지표',
-        '<strong>face-analyzer</strong>: 표정 분류 / 시선 추정',
-      ],
-    },
-    {
-      title: '비언어 분석',
-      content: [
-        'MediaPipe blendshape 5종: smile / frown / brow_down / jaw_open / eye_squint',
-        'OpenCV solvePnP 기반 시선 추정',
-        'pydub silence detection / WPM / 필러워드',
-      ],
-    },
-    {
-      title: 'STT / TTS 셀프호스팅',
-      content: [
-        '<strong>STT</strong>: faster-whisper small int8 (OpenAI Whisper API 대비 빠른 CPU 추론)',
-        '<strong>TTS</strong>: edge-tts (322 voice / 142 언어)',
-      ],
-    },
-    {
-      title: '리포트 파이프라인',
-      content: [
-        '단계 흐름: Loader → VoiceAnalysisInvoker → AnalysisContext.build → LLMAnalyzer → Repository.save',
-        '평가 카테고리: 구체성 / 직무 적합성 / 논리성 / 신뢰도 / 면접태도',
-        'Pydantic structured output + Hypothesis 속성 기반 테스트로 포맷 강제',
-      ],
-    },
-    {
-      title: '학습 루프 / 요금제 · 티켓',
-      content: [
-        '스트릭 캘린더',
-        '업적 4개 카테고리 제공으로 티켓 보상 지급: Interview / Streak / Profile / Custom',
-        '매일 정각마다 Free, Pro 요금제에 따라 일일 티켓 초기화 및 지급',
-        'daily 티켓 모두 소모 시, purchased 티켓으로 대체 차감되는 구조 수립'
-      ],
-    },
-    {
-      title: '실시간 통신 · 인증',
-      content: [
-        '<strong>WebSocket</strong>: 양방향 통신. Connection Fencing code 4409',
-        '<strong>SSE</strong>: 서버 → 클라이언트 분석 진행 알림',
-        'JWT 인증 및 WebSocket 연결용 인증 티켓',
-      ],
-    },
-    {
-      title: '랜딩 페이지 최적화',
-      content: [
-        '3D 메타볼: Three.js + @react-three/fiber',
-        '스크롤 인터랙션: GSAP ScrollTrigger',
-        '모션: Lottie',
-        'Vite manualChunks 코드 스플리팅: 면접 세션 페이지에서는 로드되지 않음',
-      ],
-    },
-  ],
+    '<p>주요 페르소나는 취업 · 이직을 준비하는 사용자로, ' +
+    '<strong>꼬리질문 · 전체 프로세스</strong> 두 가지 면접 방식, <strong>친근 · 일반 · 압박</strong> 3단계 면접관 톤, ' +
+    '<strong>연습 · 실전</strong> 모드를 함께 제공합니다.</p>' +
+    '<p>이력서는 pypdf 추출 → pgvector 임베딩(1536d, 500자 청크) → 병렬 LLM 파싱을 거쳐 ' +
+    '한 건당 30 ~ 60초, 최대 $0.006 수준으로 구조화됩니다. 이 결과와 채용공고가 RAG 컨텍스트로 면접 질문 생성에 주입됩니다.</p>' +
+    '<p>면접 영상은 표정(MediaPipe blendshape 5종), 시선(OpenCV solvePnP), ' +
+    '발화(pydub 무음 구간 · WPM · 필러워드)까지 분석해 구체성 · 직무 적합성 · 논리성 · 신뢰도 · 면접태도 5개 카테고리 리포트로 만듭니다.</p>' +
+    '<p>스트릭 캘린더와 4개 카테고리 업적으로 재방문 루프를 만들고, Free / Pro 요금제에 따라 매일 티켓을 지급합니다. ' +
+    'K3s 자체 호스팅과 faster-whisper · edge-tts 셀프호스팅으로 월 인프라 비용을 합리적인 수준에 두었습니다.</p>',
+  features: [],
   challenges: mefitChallenges,
   contributions: [
     {
       title: 'PM',
       summary: '서브 프로젝트로 모노레포를 나누고 기술 의사결정을 문서화. 결과보고서 원안도 작성.',
       items: [
-        '서브 프로젝트: backend / voice-api / analysis-resume / analysis-stt / analysis-video / face-analyzer / interview-analysis-report / scraping / infra / mefit-tools / mefit-diagrams / frontend',
-        '의사결정: Django · K3s · edge-tts · LiteLLM · FSD · pgvector · Zustand · faster-whisper · Docker',
+        '모노레포를 백엔드 · 음성/영상/이력서 분석 · 인프라 · 프론트엔드 12개 서브 프로젝트로 나눠 각자 독립적으로 배포하게 했습니다.',
+        'Django · K3s · LiteLLM · pgvector · FSD 등 되돌리기 어려운 기술 선택은 대안 비교와 함께 문서로 남겼습니다.',
       ],
     },
     {
       title: 'Backend',
       summary: 'Django 6 + DRF + Channels 위에 도메인 앱과 공통 인프라를 구축.',
       items: [
-        '도메인 앱: users / profiles / interviews / resumes / job_descriptions / achievements / streaks / dashboard / subscriptions / tickets / notifications / terms_documents / llm_trackers / realtime_docs',
-        'BaseService 패턴 + Factory Boy + @patch 기반 테스트',
-        'JWT 인증 (Access 5분 / Refresh 7일 + Connection Fencing code 4409)',
-        '커스텀 예외 (Validation · Unauthorized · PermissionDenied · NotFound · Conflict)',
-        'Slack Bot 알림 채널 분리 (ERROR · EVENT · NPLUSONE)',
+        '이력서 · 채용공고 · 면접 세션 · 구독 · 알림을 14개 도메인 앱으로 나누고, 도메인 레이어와 API 레이어를 물리적으로 분리했습니다.',
+        '쓰기 로직은 BaseService 로 트랜잭션 경계를 고정하고, Factory Boy 와 @patch 로 외부 호출을 격리해 테스트했습니다.',
+        '예외를 종류별로 정의해 HTTP 응답 규약을 통일하고, 오류 · 이벤트 · N+1 경고를 각각 다른 Slack 채널로 보내 알림 소음을 줄였습니다.',
       ],
     },
     {
       title: 'Infra',
       summary: 'K3s 클러스터를 EC2 위에 직접 운영.',
       items: [
-        'server / agent 노드 분리 (nodepool · PodDisruptionBudget · priorityClass)',
-        'LiteLLM Gateway 도입 (LiteLLM · OneAPI · Portkey · Helicone · Kong 비교 후 선정)',
-        '멀티 프로바이더 폴백 + 가상키 Spend 추적',
-        'Grafana Cloud (alloy-metrics · alloy-singleton · kube-state-metrics)',
-        "cert-manager + Let's Encrypt 자동 인증서",
-        'iptables NAT 로 Pod 가 EC2 IAM Role 자격 증명을 그대로 사용',
+        'server 와 agent 노드를 나누고 PodDisruptionBudget 과 priorityClass 로 무거운 워크로드가 밀려나지 않게 했습니다.',
+        "cert-manager 로 Let's Encrypt 인증서를 자동 갱신해 만료 대응을 운영 업무에서 없앴습니다.",
       ],
     },
     {
       title: 'AI / RAG',
       summary: 'pgvector 와 LangChain 기반 면접 질문 생성, 그리고 별도 코드 RAG 챗봇.',
       items: [
-        '이중 임베딩 (원문 청크 + 구조화 JSON)',
-        'TokenUsageCallback 으로 토큰 / 비용 추적',
-        'Pydantic structured output + Hypothesis 속성 기반 테스트',
-        '코드 RAG: ChromaDB 벡터 + BM25Okapi + NetworkX Personalised PageRank 하이브리드 검색',
-        '5중 검색 강화 (Query Rewrite / Multi-Query / HyDE / MMR / BM25)',
-      ],
-    },
-    {
-      title: '비용 최적화',
-      summary: '.',
-      items: [
-        'EKS 대신 K3s 로 컨트롤 플레인 비용 제거',
-        '야간 EC2 정지로 상시 비용 절감',
-        'faster-whisper · edge-tts 셀프호스팅',
-        'Lambda 호출당 과금 + Grafana Cloud Free Tier 안에서 운영',
-      ],
-    },
-    {
-      title: '운영',
-      summary: '두 건의 프로덕션 인시던트를 포스트모템으로 정리하고 재발 방지 체계 수립.',
-      items: [
-        'RDS 커넥션 풀 고갈 / STT silent failure 근본 원인 분석',
-        '알림 채널 분리 (애플리케이션 / 인프라)',
-        '알람 grouping + false positive Pause 정책',
+        'TokenUsageCallback 으로 호출별 토큰과 비용을 추적해 프롬프트 변경이 비용에 미치는 영향을 확인했습니다.',
+        'Pydantic structured output 에 Hypothesis 속성 기반 테스트를 붙여 LLM 응답 포맷이 깨지는 경우를 미리 잡았습니다.',
       ],
     },
   ],

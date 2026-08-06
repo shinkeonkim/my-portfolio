@@ -17,22 +17,12 @@ export const aSports: Project = {
   description:
     '<p>AlgoSports 는 알고리즘 학습을 게임화한 플랫폼입니다. </p>' +
     '<p>프론트엔드(<code>algo-sports-front</code>) 를 담당했습니다.</p>' +
-    '<p>구현 범위:</p>' +
-    '<ul>' +
-    '<li>게임 매치 / 참여자 목록</li>' +
-    '<li>코드 제출 / 댓글 / 답글</li>' +
-    '<li>토큰 갱신</li>' +
-    '<li>Canvas 게임 화면</li>' +
-    '</ul>' +
+    '<p>구현 범위는 게임 매치·참여자 목록, 코드 제출과 댓글·답글, 토큰 갱신, Canvas 게임 화면입니다.</p>' +
     '<p>React 로 작성하고 Netlify 에 배포했습니다.</p>',
   features: [
     {
       title: 'React SPA',
-      content: [
-        '게임 매치 / 참여자 목록',
-        '게임 dummy 데이터 포맷',
-        '게임 페이지 API 연결',
-      ],
+      content: ['게임 매치·참여자 목록 화면을 dummy 데이터 포맷으로 먼저 만든 뒤 API 를 연결'],
     },
     {
       title: 'Canvas API',
@@ -42,12 +32,7 @@ export const aSports: Project = {
     },
     {
       title: '댓글 흐름',
-      content: [
-        '코드 제출',
-        '댓글 / 답글',
-        '댓글 입력 (textArea UI)',
-        '댓글 응답 조건 처리',
-      ],
+      content: ['코드 제출, 댓글·답글, textArea 입력 UI, 댓글 응답 조건 처리'],
     },
     {
       title: '토큰 갱신',
@@ -58,10 +43,7 @@ export const aSports: Project = {
     },
     {
       title: 'SPA 배포',
-      content: [
-        'Netlify 사용',
-        '<code>_redirects</code> 로 reload 시 404 우회',
-      ],
+      content: ['Netlify 에 배포하고 <code>_redirects</code> 로 reload 시 404 를 우회'],
     },
     {
       title: '데이터 렌더링',

@@ -25,84 +25,23 @@ export const kkambbaki: Project = {
     '"숨겨진 집중력의 불을 켜주는 아동 교육 서비스": 2025 멋쟁이사자처럼 13기 4호선톤 출품작.',
   description:
     '<p>만 5~10세 아동을 대상으로 한 에듀테크 플랫폼입니다.</p>' +
-    '<p>연구 논문 기반 게임으로 집중력 / 기억력 / 문제해결력을 훈련합니다.</p>' +
-    '<ul>' +
-    '<li>뿅뿅 아기별: 별 깜빡임 순서를 기억하고 따라 입력</li>' +
-    '<li>꼬마 교통지킴이: 신호 변화 시점에 정확히 반응</li>' +
-    '</ul>' +
-    '<p>게임 결과는 LLM 으로 분석되어 부모용 PDF 리포트로 발송됩니다.</p>' +
-    '<p>Django 백엔드는 도메인으로 분리되어 있습니다.</p>' +
-    '<ul>' +
-    '<li><strong>common</strong>: BaseModel / BaseAPIView / BaseAPIException</li>' +
-    '<li><strong>users</strong>: User / Child / BotToken</li>' +
-    '<li><strong>games</strong>: Game / GameSession / GameResult / RankingEntry</li>' +
-    '<li><strong>reports</strong>: Report / GameReport / GameReportAdvice / ReportPin. LLM · PDF · 이메일 · Celery 까지 포함되어 가장 복잡한 영역입니다.</li>' +
-    '</ul>' +
-    '<p>인프라는 두 환경으로 분리해 운영합니다.</p>' +
-    '<ul>' +
-    '<li><strong>alpha</strong>: 홈랩 Kubernetes, <code>alpha.singun11.wtf</code></li>' +
-    '<li><strong>production</strong>: AWS EC2 + RDS, <code>kkambbaki.singun11.wtf</code></li>' +
-    '</ul>',
-  features: [
-    {
-      title: '뿅뿅 아기별',
-      content: [
-        'N-Back 류 게임',
-        '별 깜빡임 순서를 기억하고 따라 입력',
-        '대상: 초등 저학년',
-      ],
-    },
-    {
-      title: '꼬마 교통지킴이',
-      content: [
-        'Go / No-Go 과제',
-        '신호 변화 시점에 정확히 반응',
-        '대상: 미취학 후반',
-      ],
-    },
-    {
-      title: '랭킹 시스템',
-      content: [
-        'GameSession / GameResult 가 라운드별 반응과 결과를 누적',
-        'RankingEntry 로 랭킹 표시',
-      ],
-    },
-    {
-      title: 'AI 분석 리포트',
-      content: [
-        'reports 도메인의 Celery 태스크가 게임 결과를 LLM 프롬프트로 분석',
-        '<strong>GameReportAdvice</strong>: 부모용 조언 생성',
-        '<strong>base_pdf_generator</strong>: PDF 리포트 생성',
-        '<strong>report_email_service</strong>: 이메일 발송',
-        '위 단계는 모두 Celery 비동기로 처리',
-      ],
-    },
-    {
-      title: '공통 인프라 코드',
-      content: [
-        'BaseModel / BaseAPIView / BaseAPIException',
-        'ActiveUserPermission',
-        'CamelCase ↔ snake_case 미들웨어',
-      ],
-    },
-    {
-      title: '환경 분리 + 자동화',
-      content: [
-        'environments 디렉토리로 development / alpha / production Dockerfile 분리',
-        'GitHub Actions 가 CI / 커버리지 / Swagger 자동화',
-      ],
-    },
-  ],
+    '<p>연구 논문 기반 게임 두 종으로 집중력 / 기억력 / 문제해결력을 훈련합니다. ' +
+    '<strong>뿅뿅 아기별</strong>(초등 저학년 · N-Back 류)은 별 깜빡임 순서를 기억해 따라 입력하고, ' +
+    '<strong>꼬마 교통지킴이</strong>(미취학 후반 · Go / No-Go)는 신호 변화 시점에 정확히 반응하게 합니다.</p>' +
+    '<p>라운드별 반응과 결과는 세션 단위로 누적되어 랭킹으로 환산되고, 같은 데이터가 LLM 분석을 거쳐 부모용 PDF 리포트로 발송됩니다.</p>' +
+    '<p>Django 백엔드는 공통 인프라, 사용자, 게임, 리포트 네 도메인으로 나눴습니다. ' +
+    'LLM 분석 · PDF 생성 · 이메일 발송이 Celery 로 이어지는 리포트 도메인이 가장 복잡한 영역이었습니다.</p>' +
+    '<p>모델 · 뷰 · 예외 베이스 클래스를 먼저 세워 도메인마다 반복되는 boilerplate 를 없앴고, ' +
+    'environments 디렉토리로 development / alpha / production Dockerfile 을 나눈 뒤 GitHub Actions 가 CI · 커버리지 · Swagger 를 자동화합니다.</p>' +
+    '<p>인프라는 두 환경으로 분리해 운영합니다. ' +
+    '<strong>alpha</strong> 는 홈랩 Kubernetes, <strong>production</strong> 은 AWS EC2 + RDS 입니다.</p>',
+  features: [],
   challenges: [
     {
       title: 'alpha 는 홈랩 Kubernetes, production 은 AWS: 멀티 환경 전략',
       tags: ['Kubernetes', 'AWS', 'Multi-env'],
       problem:
-        '<p>개발 환경에서는 비용 없이 실험하고 싶었지만, 발표 환경에서는 홈랩의 장애 위험을 감수할 수 없었습니다.</p>' +
-        '<ul>' +
-        '<li>홈랩의 물리적 접근성 부족</li>' +
-        '<li>홈 네트워크 / 전원 장애 가능성</li>' +
-        '</ul>',
+        '<p>개발 환경에서는 비용 없이 실험하고 싶었지만, 물리적 접근성 부족과 홈 네트워크·전원 장애 가능성 때문에 발표 환경에서는 홈랩의 장애 위험을 감수할 수 없었습니다.</p>',
       approach:
         '<p>환경별 SLA에 맞춰 alpha와 production을 분리했습니다.</p>' +
         '<ul>' +
@@ -111,26 +50,12 @@ export const kkambbaki: Project = {
         '</ul>' +
         '<p>infra 저장소의 환경별 manifest가 두 환경의 차이를 담당하게 했습니다.</p>',
       result:
-        '<ul>' +
-        '<li><code>alpha.singun11.wtf</code>: 자유롭게 실험</li>' +
-        '<li><code>kkambbaki.singun11.wtf</code>: 안정적으로 시연</li>' +
-        '</ul>' +
+        '<p>alpha 환경에서는 자유롭게 실험하고, production 환경에서는 안정적으로 시연했습니다.</p>' +
         '<p>발표는 AWS에서 안정적으로 마쳤고, 이후에는 홈랩으로 옮겨 운영 비용을 낮출 수 있는 구조를 유지했습니다.</p>',
       detail: {
         background:
-          '<p>홈랩 Kubernetes 는 매력적이었습니다.</p>' +
-          '<ul>' +
-          '<li>무료 리소스 활용</li>' +
-          '<li>확장성</li>' +
-          '<li>실제 인프라 경험</li>' +
-          '</ul>' +
-          '<p>다만 해커톤 발표 환경에서는 다음이 부족했습니다.</p>' +
-          '<ul>' +
-          '<li>물리적 접근성</li>' +
-          '<li>하드웨어 안정성</li>' +
-          '<li>실시간 모니터링</li>' +
-          '</ul>' +
-          '<p>두 환경의 장점을 모두 가져가는 구조가 필요했습니다.</p>',
+          '<p>홈랩 Kubernetes 는 무료 리소스, 확장성, 실제 인프라 운영 경험 면에서 매력적이었습니다.</p>' +
+          '<p>다만 해커톤 발표 환경에서는 물리적 접근성, 하드웨어 안정성, 실시간 모니터링이 부족했기에 두 환경의 장점을 모두 가져가는 구조가 필요했습니다.</p>',
         options: [
           {
             label: 'Option A: production 도 홈랩 Kubernetes',
@@ -151,8 +76,8 @@ export const kkambbaki: Project = {
         decision:
           '해커톤 발표라는 단발성 이벤트에서는 안정성을 양보할 수 없었고, 평소 개발은 홈랩이 가장 빠른 피드백 루프를 줬습니다.',
         implementation: [
-          'alpha 환경: 홈랩 Kubernetes 클러스터 + `alpha.singun11.wtf`',
-          'production 환경: AWS EC2 + RDS + `kkambbaki.singun11.wtf`',
+          'alpha 환경: 홈랩 Kubernetes 클러스터',
+          'production 환경: AWS EC2 + RDS',
           '백엔드 공통: Django + DRF 5.2 + Celery + Redis + PostgreSQL + uv',
           'environments/{development, alpha, production}/Dockerfile + commands 스크립트 분리',
           'GitHub Actions: CI 테스트 · 커버리지 레포트 · Swagger 문서 자동 생성',
@@ -167,36 +92,17 @@ export const kkambbaki: Project = {
       title: 'reports 도메인: LLM / PDF / 이메일을 한 도메인 안에 묶기',
       tags: ['Celery', 'LLM', 'PDF', 'Email'],
       problem:
-        '<p>게임 결과부터 이메일 발송까지 이어지는 긴 리포트 생성 흐름의 책임과 재시도 경계를 정해야 했습니다.</p>' +
-        '<ol>' +
-        '<li>게임 결과 누적</li>' +
-        '<li>LLM 분석</li>' +
-        '<li>부모용 조언 생성</li>' +
-        '<li>PDF 렌더링</li>' +
-        '<li>이메일 발송</li>' +
-        '</ol>' +
+        '<p>게임 결과 누적, LLM 분석, 부모용 조언 생성, PDF 렌더링, 이메일 발송으로 이어지는 긴 리포트 생성 흐름의 책임과 재시도 경계를 정해야 했습니다.</p>' +
         '<p>단계를 분리하되 하나의 도메인 안에서 전체 흐름을 추적할 수 있어야 했습니다.</p>',
       approach:
-        '<p>reports 도메인 안에서 모델, 서비스, LLM, 비동기 작업, 인증의 책임을 분리했습니다.</p>' +
-        '<ul>' +
-        '<li><strong>models</strong>: Report / GameReport / GameReportAdvice / ReportPin</li>' +
-        '<li><strong>services</strong>: report_generation_service / game_report_generation_service / report_email_service / base_pdf_generator</li>' +
-        '<li><strong>llm</strong>: generator / prompt / provider</li>' +
-        '<li><strong>tasks</strong>: report_task / report_email_task (Celery 진입점)</li>' +
-        '<li><strong>authentication</strong>: 리포트 접근 인증</li>' +
-        '</ul>',
+        '<p>reports 도메인 안에서 모델, 서비스, LLM 호출, Celery 태스크, 접근 인증을 각각의 모듈로 분리했습니다.</p>' +
+        '<p>서비스 계층이 리포트 생성 흐름을 오케스트레이션하고, 프롬프트와 LLM 프로바이더는 따로 빼 교체 가능하게 두었습니다.</p>',
       result:
         '<p>각 단계는 독립된 서비스 클래스로 실행되지만 전체 흐름은 reports 도메인 안에서 추적됩니다.</p>' +
         '<p>Django management command도 같은 서비스를 호출해 운영 중 실패한 단계를 다시 실행할 수 있습니다.</p>',
       detail: {
         background:
-          '<p>AI 리포트 생성은 외부 I/O 가 긴 작업입니다.</p>' +
-          '<ul>' +
-          '<li>LLM 호출</li>' +
-          '<li>통계 분석</li>' +
-          '<li>PDF 렌더링</li>' +
-          '<li>이메일 발송</li>' +
-          '</ul>' +
+          '<p>AI 리포트 생성은 LLM 호출, 통계 분석, PDF 렌더링, 이메일 발송처럼 외부 I/O 가 긴 작업입니다.</p>' +
           '<p>코드 위치 / 트랜잭션 경계 / 재시도 정책을 미리 정해두지 않으면 도메인 전체가 흐려지기 쉽습니다.</p>',
         implementation: [
           'reports/models: Report · GameReport · GameReportAdvice · ReportPin',
@@ -218,14 +124,7 @@ export const kkambbaki: Project = {
       problem:
         '<p>단순 점수와 정답률만으로는 아이의 집중력과 회복탄력성이 어떻게 드러났는지 설명하기 어려웠습니다.</p>',
       approach:
-        '<p>게임 라운드마다 행동 지표를 GameResult에 저장하고 LLM 프롬프트의 근거로 사용했습니다.</p>' +
-        '<ul>' +
-        '<li>최대 도달 라운드</li>' +
-        '<li>평균 도달 라운드</li>' +
-        '<li>반응 속도</li>' +
-        '<li>오답률</li>' +
-        '<li>제한시간 초과율</li>' +
-        '</ul>',
+        '<p>게임 라운드마다 최대·평균 도달 라운드, 반응 속도, 오답률, 제한시간 초과율을 GameResult에 저장하고 LLM 프롬프트의 근거로 사용했습니다.</p>',
       result:
         '<p>학부모에게 단일 점수 대신 강점과 보완 영역을 수치와 자연어 조언으로 함께 전달했습니다.</p>',
     },
@@ -235,16 +134,15 @@ export const kkambbaki: Project = {
       title: 'Backend',
       summary: 'Django 모델 / 서비스 / 태스크 구현.',
       items: [
-        '<strong>common</strong>: BaseModel / BaseAPIView / BaseAPIException 인프라',
-        '<strong>users</strong>: User / Child / BotToken',
-        '<strong>games</strong>: Game / GameSession / GameResult / RankingEntry',
-        '<strong>reports</strong>: Report / GameReport / GameReportAdvice / ReportPin',
+        '공통 베이스 모델 · 뷰 · 예외를 먼저 세워 네 도메인이 같은 규약을 공유하게 했습니다.',
+        '보호자-아동 계정 구조와 게임 세션 · 라운드 결과 · 랭킹 모델을 설계했습니다.',
+        '리포트 생성부터 이메일 발송까지의 비동기 흐름을 서비스와 Celery 태스크로 구현했습니다.',
       ],
     },
     {
       title: 'Infra',
-      summary: '환경 분리 + ArgoCD GitOps.',
-      items: ['alpha: 홈랩 Kubernetes', 'production: AWS EC2 + RDS', 'ArgoCD GitOps 매니페스트 작성'],
+      summary:
+        'alpha 는 홈랩 Kubernetes, production 은 AWS EC2 + RDS 로 나누고 ArgoCD GitOps 매니페스트를 작성.',
     },
     {
       title: 'CI / CD',

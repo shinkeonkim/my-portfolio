@@ -41,17 +41,12 @@ export const peacepiece: Project = {
       title: '포인트 기반 보상',
       content: [
         '게이미피케이션으로 환경 보호 지속성 강화',
-        '"나의 섬" 확장',
-        '아이템 구매',
-        '멸종 위기종 입양',
+        '적립한 포인트로 "나의 섬" 확장, 아이템 구매, 멸종 위기종 입양',
       ],
     },
     {
       title: 'SNS 커뮤니티 "피스"',
-      content: [
-        '게시글 / 댓글 / 피드백',
-        '환경 정보 공유',
-      ],
+      content: ['게시글, 댓글, 피드백으로 환경 정보를 공유'],
     },
     {
       title: '인증 / 인가',
@@ -77,11 +72,7 @@ export const peacepiece: Project = {
     },
     {
       title: '협업 자동화',
-      content: [
-        'pre-commit + flake8',
-        'GitHub Flow + branch protection',
-        'PR template',
-      ],
+      content: ['pre-commit + flake8, GitHub Flow + branch protection, PR template 로 병합 절차 표준화'],
     },
   ],
   challenges: [
@@ -89,12 +80,7 @@ export const peacepiece: Project = {
       title: '게임 요소와 환경 콘텐츠를 도메인 분리',
       tags: ['Domain modeling', 'Django'],
       problem:
-        '<p>환경 실천 콘텐츠와 게임 요소가 한 모델에 섞이면 규칙 변경이 서로 영향을 줄 수 있었습니다.</p>' +
-        '<ul>' +
-        '<li>챌린지 / 인증 / 포인트</li>' +
-        '<li>섬 / 아이템 / 입양</li>' +
-        '<li>알림</li>' +
-        '</ul>',
+        '<p>챌린지·인증·포인트, 섬·아이템·입양, 알림이 한 모델에 섞이면 규칙 변경이 서로 영향을 줄 수 있었습니다.</p>',
       approach:
         '<ul>' +
         '<li>챌린지, 게임, 알림 영역을 별도 도메인 모델로 분리했습니다.</li>' +
@@ -117,11 +103,7 @@ export const peacepiece: Project = {
       title: 'nginx 튜닝과 health-check 트래픽 분리',
       tags: ['nginx', 'AWS ELB'],
       problem:
-        '<p>기본 nginx 설정으로는 두 가지 문제가 있었습니다.</p>' +
-        '<ul>' +
-        '<li>정적 파일 / 미디어 응답이 일정치 않음</li>' +
-        '<li>ELB 헬스 체크와 일반 트래픽이 섞임</li>' +
-        '</ul>',
+        '<p>기본 nginx 설정으로는 정적 파일·미디어 응답이 일정치 않았고, ELB 헬스 체크와 일반 트래픽이 섞였습니다.</p>',
       approach:
         '<ul>' +
         '<li>nginx의 캐시와 gzip 설정을 조정하고 디렉터리 이름을 통일했습니다.</li>' +
@@ -152,8 +134,8 @@ export const peacepiece: Project = {
     },
     {
       title: 'API 설계',
-      summary: 'Django + DRF 위에서 도메인을 설계.',
-      items: ['포인트 / 아이템 / 알림', '챌린지 / 인증', '입양 / 섬'],
+      summary:
+        'Django + DRF 위에서 챌린지 · 인증, 포인트 · 아이템 · 알림, 입양 · 섬 도메인을 설계.',
     },
     {
       title: '인증 / 문서화',

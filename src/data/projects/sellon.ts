@@ -25,45 +25,23 @@ export const sellon: Project = {
   description:
     '<p>현대 사회에 쌓이는 잡동사니 문제를 푸는 플랫폼입니다. 돈이 오가는 시장에서 잠시 벗어나 "필요 없는 물건끼리 경매로 교환" 합니다.</p>' +
     '<p>7인 팀에서 백엔드 API + 인프라를 담당했습니다.</p>' +
-    '<p>백엔드 도메인은 다음으로 나뉩니다.</p>' +
-    '<ul>' +
-    '<li>user</li>' +
-    '<li>product</li>' +
-    '<li>file_manager</li>' +
-    '<li>auction</li>' +
-    '<li>dealing</li>' +
-    '</ul>',
+    '<p>백엔드는 회원, 물품, 파일, 경매, 거래 다섯 도메인으로 나눠 팀원들이 병렬로 개발할 수 있게 했습니다.</p>',
   features: [
     {
       title: 'User',
-      content: [
-        '회원 가입 / 로그인 / 로그아웃',
-        '회원 정보 수정',
-        '회원 탈퇴',
-      ],
+      content: ['회원 가입, 로그인·로그아웃, 정보 수정, 탈퇴까지의 계정 수명주기 API'],
     },
     {
       title: 'Item',
-      content: [
-        '아이템 등록 / 상세 보기',
-        '수정 / 삭제',
-      ],
+      content: ['아이템 등록, 상세 보기, 수정, 삭제 API'],
     },
     {
       title: 'Auction',
-      content: [
-        '경매 등록 / 철회',
-        '아이템 묶음 채택',
-        '채팅',
-      ],
+      content: ['경매 등록·철회, 아이템 묶음 채택, 거래 채팅'],
     },
     {
       title: '경매 목록 API',
-      content: [
-        '관심 경매 / 인기 경매',
-        '이달의 챔피언',
-        '거래 히스토리',
-      ],
+      content: ['관심·인기 경매, 이달의 챔피언, 거래 히스토리를 한 엔드포인트로 제공'],
     },
     {
       title: 'counter cache',
@@ -87,11 +65,7 @@ export const sellon: Project = {
     },
     {
       title: '협업 표준',
-      content: [
-        'pipenv 패키지 관리',
-        'pre-commit 으로 스타일 강제',
-        'graph_models 기반 ERD 자동 생성',
-      ],
+      content: ['pipenv 패키지 관리, pre-commit 스타일 강제, graph_models 기반 ERD 자동 생성'],
     },
   ],
   challenges: [
@@ -112,11 +86,7 @@ export const sellon: Project = {
       title: '경매 목록 집계 쿼리: Signal 기반 counter cache',
       tags: ['Django Signal', 'counter cache', 'N+1'],
       problem:
-        '<p>경매 목록을 조회할 때 관계 집계를 항목마다 다시 계산해 N+1 쿼리가 발생했습니다.</p>' +
-        '<ul>' +
-        '<li>관심 경매 수</li>' +
-        '<li>인기 경매 등</li>' +
-        '</ul>',
+        '<p>경매 목록을 조회할 때 관심 경매 수, 인기 경매 같은 관계 집계를 항목마다 다시 계산해 N+1 쿼리가 발생했습니다.</p>',
       approach:
         '<p>ManyToMany 관계가 바뀔 때 Django signal로 <code>PositiveIntegerField</code>를 갱신하는 counter cache를 도입했습니다.</p>',
       result:
@@ -139,8 +109,8 @@ export const sellon: Project = {
   contributions: [
     {
       title: 'API',
-      summary: 'Django + DRF.',
-      items: ['도메인: user / product / file_manager / auction / dealing', '모델링 / 시리얼라이저 / 뷰 작성'],
+      summary:
+        'Django + DRF 로 회원 · 물품 · 파일 · 경매 · 거래 다섯 도메인의 모델링 / 시리얼라이저 / 뷰 작성.',
     },
     {
       title: '핵심 API 설계',

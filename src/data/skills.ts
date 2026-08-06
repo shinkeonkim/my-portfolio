@@ -37,22 +37,6 @@ const skills: readonly Skill[] = [
     description: 'PCCP Lv.4, 알고리즘 문제 출제',
   },
   {
-    name: 'Java',
-    slug: 'java',
-    category: 'language',
-    level: 'familiar',
-    projectSlugs: [],
-    description: '알고리즘 문제 출제, Java에 대한 기본적인 이해 보유',
-  },
-  {
-    name: 'Rust',
-    slug: 'rust',
-    category: 'language',
-    level: 'familiar',
-    projectSlugs: ['athena'],
-    description: 'Athena의 Code Executor 마이크로서비스 구현.',
-  },
-  {
     name: 'Django / DRF',
     slug: 'django',
     category: 'backend',

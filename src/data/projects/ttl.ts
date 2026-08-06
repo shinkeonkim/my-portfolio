@@ -29,19 +29,11 @@ export const ttl: Project = {
   features: [
     {
       title: 'TIL 피드 기능',
-      content: [
-        '작성 / 댓글',
-        '북마크 / 팔로우',
-        '이모지 리액션',
-      ],
+      content: ['글 작성과 댓글, 북마크와 팔로우, 이모지 리액션'],
     },
     {
       title: '외부 글 통합',
-      content: [
-        '대상 플랫폼: GitHub / velog',
-        '외부 글 가져오기 + 주기 동기화',
-        'Celery + django-celery-beat 기반',
-      ],
+      content: ['GitHub, velog 의 글을 Celery + django-celery-beat 로 가져와 주기 동기화'],
     },
     {
       title: '플랫폼 어댑터 추상화',
@@ -66,17 +58,11 @@ export const ttl: Project = {
     },
     {
       title: '무중단 운영',
-      content: [
-        'docker-compose 기반',
-        '<code>restart: always</code> 정책',
-      ],
+      content: ['docker-compose 기반 <code>restart: always</code> 정책으로 프로세스 자동 복구'],
     },
     {
       title: '협업 자동화',
-      content: [
-        'pre-commit 으로 스타일 강제',
-        'GitHub Flow 기반 브랜치 전략',
-      ],
+      content: ['pre-commit 스타일 강제, GitHub Flow 기반 브랜치 전략'],
     },
   ],
   challenges: [
@@ -84,11 +70,7 @@ export const ttl: Project = {
       title: '외부 플랫폼 동기화: 어댑터 추상화 + 신뢰성 있는 메시지 브로커',
       tags: ['Celery', 'django-celery-beat', 'RabbitMQ', 'Adapter'],
       problem:
-        '<p>외부 플랫폼 동기화는 구조 변경과 호출 제한 때문에 실패 가능성이 높았습니다.</p>' +
-        '<ul>' +
-        '<li>RSS / HTML 구조가 자주 바뀜</li>' +
-        '<li>호출 한도 존재</li>' +
-        '</ul>',
+        '<p>외부 플랫폼 동기화는 RSS·HTML 구조가 자주 바뀌고 호출 한도가 있어 실패 가능성이 높았습니다.</p>',
       approach:
         '<ul>' +
         '<li>Celery와 django-celery-beat로 주기 동기화를 예약했습니다.</li>' +
