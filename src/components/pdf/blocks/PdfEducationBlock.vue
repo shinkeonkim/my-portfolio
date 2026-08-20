@@ -16,7 +16,7 @@ defineProps<{ educations: readonly Education[] }>()
         </div>
         <div class="pdf-edu-meta">
           <span>{{ e.period.start }} ~ {{ e.period.end ?? '재학 중' }}</span>
-          <span> · {{ e.status }}</span>
+          <span v-if="e.status"> · {{ e.status }}</span>
           <span v-if="e.gpa">
             · GPA: {{ e.gpa.major }} (전공) / {{ e.gpa.total }} (전체) / {{ e.gpa.scale }}
           </span>
