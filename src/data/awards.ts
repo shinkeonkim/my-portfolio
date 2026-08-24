@@ -51,9 +51,9 @@ export const awards: readonly Award[] = [
     detail: '한국 대표단 자격으로 참가',
   },
   {
-    title: '2017 ICT 어워드코리아 C언어 알고리즘 프로그래밍',
+    title: '2017 ICT 어워드코리아 알고리즘 프로그래밍',
     organization: '한국정보과학진흥협회 / 안양대학교 / 한국웹에이전시협회',
-    date: '2017-11',
+    date: '2017-07',
     rank: '동상',
   },
   {
